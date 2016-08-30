@@ -7,8 +7,9 @@
   <version>1.3-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>modbus-javacomm</name>
-  <url>http://maven.apache.org</url>
+  <name>Modbus Javacomm</name>
+  <description>Jamod with Purejavacomm</description>
+  <url>http://www.bluebiz.de</url>
 
   <licenses>
     <license>
