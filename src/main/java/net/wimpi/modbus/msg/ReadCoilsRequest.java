@@ -36,7 +36,7 @@ import java.io.IOException;
  * (i.e. set or unset).
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class ReadCoilsRequest
     extends ModbusRequest {

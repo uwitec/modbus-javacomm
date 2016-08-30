@@ -33,7 +33,7 @@ import java.io.IOException;
  * encapsulates the corresponding request message.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class WriteCoilRequest
     extends ModbusRequest {

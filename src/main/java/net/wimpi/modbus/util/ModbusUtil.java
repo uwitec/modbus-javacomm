@@ -27,7 +27,7 @@ import java.io.IOException;
  *
  * @author Dieter Wimberger
  * @author John Charlton
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class ModbusUtil {
 
@@ -70,7 +70,6 @@ public final class ModbusUtil {
      * The <tt>String</tt> will coontain two hex digit characters
      * for each byte from the passed in <tt>byte[]</tt>.<br>
      * The bytes will be separated by a space character.
-     * <p/>
      *
      * @param data   the array of bytes to be converted into a hex-string.
      * @param off    the offset to start converting from.
@@ -96,7 +95,6 @@ public final class ModbusUtil {
     /**
      * Returns a <tt>byte[]</tt> containing the given
      * byte as unsigned hexadecimal number digits.
-     * <p/>
      *
      * @param i the int to be converted into a hex string.
      * @return the generated hexadecimal representation as <code>byte[]</code>.
@@ -114,9 +112,8 @@ public final class ModbusUtil {
     /**
      * Converts the register (a 16 bit value) into an unsigned short.
      * The value returned is:
-     * <p><pre><code>(((a &amp; 0xff) &lt;&lt; 8) | (b &amp; 0xff))
+     * <pre><code>(((a &amp; 0xff) &lt;&lt; 8) | (b &amp; 0xff))
      * </code></pre>
-     * <p/>
      * This conversion has been taken from the documentation of
      * the <tt>DataInput</tt> interface.
      *
@@ -133,12 +130,11 @@ public final class ModbusUtil {
      * (2 bytes).
      * The byte values in the register, in the  order
      * shown, are:
-     * <p/>
      * <pre><code>
      * (byte)(0xff &amp; (v &gt;&gt; 8))
      * (byte)(0xff &amp; v)
      * </code></pre>
-     * <p/>
+     * <p>
      * This conversion has been taken from the documentation of
      * the <tt>DataOutput</tt> interface.
      *
@@ -157,11 +153,10 @@ public final class ModbusUtil {
      * Converts the given register (16-bit value) into
      * a <tt>short</tt>.
      * The value returned is:
-     * <p/>
      * <pre><code>
      * (short)((a &lt;&lt; 8) | (b &amp; 0xff))
      * </code></pre>
-     * <p/>
+     * <p>
      * This conversion has been taken from the documentation of
      * the <tt>DataInput</tt> interface.
      *
@@ -177,11 +172,10 @@ public final class ModbusUtil {
      * Converts the register (16-bit value) at the given index
      * into a <tt>short</tt>.
      * The value returned is:
-     * <p/>
      * <pre><code>
      * (short)((a &lt;&lt; 8) | (b &amp; 0xff))
      * </code></pre>
-     * <p/>
+     * <p>
      * This conversion has been taken from the documentation of
      * the <tt>DataInput</tt> interface.
      *
@@ -198,7 +192,6 @@ public final class ModbusUtil {
      * (2 bytes).
      * The byte values in the register, in the  order
      * shown, are:
-     * <p/>
      * <pre><code>
      * (byte)(0xff &amp; (v &gt;&gt; 8))
      * (byte)(0xff &amp; v)
@@ -217,7 +210,7 @@ public final class ModbusUtil {
     /**
      * Converts a byte[4] binary int value to a primitive int.<br>
      * The value returned is:
-     * <p><pre>
+     * <pre>
      * <code>
      * (((a &amp; 0xff) &lt;&lt; 24) | ((b &amp; 0xff) &lt;&lt; 16) |
      * &#32;((c &amp; 0xff) &lt;&lt; 8) | (d &amp; 0xff))
@@ -358,7 +351,7 @@ public final class ModbusUtil {
    * is executed on.
    *
    * @return the broadcast address as <tt>InetAddress</tt>.
-   *         <p/>
+   *         <p>
    *         public static final InetAddress getBroadcastAddress() {
    *         byte[] addr = new byte[4];
    *         try {

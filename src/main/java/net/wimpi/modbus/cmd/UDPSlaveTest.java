@@ -31,7 +31,7 @@ import net.wimpi.modbus.procimg.SimpleRegister;
  * functionality and behaviour of the implementation.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class UDPSlaveTest {
 

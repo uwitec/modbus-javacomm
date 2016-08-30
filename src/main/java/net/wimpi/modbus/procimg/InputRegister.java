@@ -22,7 +22,7 @@ package net.wimpi.modbus.procimg;
  * This register is read only from the slave side.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public interface InputRegister {
 

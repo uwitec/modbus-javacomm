@@ -33,7 +33,7 @@ import java.io.OutputStream;
  *
  * @author John Charlton
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusRTUTransport
     extends ModbusSerialTransport {

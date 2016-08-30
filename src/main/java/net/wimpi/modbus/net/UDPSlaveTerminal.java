@@ -30,7 +30,7 @@ import java.util.Hashtable;
  * Class implementing a <tt>UDPSlaveTerminal</tt>.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 class UDPSlaveTerminal implements UDPTerminal {
 

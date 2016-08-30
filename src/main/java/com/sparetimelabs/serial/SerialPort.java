@@ -332,7 +332,6 @@ abstract public class SerialPort extends CommPort {
 
     /**
      * Sets the serial port parameters.
-     * <p>
      * Default: 9600 baud, 8 data bits, 1 stop bit, no parity.
      *
      * @param baudRate the baud rate
@@ -352,9 +351,8 @@ abstract public class SerialPort extends CommPort {
      * on combination of the threshold and timeout values. The behaviors are
      * described in the table below.
      *
-     * <p>
      *
-     * <table border="3" cellpadding="4">
+     * <table border="3" cellpadding="4" summary="behaviors">
      * <tr>
      * <th colspan="2" align="center">threshold</th>
      * <th colspan="2"align="center" >timeout</th>
@@ -415,7 +413,6 @@ abstract public class SerialPort extends CommPort {
      * Timeout is interpreted as inter character timeout, in other words the
      * timeout will not occur as long as the pause before the first character or
      * between characters is shorter that the timeout value.
-     * <p>
      *
      */
     public abstract InputStream getInputStream() throws IOException;

@@ -31,7 +31,7 @@ import java.io.OutputStream;
  * as given by the specification.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  * @see net.wimpi.modbus.io.ModbusASCIITransport#FRAME_START net.wimpi.modbus.io.ModbusASCIITransport#FRAME_START
  * @see net.wimpi.modbus.io.ModbusASCIITransport#FRAME_END net.wimpi.modbus.io.ModbusASCIITransport#FRAME_END
  */

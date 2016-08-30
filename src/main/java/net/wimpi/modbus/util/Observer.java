@@ -19,10 +19,9 @@ package net.wimpi.modbus.util;
 /**
  * A cleanroom implementation of the Observer interface
  * for the Observable design pattern.
- * <p/>
  *
  * @author Dieter Wimberger (wimpi)
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public interface Observer {
 

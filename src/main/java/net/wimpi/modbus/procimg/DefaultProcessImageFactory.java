@@ -20,7 +20,7 @@ package net.wimpi.modbus.procimg;
  * The default ProcessImageFactory.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class DefaultProcessImageFactory
     implements ProcessImageFactory {

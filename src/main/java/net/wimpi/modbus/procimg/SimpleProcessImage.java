@@ -24,7 +24,7 @@ import java.util.Vector;
  * simple cases.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class SimpleProcessImage
     implements ProcessImageImplementation {

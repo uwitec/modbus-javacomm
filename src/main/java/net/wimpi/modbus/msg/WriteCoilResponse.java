@@ -29,7 +29,7 @@ import java.io.IOException;
  * encapsulates the corresponding response message.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class WriteCoilResponse
     extends ModbusResponse {

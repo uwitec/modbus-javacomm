@@ -32,7 +32,7 @@ import java.net.InetAddress;
  * Class that implements a simple commandline
  * tool which demonstrates how a analog input
  * can be bound with a analog output.
- * <p/>
+ * <p>
  * Note that if you write to a remote I/O with
  * a Modbus protocol stack, it will most likely
  * expect that the communication is <i>kept alive</i>
@@ -46,7 +46,7 @@ import java.net.InetAddress;
  * reset message.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class AIAOTest {
 

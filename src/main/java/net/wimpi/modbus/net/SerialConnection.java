@@ -42,7 +42,7 @@ import java.util.TooManyListenersException;
  * @author Dieter Wimberger
  * @author John Charlton
  * @author Dennis Geesen
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class SerialConnection implements SerialPortEventListener {
 

@@ -36,7 +36,7 @@ import java.io.IOException;
  * manipulated (i.e. set or unset).
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class ReadInputDiscretesRequest
         extends ModbusRequest {

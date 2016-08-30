@@ -34,7 +34,7 @@ import java.io.OutputStream;
  * flavor.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusBINTransport
     extends ModbusSerialTransport {

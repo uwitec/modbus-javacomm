@@ -20,7 +20,7 @@ package net.wimpi.modbus;
  * Superclass of all specialised exceptions in this package.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusException extends Exception {
 

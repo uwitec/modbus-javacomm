@@ -33,7 +33,7 @@ import net.wimpi.modbus.util.Mutex;
  * interface for the UDP transport mechanism.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusUDPTransaction
     implements ModbusTransaction {
@@ -66,7 +66,7 @@ public class ModbusUDPTransaction
      * Constructs a new <tt>ModbusUDPTransaction</tt>
      * instance with a given <tt>ModbusRequest</tt> to
      * be send when the transaction is executed.
-     * <p/>
+     * <p>
      *
      * @param request a <tt>ModbusRequest</tt> instance.
      */
@@ -78,7 +78,7 @@ public class ModbusUDPTransaction
      * Constructs a new <tt>ModbusUDPTransaction</tt>
      * instance with a given <tt>UDPTerminal</tt> to
      * be used for transactions.
-     * <p/>
+     * <p>
      *
      * @param terminal a <tt>UDPTerminal</tt> instance.
      */
@@ -90,7 +90,7 @@ public class ModbusUDPTransaction
      * Constructs a new <tt>ModbusUDPTransaction</tt>
      * instance with a given <tt>ModbusUDPConnection</tt>
      * to be used for transactions.
-     * <p/>
+     * <p>
      *
      * @param con a <tt>ModbusUDPConnection</tt> instance.
      */

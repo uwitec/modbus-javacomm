@@ -30,17 +30,20 @@
 package com.sparetimelabs.serial;
 
 // FIXME move javadoc comments for input stream to SerialPort.java
+import com.sparetimelabs.serial.termios.JTermios;
+import com.sparetimelabs.serial.termios.JTermios.JTermiosInterface.Pollfd;
 import com.sparetimelabs.serial.termios.Termios;
 import com.sparetimelabs.serial.termios.TimeVal;
-import com.sparetimelabs.serial.termios.JTermios;
-import java.io.*;
-import java.util.*;
-
 import com.sun.jna.Native;
 
-import static com.sparetimelabs.serial.termios.JTermios.JTermiosLogging.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.TooManyListenersException;
+
 import static com.sparetimelabs.serial.termios.JTermios.*;
-import com.sparetimelabs.serial.termios.JTermios.JTermiosInterface.Pollfd;
+import static com.sparetimelabs.serial.termios.JTermios.JTermiosLogging.lineno;
+import static com.sparetimelabs.serial.termios.JTermios.JTermiosLogging.log;
 
 /**
  * The type Pure java serial port.
@@ -587,9 +590,8 @@ public class PureJavaSerialPort extends SerialPort {
      * <p>
      * Below is a sketch of minimum necessary to perform a read using raw
      * JTermios functionality.
-     * <p>
      * <pre>
-     * <code>
+     * {@code
      * 		// import the JTermios functionality like this
      * 		import jtermios.*;
      * 		import static jtermios.JTermios.*;
@@ -626,7 +628,7 @@ public class PureJavaSerialPort extends SerialPort {
      * 		int n = read(FD, readBuffer, messageLength);
      * 		if (n < 0)
      * 			errorHandling();
-     * <code>
+     * }
      * </pre>
      *
      * @return the native OS file descriptor as int

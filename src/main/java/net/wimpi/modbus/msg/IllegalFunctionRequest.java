@@ -30,7 +30,7 @@ import java.io.IOException;
  * patterns the same for all cases.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class IllegalFunctionRequest
     extends ModbusRequest {

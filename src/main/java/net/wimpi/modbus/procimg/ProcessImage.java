@@ -25,7 +25,7 @@ package net.wimpi.modbus.procimg;
  * slave and master or device side.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public interface ProcessImage {
 

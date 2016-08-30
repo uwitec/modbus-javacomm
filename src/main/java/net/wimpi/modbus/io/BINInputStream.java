@@ -25,7 +25,7 @@ import java.io.InputStream;
  * handles binary transmitted messages.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  * @see ModbusBINTransport#FRAME_START ModbusBINTransport#FRAME_START
  * @see ModbusBINTransport#FRAME_END ModbusBINTransport#FRAME_END
  */

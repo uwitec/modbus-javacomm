@@ -28,7 +28,7 @@ import java.util.Properties;
  * @author Dieter Wimberger
  * @author John Charlton
  * @author Dennis Geesen
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class SerialParameters {
 
@@ -62,7 +62,7 @@ public class SerialParameters {
   }//constructor
 
     /**
-     * Constructs a new <tt>SerialParameters<tt> instance with
+     * Constructs a new <tt>SerialParameters</tt> instance with
      * given parameters.
      *
      * @param portName       The name of the port.

@@ -28,7 +28,7 @@ import java.net.Socket;
  * Class that implements a TCPSlaveConnection.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class TCPSlaveConnection {
 

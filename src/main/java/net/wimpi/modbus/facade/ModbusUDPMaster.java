@@ -31,7 +31,7 @@ import java.net.UnknownHostException;
  * Modbus/UDP Master facade.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusUDPMaster {
 
@@ -108,7 +108,7 @@ public class ModbusUDPMaster {
 
     /**
      * Reads a given number of coil states from the slave.
-     * <p/>
+     * <p>
      * Note that the number of bits in the bit vector will be
      * forced to the number originally requested.
      *
@@ -149,7 +149,7 @@ public class ModbusUDPMaster {
 
     /**
      * Writes a given number of coil states to the slave.
-     * <p/>
+     * <p>
      * Note that the number of coils to be written is given
      * implicitly, through {@link BitVector#size()}.
      *
@@ -167,7 +167,7 @@ public class ModbusUDPMaster {
 
     /**
      * Reads a given number of input discrete states from the slave.
-     * <p/>
+     * <p>
      * Note that the number of bits in the bit vector will be
      * forced to the number originally requested.
      *
@@ -190,7 +190,7 @@ public class ModbusUDPMaster {
 
     /**
      * Reads a given number of input registers from the slave.
-     * <p/>
+     * <p>
      * Note that the number of input registers returned (i.e. array length)
      * will be according to the number received in the slave response.
      *
@@ -210,7 +210,7 @@ public class ModbusUDPMaster {
 
     /**
      * Reads a given number of registers from the slave.
-     * <p/>
+     * <p>
      * Note that the number of registers returned (i.e. array length)
      * will be according to the number received in the slave response.
      *

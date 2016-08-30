@@ -27,7 +27,7 @@ import net.wimpi.modbus.msg.ModbusResponse;
  * Class implementing a handler for incoming Modbus/TCP requests.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class TCPConnectionHandler implements Runnable {
 

@@ -32,7 +32,7 @@ import java.io.IOException;
  * encapsulates the corresponding response message.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class ReadInputRegistersResponse
     extends ModbusResponse {
@@ -70,7 +70,7 @@ public final class ReadInputRegistersResponse
 
     /**
      * Returns the number of bytes that have been read.
-     * <p/>
+     * <p>
      *
      * @return the number of bytes that have been read         as <tt>int</tt>.
      */
@@ -82,7 +82,7 @@ public final class ReadInputRegistersResponse
      * Returns the number of words that have been read.
      * The returned value should be twice as much as
      * the byte count of the response.
-     * <p/>
+     * <p>
      *
      * @return the number of words that have been read         as <tt>int</tt>.
      */
@@ -92,7 +92,7 @@ public final class ReadInputRegistersResponse
 
   /**
    * Sets the number of bytes that have been returned.
-   * <p/>
+   * <p>
    *
    * @param count the number of bytes as <tt>int</tt>.
    */
@@ -104,7 +104,7 @@ public final class ReadInputRegistersResponse
      * Returns the <tt>InputRegister</tt> at
      * the given position (relative to the reference
      * used in the request).
-     * <p/>
+     * <p>
      *
      * @param index the relative index of the <tt>InputRegister</tt>.
      * @return the register as <tt>InputRegister</tt>.
@@ -125,7 +125,7 @@ public final class ReadInputRegistersResponse
      * the given position (relative to the reference
      * used in the request) interpreted as usigned
      * short.
-     * <p/>
+     * <p>
      *
      * @param index the relative index of the register              for which the value should be retrieved.
      * @return the value as <tt>int</tt>.

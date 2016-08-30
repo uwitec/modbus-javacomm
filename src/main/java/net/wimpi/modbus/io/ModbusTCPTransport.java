@@ -38,7 +38,7 @@ import java.net.SocketException;
  * flavor.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusTCPTransport
     implements ModbusTransport {

@@ -1,9 +1,11 @@
 This lib contains:
 
     -   jamod (Java Modbus Library) http://jamod.sourceforge.net/
+        Version: 1.2
         Published under the BSD license
 
     -   purejavacomm
+        Version: 1.0
         Published under the BSD license
 
 Since purejavacomm is not available in maven central, the code is copied into this artifact (because of the "no-foreign-repository" policy).

@@ -23,7 +23,7 @@ package net.wimpi.modbus.procimg;
  * "process image".
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public interface ProcessImageImplementation extends ProcessImage {
 

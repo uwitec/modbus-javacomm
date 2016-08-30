@@ -23,7 +23,7 @@ package net.wimpi.modbus.procimg;
  * which ensures atomic access, but no specific access order.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class SimpleRegister
     extends SynchronizedAbstractRegister

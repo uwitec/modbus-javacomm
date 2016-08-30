@@ -23,7 +23,7 @@ import net.wimpi.modbus.util.Observable;
  * Class implementing an observable digital output.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ObservableDigitalOut
     extends Observable

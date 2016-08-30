@@ -25,7 +25,7 @@ import java.net.InetAddress;
  * Class that implements a UDPMasterConnection.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class UDPMasterConnection {
 

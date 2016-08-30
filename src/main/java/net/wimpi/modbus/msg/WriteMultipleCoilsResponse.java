@@ -32,7 +32,7 @@ import java.io.IOException;
  * (i.e. set or unset).
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class WriteMultipleCoilsResponse
     extends ModbusResponse {
@@ -54,7 +54,6 @@ public final class WriteMultipleCoilsResponse
     /**
      * Constructs a new <tt>WriteMultipleCoilsResponse</tt>
      * instance with a given count of coils (i.e. bits).
-     * <b>
      *
      * @param ref   the offset to begin writing from.
      * @param count the number of bits to be read.

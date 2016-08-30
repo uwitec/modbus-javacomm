@@ -27,7 +27,7 @@ import java.io.IOException;
  * the corresponding response message.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class WriteMultipleRegistersResponse
     extends ModbusResponse {

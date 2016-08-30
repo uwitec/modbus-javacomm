@@ -29,7 +29,7 @@ import net.wimpi.modbus.util.SerialParameters;
  * functionality and behaviour of the implementation.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class SerialSlaveTest {
 

@@ -25,7 +25,7 @@ import java.io.IOException;
  * register commands (class 0).
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public interface NonWordDataHandler {
 

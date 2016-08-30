@@ -33,7 +33,7 @@ import java.io.IOException;
  * manipulated (i.e. set or unset).
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class ReadInputDiscretesResponse
     extends ModbusResponse {
@@ -56,7 +56,6 @@ public final class ReadInputDiscretesResponse
      * Constructs a new <tt>ReadInputDiscretesResponse</tt>
      * instance with a given count of input discretes
      * (i.e. bits).
-     * <b>
      *
      * @param count the number of bits to be read.
      */
@@ -68,7 +67,6 @@ public final class ReadInputDiscretesResponse
     /**
      * Returns the number of bits (i.e. input discretes)
      * read with the request.
-     * <p>
      *
      * @return the number of bits that have been read.
      */
@@ -92,7 +90,6 @@ public final class ReadInputDiscretesResponse
     /**
      * Returns the <tt>BitVector</tt> that stores
      * the collection of bits that have been read.
-     * <p>
      *
      * @return the <tt>BitVector</tt> holding the         bits that have been read.
      */
@@ -103,7 +100,6 @@ public final class ReadInputDiscretesResponse
     /**
      * Convenience method that returns the state
      * of the bit at the given index.
-     * <p>
      *
      * @param index the index of the input discrete        for which the status should be returned.
      * @return true if set, false otherwise.

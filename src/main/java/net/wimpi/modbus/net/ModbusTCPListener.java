@@ -32,7 +32,7 @@ import java.net.UnknownHostException;
  * passing them on to be handled.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusTCPListener
     implements Runnable {

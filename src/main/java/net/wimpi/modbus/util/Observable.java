@@ -20,10 +20,9 @@ import java.util.Vector;
 
 /**
  * A cleanroom implementation of the Observable pattern.
- * <p/>
  *
  * @author Dieter Wimberger (wimpi)
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class Observable {
 

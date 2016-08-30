@@ -24,7 +24,7 @@ package net.wimpi.modbus.util;
  * the LSB (rightmost) bit.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class BitVector {
 

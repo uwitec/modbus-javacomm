@@ -31,7 +31,7 @@ import java.io.IOException;
  * registers (FC 3)</i>. It encapsulates the corresponding response message.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class ReadMultipleRegistersResponse extends ModbusResponse {
 

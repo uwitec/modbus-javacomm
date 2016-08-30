@@ -27,7 +27,7 @@ import java.net.InetAddress;
  * Class implementing a <tt>UDPMasterTerminal</tt>.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 class UDPMasterTerminal
     implements UDPTerminal {

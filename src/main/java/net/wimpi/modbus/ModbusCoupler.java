@@ -28,7 +28,7 @@ import net.wimpi.modbus.procimg.ProcessImageFactory;
  * OO model of the process image.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusCoupler {
 
@@ -52,7 +52,6 @@ public class ModbusCoupler {
   /**
    * Private constructor to prevent multiple
    * instantiation.
-   * <p/>
    *
    * @param procimg a <tt>ProcessImage</tt>.
    */
@@ -82,7 +81,6 @@ public class ModbusCoupler {
     /**
      * Returns a reference to the <tt>ProcessImage</tt>
      * of this <tt>ModbusCoupler</tt>.
-     * <p/>
      *
      * @return the <tt>ProcessImage</tt>.
      */
@@ -93,7 +91,7 @@ public class ModbusCoupler {
     /**
      * Sets the reference to the <tt>ProcessImage</tt>
      * of this <tt>ModbusCoupler</tt>.
-     * <p/>
+     * <p>
      *
      * @param procimg the <tt>ProcessImage</tt> to be set.
      */
@@ -152,7 +150,6 @@ public class ModbusCoupler {
 
     /**
      * Returns a reference to the singleton instance.
-     * <p/>
      *
      * @return the <tt>ModbusCoupler</tt> instance reference.
      */

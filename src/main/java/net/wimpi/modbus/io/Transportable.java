@@ -8,7 +8,7 @@ import java.io.IOException;
  * Interface defining a transportable class.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public interface Transportable {
 

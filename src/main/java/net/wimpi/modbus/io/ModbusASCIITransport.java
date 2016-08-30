@@ -35,7 +35,7 @@ import java.io.OutputStream;
  *
  * @author Dieter Wimberger
  * @author John Charlton
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusASCIITransport
   extends ModbusSerialTransport {

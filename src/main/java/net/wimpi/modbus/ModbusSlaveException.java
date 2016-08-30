@@ -21,7 +21,7 @@ package net.wimpi.modbus;
  * exception are thrown when the slave returns a Modbus exception.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusSlaveException extends ModbusException {
 

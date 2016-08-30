@@ -29,7 +29,7 @@ import net.wimpi.modbus.util.SerialParameters;
  * Class that implements a simple commandline tool for reading an analog input.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class SerialDITest {
 

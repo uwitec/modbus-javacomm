@@ -24,7 +24,7 @@ import net.wimpi.modbus.Modbus;
  * the functionality they have in common.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public abstract class ModbusRequest
     extends ModbusMessageImpl {

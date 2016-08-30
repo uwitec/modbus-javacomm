@@ -55,40 +55,42 @@ public class LinkedQueue {
      * Instantiates a new Linked queue.
      */
     public LinkedQueue() {
-    m_Head = new LinkedNode(null);
-    m_Tail = m_Head;
-  }//constructor
+        m_Head = new LinkedNode(null);
+        m_Tail = m_Head;
+    }//constructor
 
     /**
-     * Main mechanics for put/offer  @param x the x
+     * Main mechanics for put/offer
+     * @param x the x
      */
     protected void insert(Object x) {
-    synchronized (m_PutLock) {
-      LinkedNode p = new LinkedNode(x);
-      synchronized (m_Tail) {
-        m_Tail.m_NextNode = p;
-        m_Tail = p;
-      }
-      if (m_WaitingForTake > 0)
-        m_PutLock.notify();
-    }
-  }//insert
+        synchronized (m_PutLock) {
+            LinkedNode p = new LinkedNode(x);
+            synchronized (m_Tail) {
+                m_Tail.m_NextNode = p;
+                m_Tail = p;
+            }
+            if (m_WaitingForTake > 0)
+                m_PutLock.notify();
+        }
+    }//insert
 
     /**
-     * Main mechanics for take/poll  @return the object
+     * Main mechanics for take/poll
+     * @return the object
      */
     protected synchronized Object extract() {
-    synchronized (m_Head) {
-      Object x = null;
-      LinkedNode first = m_Head.m_NextNode;
-      if (first != null) {
-        x = first.m_Node;
-        first.m_Node = null;
-        m_Head = first;
-      }
-      return x;
-    }
-  }//extract
+        synchronized (m_Head) {
+            Object x = null;
+            LinkedNode first = m_Head.m_NextNode;
+            if (first != null) {
+                x = first.m_Node;
+                first.m_Node = null;
+                m_Head = first;
+            }
+            return x;
+        }
+    }//extract
 
 
     /**
@@ -98,10 +100,11 @@ public class LinkedQueue {
      * @throws InterruptedException the interrupted exception
      */
     public void put(Object x) throws InterruptedException {
-    if (x == null) throw new IllegalArgumentException();
-    //@commentstart@if (Thread.interrupted()) throw new InterruptedException();//@commentend@
-    insert(x);
-  }//put
+        if (x == null)
+            throw new IllegalArgumentException();
+        //@commentstart@if (Thread.interrupted()) throw new InterruptedException();//@commentend@
+        insert(x);
+    }//put
 
     /**
      * Offer boolean.
@@ -112,17 +115,17 @@ public class LinkedQueue {
      * @throws InterruptedException the interrupted exception
      */
     public boolean offer(Object x, long msecs) throws InterruptedException {
-    if (x == null) {
-      throw new IllegalArgumentException();
-    }
-    //@commentstart@
-    if (Thread.interrupted()) {
-      throw new InterruptedException();
-    }
-    //@commentend@
-    insert(x);
-    return true;
-  }//offer
+        if (x == null) {
+            throw new IllegalArgumentException();
+        }
+        //@commentstart@
+        if (Thread.interrupted()) {
+            throw new InterruptedException();
+        }
+        //@commentend@
+        insert(x);
+        return true;
+    }//offer
 
     /**
      * Take object.
@@ -131,32 +134,32 @@ public class LinkedQueue {
      * @throws InterruptedException the interrupted exception
      */
     public Object take() throws InterruptedException {
-    //@commentstart@if (Thread.interrupted()) throw new InterruptedException();//@commentend@
-    // try to extract. If fail, then enter wait-based retry loop
-    Object x = extract();
-    if (x != null)
-      return x;
-    else {
-      synchronized (m_PutLock) {
-        try {
-          ++m_WaitingForTake;
-          for (; ;) {
-            x = extract();
-            if (x != null) {
-              --m_WaitingForTake;
-              return x;
-            } else {
-              m_PutLock.wait();
+        //@commentstart@if (Thread.interrupted()) throw new InterruptedException();//@commentend@
+        // try to extract. If fail, then enter wait-based retry loop
+        Object x = extract();
+        if (x != null)
+            return x;
+        else {
+            synchronized (m_PutLock) {
+                try {
+                    ++m_WaitingForTake;
+                    for (; ; ) {
+                        x = extract();
+                        if (x != null) {
+                            --m_WaitingForTake;
+                            return x;
+                        } else {
+                            m_PutLock.wait();
+                        }
+                    }
+                } catch (InterruptedException ex) {
+                    --m_WaitingForTake;
+                    m_PutLock.notify();
+                    throw ex;
+                }
             }
-          }
-        } catch (InterruptedException ex) {
-          --m_WaitingForTake;
-          m_PutLock.notify();
-          throw ex;
         }
-      }
-    }
-  }//take
+    }//take
 
     /**
      * Peek object.
@@ -164,15 +167,15 @@ public class LinkedQueue {
      * @return the object
      */
     public Object peek() {
-    synchronized (m_Head) {
-      LinkedNode first = m_Head.m_NextNode;
-      if (first != null) {
-        return first.m_Node;
-      } else {
-        return null;
-      }
-    }
-  }//peek
+        synchronized (m_Head) {
+            LinkedNode first = m_Head.m_NextNode;
+            if (first != null) {
+                return first.m_Node;
+            } else {
+                return null;
+            }
+        }
+    }//peek
 
 
     /**
@@ -181,10 +184,10 @@ public class LinkedQueue {
      * @return the boolean
      */
     public boolean isEmpty() {
-    synchronized (m_Head) {
-      return m_Head.m_NextNode == null;
-    }
-  }//isEmpty
+        synchronized (m_Head) {
+            return m_Head.m_NextNode == null;
+        }
+    }//isEmpty
 
     /**
      * Poll object.
@@ -194,34 +197,34 @@ public class LinkedQueue {
      * @throws InterruptedException the interrupted exception
      */
     public Object poll(long msecs) throws InterruptedException {
-    //@commentstart@if (Thread.interrupted()) throw new InterruptedException();//@commentend@
-    Object x = extract();
-    if (x != null) {
-      return x;
-    } else {
-      synchronized (m_PutLock) {
-        try {
-          long waitTime = msecs;
-          long start = (msecs <= 0) ? 0 : System.currentTimeMillis();
-          ++m_WaitingForTake;
-          for (; ;) {
-            x = extract();
-            if (x != null || waitTime <= 0) {
-              --m_WaitingForTake;
-              return x;
-            } else {
-              m_PutLock.wait(waitTime);
-              waitTime = msecs - (System.currentTimeMillis() - start);
+        //@commentstart@if (Thread.interrupted()) throw new InterruptedException();//@commentend@
+        Object x = extract();
+        if (x != null) {
+            return x;
+        } else {
+            synchronized (m_PutLock) {
+                try {
+                    long waitTime = msecs;
+                    long start = (msecs <= 0) ? 0 : System.currentTimeMillis();
+                    ++m_WaitingForTake;
+                    for (; ; ) {
+                        x = extract();
+                        if (x != null || waitTime <= 0) {
+                            --m_WaitingForTake;
+                            return x;
+                        } else {
+                            m_PutLock.wait(waitTime);
+                            waitTime = msecs - (System.currentTimeMillis() - start);
+                        }
+                    }
+                } catch (InterruptedException ex) {
+                    --m_WaitingForTake;
+                    m_PutLock.notify();
+                    throw ex;
+                }
             }
-          }
-        } catch (InterruptedException ex) {
-          --m_WaitingForTake;
-          m_PutLock.notify();
-          throw ex;
         }
-      }
-    }
-  }//poll
+    }//poll
 
 
 }//LinkedQueue

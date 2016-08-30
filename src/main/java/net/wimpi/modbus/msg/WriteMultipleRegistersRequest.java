@@ -35,7 +35,7 @@ import java.io.IOException;
  * message.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public final class WriteMultipleRegistersRequest extends ModbusRequest {
 

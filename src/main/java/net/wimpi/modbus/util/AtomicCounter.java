@@ -20,10 +20,9 @@ import net.wimpi.modbus.Modbus;
 
 /**
  * Provides an atomic integer.
- * <p/>
  *
  * @author Dieter Wimberger (wimpi)
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class AtomicCounter {
 

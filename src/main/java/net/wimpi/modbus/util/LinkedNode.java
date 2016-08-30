@@ -25,7 +25,7 @@ package net.wimpi.modbus.util;
  * Class defining a linked node element.
  *
  * @author Doug Lea, Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class LinkedNode {
 

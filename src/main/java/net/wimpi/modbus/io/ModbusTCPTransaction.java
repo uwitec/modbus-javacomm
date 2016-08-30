@@ -32,7 +32,7 @@ import net.wimpi.modbus.util.Mutex;
  * interface.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusTCPTransaction
     implements ModbusTransaction {
@@ -64,7 +64,7 @@ public class ModbusTCPTransaction
      * Constructs a new <tt>ModbusTCPTransaction</tt>
      * instance with a given <tt>ModbusRequest</tt> to
      * be send when the transaction is executed.
-     * <p/>
+     * <p>
      *
      * @param request a <tt>ModbusRequest</tt> instance.
      */
@@ -76,7 +76,7 @@ public class ModbusTCPTransaction
      * Constructs a new <tt>ModbusTCPTransaction</tt>
      * instance with a given <tt>TCPMasterConnection</tt> to
      * be used for transactions.
-     * <p/>
+     * <p>
      *
      * @param con a <tt>TCPMasterConnection</tt> instance.
      */
@@ -89,7 +89,7 @@ public class ModbusTCPTransaction
      * should be executed.<p>
      * An implementation should be able to
      * handle open and closed connections.<br>
-     * <p/>
+     * <p>
      *
      * @param con a <tt>TCPMasterConnection</tt>.
      */
@@ -126,7 +126,7 @@ public class ModbusTCPTransaction
      * Sets the flag that controls whether a
      * connection is openend and closed for
      * <b>each</b> execution or not.
-     * <p/>
+     * <p>
      *
      * @param b true if reconnecting, false otherwise.
      */
@@ -137,7 +137,7 @@ public class ModbusTCPTransaction
     /**
      * Tests if the connection will be openend
      * and closed for <b>each</b> execution.
-     * <p/>
+     * <p>
      *
      * @return true if reconnecting, false otherwise.
      */

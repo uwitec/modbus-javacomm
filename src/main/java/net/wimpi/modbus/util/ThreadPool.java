@@ -20,7 +20,7 @@ package net.wimpi.modbus.util;
  * Class implementing a simple thread pool.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ThreadPool {
 
@@ -68,7 +68,7 @@ public class ThreadPool {
    * run in a <tt>ThreadPool</tt>.
    *
    * @author Dieter Wimberger
-   * @version @version@ (@date@)
+   * @version 1.2
    */
   private class PoolThread extends Thread {
 

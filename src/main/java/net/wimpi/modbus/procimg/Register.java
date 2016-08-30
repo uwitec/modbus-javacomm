@@ -25,7 +25,7 @@ package net.wimpi.modbus.procimg;
  * designed for concurrency.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public interface Register
     extends InputRegister {

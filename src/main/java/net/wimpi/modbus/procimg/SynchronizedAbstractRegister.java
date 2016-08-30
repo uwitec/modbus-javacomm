@@ -21,7 +21,7 @@ package net.wimpi.modbus.procimg;
  * register operations.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public abstract class SynchronizedAbstractRegister
     implements Register {

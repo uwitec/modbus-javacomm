@@ -30,7 +30,7 @@ import net.wimpi.modbus.util.SerialParameters;
  * passing them on to be handled.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusSerialListener {
 

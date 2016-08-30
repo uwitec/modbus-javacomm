@@ -20,7 +20,7 @@ package net.wimpi.modbus.procimg;
  * Abstract class for a register.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public abstract class AbstractRegister
     implements Register {

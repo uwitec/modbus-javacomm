@@ -29,7 +29,7 @@ import java.net.InetAddress;
  * tool for reading a digital input.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class DITest {
 

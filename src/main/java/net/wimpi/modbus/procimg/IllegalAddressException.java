@@ -24,7 +24,7 @@ package net.wimpi.modbus.procimg;
  * <tt>IndexOutOfBoundsException</tt>
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class IllegalAddressException extends RuntimeException {
 

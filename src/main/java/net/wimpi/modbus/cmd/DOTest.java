@@ -42,7 +42,7 @@ import java.net.InetAddress;
  * reset message.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class DOTest {
 

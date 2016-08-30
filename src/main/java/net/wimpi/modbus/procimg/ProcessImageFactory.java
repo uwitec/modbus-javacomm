@@ -21,7 +21,7 @@ package net.wimpi.modbus.procimg;
  * the process image and it's elements.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public interface ProcessImageFactory {
 

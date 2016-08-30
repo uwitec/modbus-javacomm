@@ -27,7 +27,7 @@ import java.io.IOException;
  * implementation that represents a Modbus exception.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ExceptionResponse
     extends ModbusResponse {

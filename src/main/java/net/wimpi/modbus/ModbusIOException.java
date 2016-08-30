@@ -21,7 +21,7 @@ package net.wimpi.modbus;
  * exception are thrown when errors in the I/O occur.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusIOException extends ModbusException {
 

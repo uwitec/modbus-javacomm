@@ -32,7 +32,7 @@ import net.wimpi.modbus.util.Mutex;
  * interface.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class ModbusSerialTransaction
         implements ModbusTransaction {
@@ -64,7 +64,7 @@ public class ModbusSerialTransaction
      * Constructs a new <tt>ModbusSerialTransaction</tt>
      * instance with a given <tt>ModbusRequest</tt> to
      * be send when the transaction is executed.
-     * <p/>
+     * <p>
      *
      * @param request a <tt>ModbusRequest</tt> instance.
      */
@@ -76,7 +76,7 @@ public class ModbusSerialTransaction
      * Constructs a new <tt>ModbusSerialTransaction</tt>
      * instance with a given <tt>ModbusRequest</tt> to
      * be send when the transaction is executed.
-     * <p/>
+     * <p>
      *
      * @param con a <tt>TCPMasterConnection</tt> instance.
      */
@@ -86,8 +86,7 @@ public class ModbusSerialTransaction
 
     /**
      * Sets the port on which this <tt>ModbusTransaction</tt>
-     * should be executed.<p>
-     * <p/>
+     * should be executed.
      *
      * @param con a <tt>SerialConnection</tt>.
      */

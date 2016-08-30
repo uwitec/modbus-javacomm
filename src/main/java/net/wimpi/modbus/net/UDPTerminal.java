@@ -24,7 +24,7 @@ import java.net.InetAddress;
  * Interface defining a <tt>UDPTerminal</tt>.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public interface UDPTerminal {
 

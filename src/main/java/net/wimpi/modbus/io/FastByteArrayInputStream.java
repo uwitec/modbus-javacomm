@@ -23,7 +23,7 @@ import java.io.InputStream;
  * This class is a clean room implementation
  * of the ByteArrayInputStream, with enhancements for
  * speed (no synchronization for example).
- * <p/>
+ * <p>
  * The idea for such an implementation was originally
  * obtained from Berkeley DB JE, however, this represents a
  * clean-room implementation that is <em>NOT</em> derived
@@ -32,7 +32,7 @@ import java.io.InputStream;
  * we have tried to conserve the interface as much as possible.
  *
  * @author Dieter Wimberger (wimpi)
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public class FastByteArrayInputStream
     extends InputStream {
@@ -89,12 +89,11 @@ public class FastByteArrayInputStream
    * Reads the next byte of data from this input stream. The value byte
    * is returned as an int in the range 0 to 255. If no byte is available
    * because the end of the stream has been reached, the value -1 is returned.
-   * <p/>
+   * <p>
    * This read method cannot block.
-   * </p>
    *
    * @return the next byte of data, or -1 if the end of the stream has been reached.
-   * @throws IOException
+   * @throws IOException error
    */
   public int read() throws IOException {
     if ((pos < count)) {
@@ -117,7 +116,7 @@ public class FastByteArrayInputStream
    * @param length the max number of bytes read.
    * @return the total number of bytes read into the buffer, or -1 if there is no
    *         more data because the end of the stream has been reached.
-   * @throws IOException
+   * @throws IOException error
    */
   public int read(byte[] toBuf, int offset, int length)
       throws IOException {
@@ -142,9 +141,9 @@ public class FastByteArrayInputStream
   /**
    * Skips over and discards n bytes of data from this input stream.
    * The skip method may skip over some smaller number of bytes.
-   * The actual number of bytes skipped is returned, or a number <=0
+   * The actual number of bytes skipped is returned, or a number {@code <=0}
    * if none was skipped.
-   * <p/>
+   * <p>
    * The maximum number of bytes that can be skipped is defined by
    * <tt>Integer.MAX_VALUE</tt>.
    * </p>

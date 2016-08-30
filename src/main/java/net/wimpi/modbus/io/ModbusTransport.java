@@ -28,46 +28,42 @@ import java.io.IOException;
  * <tt>ModbusMessage</tt> instances.
  *
  * @author Dieter Wimberger
- * @version @version@ (@date@)
+ * @version 1.2
  */
 public interface ModbusTransport {
 
     /**
      * Closes the raw input and output streams of
      * this <tt>ModbusTransport</tt>.
-     * <p>
      *
      * @throws IOException if a stream         cannot be closed properly.
      */
     public void close() throws IOException;
 
     /**
-     * Writes a <tt<ModbusMessage</tt> to the
+     * Writes a <tt>ModbusMessage</tt> to the
      * output stream of this <tt>ModbusTransport</tt>.
-     * <p>
      *
-     * @param msg a <tt>ModbusMessage</tt>.
-     * @throws ModbusIOException data cannot be         written properly to the raw output stream of         this <tt>ModbusTransport</tt>.
+     * @param msg a ModbusMessage.
+     * @throws ModbusIOException data cannot be written properly to the raw output stream of this ModbusTransport.
      */
     public void writeMessage(ModbusMessage msg) throws ModbusIOException;
 
     /**
      * Reads a <tt>ModbusRequest</tt> from the
-     * input stream of this <tt>ModbusTransport<tt>.
-     * <p>
+     * input stream of this <tt>ModbusTransport</tt>.
      *
-     * @return req the <tt>ModbusRequest</tt> read from the underlying stream.
-     * @throws ModbusIOException data cannot be         read properly from the raw input stream of         this <tt>ModbusTransport</tt>.
+     * @return req the ModbusRequest read from the underlying stream.
+     * @throws ModbusIOException data cannot be read properly from the raw input stream of this ModbusTransport.
      */
     public ModbusRequest readRequest() throws ModbusIOException;
 
     /**
-     * Reads a <tt>ModbusResponse</tt> from the
-     * input stream of this <tt>ModbusTransport<tt>.
-     * <p>
+     * Reads a ModbusResponse from the
+     * input stream of this ModbusTransport.
      *
-     * @return res the <tt>ModbusResponse</tt> read from the underlying stream.
-     * @throws ModbusIOException data cannot be         read properly from the raw input stream of         this <tt>ModbusTransport</tt>.
+     * @return res the ModbusResponse read from the underlying stream.
+     * @throws ModbusIOException data cannot be read properly from the raw input stream of this ModbusTransport.
      */
     public ModbusResponse readResponse() throws ModbusIOException;
 

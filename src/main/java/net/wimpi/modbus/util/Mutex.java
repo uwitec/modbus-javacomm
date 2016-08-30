@@ -21,13 +21,13 @@ package net.wimpi.modbus.util;
  * The lock is free upon construction. Each acquire gets the
  * lock, and each release frees it. Releasing a lock that
  * is already free has no effect.
- * <p/>
+ * <p>
  * This implementation makes no attempt to provide any fairness
  * or ordering guarantees. If you need them, consider using one of
  * the Semaphore implementations as a locking mechanism.
- * <p/>
+ * <p>
  * <b>Sample usage</b><br>
- * <p/>
+ * <p>
  * Mutex can be useful in constructions that cannot be
  * expressed using java synchronized blocks because the
  * acquire/release pairs do not occur in the same method or
@@ -42,25 +42,19 @@ package net.wimpi.modbus.util;
  *   Object item;
  *   Node next;
  *   Mutex lock = new Mutex(); // each node keeps its own lock
- * <p/>
  *   Node(Object x, Node n) { item = x; next = n; }
  * }
- * <p/>
  * class List {
  *    protected Node head; // pointer to first node of list
- * <p/>
  *    // Use plain java synchronization to protect head field.
  *    //  (We could instead use a Mutex here too but there is no
  *    //  reason to do so.)
  *    protected synchronized Node getHead() { return head; }
- * <p/>
  *    boolean search(Object x) throws InterruptedException {
  *      Node p = getHead();
  *      if (p == null) return false;
- * <p/>
  *      //  (This could be made more compact, but for clarity of illustration,
  *      //  all of the cases that can arise are handled separately.)
- * <p/>
  *      p.lock.acquire();              // Prime loop by acquiring first lock.
  *                                     //    (If the acquire fails due to
  *                                     //    interrupt, the method will throw
@@ -92,20 +86,18 @@ package net.wimpi.modbus.util;
  *        }
  *      }
  *    }
- * <p/>
  *    synchronized void add(Object x) { // simple prepend
  *      // The use of `synchronized'  here protects only head field.
  *      // The method does not need to wait out other traversers
  *      // who have already made it past head.
- * <p/>
  *      head = new Node(x, head);
  *    }
- * <p/>
- *    // ...  other similar traversal and update methods ...
+ * </pre>
+ * // ...  other similar traversal and update methods ...
  * }
  *
  * @author Doug Lea
- * @version  @version@ (@date@)
+ * @version 1.2
  */
 public class Mutex {
 
@@ -120,25 +112,27 @@ public class Mutex {
      * @throws InterruptedException the interrupted exception
      */
     public void acquire() throws InterruptedException {
-    if (Thread.interrupted()) throw new InterruptedException();
-    synchronized (this) {
-      try {
-        while (inuse_) wait();
-        inuse_ = true;
-      } catch (InterruptedException ex) {
-        notify();
-        throw ex;
-      }
-    }
-  }//accquire
+        if (Thread.interrupted())
+            throw new InterruptedException();
+        synchronized (this) {
+            try {
+                while (inuse_)
+                    wait();
+                inuse_ = true;
+            } catch (InterruptedException ex) {
+                notify();
+                throw ex;
+            }
+        }
+    }//accquire
 
     /**
      * Release.
      */
     public synchronized void release() {
-    inuse_ = false;
-    notify();
-  }//release
+        inuse_ = false;
+        notify();
+    }//release
 
     /**
      * Attempt boolean.
@@ -148,34 +142,35 @@ public class Mutex {
      * @throws InterruptedException the interrupted exception
      */
     public boolean attempt(long msecs) throws InterruptedException {
-    if (Thread.interrupted()) throw new InterruptedException();
-    synchronized (this) {
-      if (!inuse_) {
-        inuse_ = true;
-        return true;
-      } else if (msecs <= 0)
-        return false;
-      else {
-        long waitTime = msecs;
-        long start = System.currentTimeMillis();
-        try {
-          for (; ;) {
-            wait(waitTime);
+        if (Thread.interrupted())
+            throw new InterruptedException();
+        synchronized (this) {
             if (!inuse_) {
-              inuse_ = true;
-              return true;
-            } else {
-              waitTime = msecs - (System.currentTimeMillis() - start);
-              if (waitTime <= 0)
+                inuse_ = true;
+                return true;
+            } else if (msecs <= 0)
                 return false;
+            else {
+                long waitTime = msecs;
+                long start = System.currentTimeMillis();
+                try {
+                    for (; ; ) {
+                        wait(waitTime);
+                        if (!inuse_) {
+                            inuse_ = true;
+                            return true;
+                        } else {
+                            waitTime = msecs - (System.currentTimeMillis() - start);
+                            if (waitTime <= 0)
+                                return false;
+                        }
+                    }
+                } catch (InterruptedException ex) {
+                    notify();
+                    throw ex;
+                }
             }
-          }
-        } catch (InterruptedException ex) {
-          notify();
-          throw ex;
         }
-      }
-    }
-  }//attempt
+    }//attempt
 
 }//class Mutex
