@@ -48,10 +48,10 @@ public class ModbusASCIITransport
   private BytesOutputStream m_ByteInOut;     //to buffer message to
   private BytesOutputStream m_ByteOut;      //write frames
 
-  /**
-   * Constructs a new <tt>MobusASCIITransport</tt> instance.
-   */
-  public ModbusASCIITransport() {
+    /**
+     * Constructs a new <tt>MobusASCIITransport</tt> instance.
+     */
+    public ModbusASCIITransport() {
   }//constructor
   
   public void close() throws IOException {
@@ -226,14 +226,14 @@ public class ModbusASCIITransport
   }//prepareStreams
 
 
-  /**
-   * Defines a virtual number for the FRAME START token (COLON).
-   */
-  public static final int FRAME_START = 1000;
+    /**
+     * Defines a virtual number for the FRAME START token (COLON).
+     */
+    public static final int FRAME_START = 1000;
 
-  /**
-   * Defines a virtual number for the FRAME_END token (CR LF).
-   */
-  public static final int FRAME_END = 2000;
+    /**
+     * Defines a virtual number for the FRAME_END token (CR LF).
+     */
+    public static final int FRAME_END = 2000;
 
 }//class ModbusASCIITransport

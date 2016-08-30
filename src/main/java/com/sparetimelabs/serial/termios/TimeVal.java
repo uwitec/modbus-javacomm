@@ -29,8 +29,17 @@
  */
 package com.sparetimelabs.serial.termios;
 
+/**
+ * The type Time val.
+ */
 final public class TimeVal {
 
+    /**
+     * The Tv sec.
+     */
     public long tv_sec;
+    /**
+     * The Tv usec.
+     */
     public long tv_usec;
 }

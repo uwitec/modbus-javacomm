@@ -42,13 +42,14 @@ public class ModbusUDPTransport
   private BytesOutputStream m_ByteOut;
   private BytesInputStream m_ByteIn;
 
-  /**
-   * Constructs a new <tt>ModbusTransport</tt> instance,
-   * for a given <tt>UDPTerminal</tt>.
-   * <p>
-   * @param terminal the <tt>UDPTerminal</tt> used for message transport.
-   */
-  public ModbusUDPTransport(UDPTerminal terminal) {
+    /**
+     * Constructs a new <tt>ModbusTransport</tt> instance,
+     * for a given <tt>UDPTerminal</tt>.
+     * <p>
+     *
+     * @param terminal the <tt>UDPTerminal</tt> used for message transport.
+     */
+    public ModbusUDPTransport(UDPTerminal terminal) {
     m_Terminal = terminal;
     m_ByteOut = new BytesOutputStream(Modbus.MAX_MESSAGE_LENGTH);
     m_ByteIn = new BytesInputStream(Modbus.MAX_MESSAGE_LENGTH);

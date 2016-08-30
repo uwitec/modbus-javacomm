@@ -29,8 +29,16 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Unsupported comm operation exception.
+ */
 public class UnsupportedCommOperationException extends Exception {
 
+    /**
+     * Instantiates a new Unsupported comm operation exception.
+     *
+     * @param msg the msg
+     */
     public UnsupportedCommOperationException(String msg) {
         super(msg);
     }

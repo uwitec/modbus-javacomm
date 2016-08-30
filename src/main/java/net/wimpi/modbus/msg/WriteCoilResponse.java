@@ -38,24 +38,24 @@ public final class WriteCoilResponse
   private boolean m_Coil = false;
   private int m_Reference;
 
-  /**
-   * Constructs a new <tt>WriteCoilResponse</tt>
-   * instance.
-   */
-  public WriteCoilResponse() {
+    /**
+     * Constructs a new <tt>WriteCoilResponse</tt>
+     * instance.
+     */
+    public WriteCoilResponse() {
     super();
     setFunctionCode(Modbus.WRITE_COIL);
     setDataLength(4);
   }//constructor
 
-  /**
-   * Constructs a new <tt>WriteCoilResponse</tt>
-   * instance.
-   *
-   * @param reference the offset were writing was started from.
-   * @param b the state of the coil; true set, false reset.
-   */
-  public WriteCoilResponse(int reference, boolean b) {
+    /**
+     * Constructs a new <tt>WriteCoilResponse</tt>
+     * instance.
+     *
+     * @param reference the offset were writing was started from.
+     * @param b         the state of the coil; true set, false reset.
+     */
+    public WriteCoilResponse(int reference, boolean b) {
     super();
     setFunctionCode(Modbus.WRITE_COIL);
     setDataLength(4);
@@ -74,23 +74,25 @@ public final class WriteCoilResponse
     m_Coil = b;
   }//setCoil
 
-  /**
-   * Gets the state that has been returned
-   * in this <tt>WriteCoilRequest</tt>.
-   * <p>
-   * @return true if the coil is set, false if unset.
-   */
-  public boolean getCoil() {
+    /**
+     * Gets the state that has been returned
+     * in this <tt>WriteCoilRequest</tt>.
+     * <p>
+     *
+     * @return true if the coil is set, false if unset.
+     */
+    public boolean getCoil() {
     return m_Coil;
   }//getCoil
 
-  /**
-   * Returns the reference of the register of the coil
-   * that has been written to with the request.
-   * <p>
-   * @return the reference of the coil's register.
-   */
-  public int getReference() {
+    /**
+     * Returns the reference of the register of the coil
+     * that has been written to with the request.
+     * <p>
+     *
+     * @return the reference of the coil's register.
+     */
+    public int getReference() {
     return m_Reference;
   }//getReference
 

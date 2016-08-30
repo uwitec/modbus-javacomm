@@ -30,20 +30,29 @@
 package com.sparetimelabs.serial;
 
 // FIXME no mechanism to warn about duplicate port names
-import static com.sparetimelabs.serial.termios.JTermios.*;
+import com.sparetimelabs.serial.termios.Termios;
 
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
-import com.sparetimelabs.serial.termios.Termios;
-import java.util.HashMap;
 import java.util.Map;
 
+import static com.sparetimelabs.serial.termios.JTermios.*;
+
+/**
+ * The type Comm port identifier.
+ */
 public class CommPortIdentifier {
 
+    /**
+     * The constant PORT_SERIAL.
+     */
     public static final int PORT_SERIAL = 1;
+    /**
+     * The constant PORT_PARALLEL.
+     */
     public static final int PORT_PARALLEL = 2;
     private static volatile Object m_Mutex = new Object();
     private volatile String m_PortName;
@@ -67,6 +76,10 @@ public class CommPortIdentifier {
 
     /**
      * This has not been tested at all
+     *
+     * @param portName the port name
+     * @param portType the port type
+     * @param driver   the driver
      */
     public static void addPortName(String portName, int portType, CommDriver driver) {
         synchronized (m_Mutex) {
@@ -80,6 +93,13 @@ public class CommPortIdentifier {
         m_Driver = driver;
     }
 
+    /**
+     * Gets port identifier.
+     *
+     * @param portName the port name
+     * @return the port identifier
+     * @throws NoSuchPortException the no such port exception
+     */
     public static CommPortIdentifier getPortIdentifier(String portName) throws NoSuchPortException {
         synchronized (m_Mutex) {
             boolean ENUMERATE = false;
@@ -126,6 +146,13 @@ public class CommPortIdentifier {
         }
     }
 
+    /**
+     * Gets port identifier.
+     *
+     * @param port the port
+     * @return the port identifier
+     * @throws NoSuchPortException the no such port exception
+     */
     public static CommPortIdentifier getPortIdentifier(CommPort port) throws NoSuchPortException {
         synchronized (m_Mutex) {
             CommPortIdentifier portid = m_OpenPorts.get(port);
@@ -136,6 +163,14 @@ public class CommPortIdentifier {
         }
     }
 
+    /**
+     * Open comm port.
+     *
+     * @param appname the appname
+     * @param timeout the timeout
+     * @return the comm port
+     * @throws PortInUseException the port in use exception
+     */
     public CommPort open(String appname, int timeout) throws PortInUseException {
         synchronized (m_Mutex) {
             long t0 = System.currentTimeMillis();
@@ -173,7 +208,12 @@ public class CommPortIdentifier {
         }
     }
 
-    /* package */
+    /**
+     * Close.
+     *
+     * @param port the port
+     */
+/* package */
     static void close(CommPort port) {
         synchronized (m_Mutex) {
             CommPortIdentifier portid = m_OpenPorts.remove(port);
@@ -184,18 +224,40 @@ public class CommPortIdentifier {
         }
     }
 
+    /**
+     * Open comm port.
+     *
+     * @param fd the fd
+     * @return the comm port
+     * @throws UnsupportedCommOperationException the unsupported comm operation exception
+     */
     public CommPort open(java.io.FileDescriptor fd) throws UnsupportedCommOperationException {
         throw new UnsupportedCommOperationException("open from file descriptor not supported");
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return m_PortName;
     }
 
+    /**
+     * Gets port type.
+     *
+     * @return the port type
+     */
     public int getPortType() {
         return m_PortType;
     }
 
+    /**
+     * Gets port identifiers.
+     *
+     * @return the port identifiers
+     */
     public static Enumeration getPortIdentifiers() {
         synchronized (m_Mutex) {
 
@@ -230,16 +292,31 @@ public class CommPortIdentifier {
         }
     }
 
+    /**
+     * Gets current owner.
+     *
+     * @return the current owner
+     */
     public String getCurrentOwner() {
         synchronized (m_Mutex) {
             return m_Owners.get(this);
         }
     }
 
+    /**
+     * Is currently owned boolean.
+     *
+     * @return the boolean
+     */
     public boolean isCurrentlyOwned() {
         return getCurrentOwner() != null;
     }
 
+    /**
+     * Add port ownership listener.
+     *
+     * @param listener the listener
+     */
     public void addPortOwnershipListener(CommPortOwnershipListener listener) {
         synchronized (m_Mutex) {
             List<CommPortOwnershipListener> list = m_OwnerShipListeners.get(this);
@@ -251,6 +328,11 @@ public class CommPortIdentifier {
         }
     }
 
+    /**
+     * Remove port ownership listener.
+     *
+     * @param listener the listener
+     */
     public void removePortOwnershipListener(CommPortOwnershipListener listener) {
         synchronized (m_Mutex) {
             List<CommPortOwnershipListener> list = m_OwnerShipListeners.get(this);

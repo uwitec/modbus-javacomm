@@ -31,16 +31,45 @@ package com.sparetimelabs.serial.termios;
 
 import java.util.Arrays;
 
+/**
+ * The type Termios.
+ */
 final public class Termios {
 
+    /**
+     * The C iflag.
+     */
     public int c_iflag;
+    /**
+     * The C oflag.
+     */
     public int c_oflag;
+    /**
+     * The C cflag.
+     */
     public int c_cflag;
+    /**
+     * The C lflag.
+     */
     public int c_lflag;
+    /**
+     * The C cc.
+     */
     public byte[] c_cc = new byte[20];
+    /**
+     * The C ispeed.
+     */
     public int c_ispeed;
+    /**
+     * The C ospeed.
+     */
     public int c_ospeed;
 
+    /**
+     * Set.
+     *
+     * @param s the s
+     */
     public void set(Termios s) {
         c_iflag = s.c_iflag;
         c_oflag = s.c_oflag;

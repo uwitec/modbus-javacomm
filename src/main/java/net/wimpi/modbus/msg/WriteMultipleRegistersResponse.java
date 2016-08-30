@@ -36,22 +36,22 @@ public final class WriteMultipleRegistersResponse
   private int m_WordCount;
   private int m_Reference;
 
-  /**
-   * Constructs a new <tt>WriteMultipleRegistersResponse</tt>
-   * instance.
-   */
-  public WriteMultipleRegistersResponse() {
+    /**
+     * Constructs a new <tt>WriteMultipleRegistersResponse</tt>
+     * instance.
+     */
+    public WriteMultipleRegistersResponse() {
     super();
   }//constructor
 
-  /**
-   * Constructs a new <tt>WriteMultipleRegistersResponse</tt>
-   * instance.
-   *
-   * @param reference the offset to start reading from.
-   * @param wordcount the number of words (registers) to be read.
-   */
-  public WriteMultipleRegistersResponse(int reference, int wordcount) {
+    /**
+     * Constructs a new <tt>WriteMultipleRegistersResponse</tt>
+     * instance.
+     *
+     * @param reference the offset to start reading from.
+     * @param wordcount the number of words (registers) to be read.
+     */
+    public WriteMultipleRegistersResponse(int reference, int wordcount) {
     super();
     m_Reference = reference;
     m_WordCount = wordcount;
@@ -69,37 +69,37 @@ public final class WriteMultipleRegistersResponse
     m_Reference = ref;
   }//setReference
 
-  /**
-   * Returns the reference of the register to start
-   * writing to with this
-   * <tt>WriteMultipleRegistersResponse</tt>.
-   * <p>
-   * @return the reference of the register
-   *        to start writing to as <tt>int</tt>.
-   */
-  public int getReference() {
+    /**
+     * Returns the reference of the register to start
+     * writing to with this
+     * <tt>WriteMultipleRegistersResponse</tt>.
+     * <p>
+     *
+     * @return the reference of the register        to start writing to as <tt>int</tt>.
+     */
+    public int getReference() {
     return m_Reference;
   }//getReference
 
-  /**
-   * Returns the number of bytes that have been written.
-   * <p>
-   * @return the number of bytes that have been read
-   *         as <tt>int</tt>.
-   */
-  public int getByteCount() {
+    /**
+     * Returns the number of bytes that have been written.
+     * <p>
+     *
+     * @return the number of bytes that have been read         as <tt>int</tt>.
+     */
+    public int getByteCount() {
     return m_WordCount * 2;
   }//getByteCount
 
-  /**
-   * Returns the number of words that have been read.
-   * The returned value should be half of
-   * the byte count of the response.
-   * <p>
-   * @return the number of words that have been read
-   *         as <tt>int</tt>.
-   */
-  public int getWordCount() {
+    /**
+     * Returns the number of words that have been read.
+     * The returned value should be half of
+     * the byte count of the response.
+     * <p>
+     *
+     * @return the number of words that have been read         as <tt>int</tt>.
+     */
+    public int getWordCount() {
     return m_WordCount;
   }//getWordCount
 

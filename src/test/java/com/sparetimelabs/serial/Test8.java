@@ -29,6 +29,9 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Test 8.
+ */
 public class Test8 extends TestBase {
 
     // To allow us to run this test with limited hardware, we use two sets of
@@ -44,10 +47,21 @@ public class Test8 extends TestBase {
     private static final int FULL_DATABITS[] = {SerialPort.DATABITS_8, SerialPort.DATABITS_7, SerialPort.DATABITS_6, SerialPort.DATABITS_5};
     private static final int FULL_DATAMASK[] = {0xFF, 0x7F, 0x3F, 0x1F};
 
+    /**
+     * Run.
+     *
+     * @throws Exception the exception
+     */
     static void run() throws Exception {
         run(true);
     }
 
+    /**
+     * Run.
+     *
+     * @param allModes the all modes
+     * @throws Exception the exception
+     */
     static void run(boolean allModes) throws Exception {
         try {
             begin("Test8 - parity etc");

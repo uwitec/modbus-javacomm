@@ -29,12 +29,20 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Test 5.
+ */
 public class Test5 extends TestBase {
 
     private static Exception m_Exception = null;
     private static Thread m_Receiver;
     private static Thread m_Transmitter;
 
+    /**
+     * Run.
+     *
+     * @throws Exception the exception
+     */
     static void run() throws Exception {
         try {
             begin("Test5 - timeout");

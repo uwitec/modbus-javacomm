@@ -47,9 +47,17 @@ import net.wimpi.modbus.util.BitVector;
 import net.wimpi.modbus.util.ModbusUtil;
 import net.wimpi.modbus.util.SerialParameters;
 
+/**
+ * The type Serial facade test.
+ */
 public class SerialFacadeTest {
 
-  public static void main(String[] args) {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
     int inChar = -1;
     int result = 0;
     boolean finished = false;

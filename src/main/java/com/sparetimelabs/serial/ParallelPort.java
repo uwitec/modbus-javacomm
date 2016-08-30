@@ -29,67 +29,154 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Parallel port.
+ */
 public class ParallelPort {
 
+    /**
+     * The constant LPT_MODE_ANY.
+     */
     public static final int LPT_MODE_ANY = 0;
+    /**
+     * The constant LPT_MODE_SPP.
+     */
     public static final int LPT_MODE_SPP = 1;
+    /**
+     * The constant LPT_MODE_PS2.
+     */
     public static final int LPT_MODE_PS2 = 2;
+    /**
+     * The constant LPT_MODE_EPP.
+     */
     public static final int LPT_MODE_EPP = 3;
+    /**
+     * The constant LPT_MODE_ECP.
+     */
     public static final int LPT_MODE_ECP = 4;
+    /**
+     * The constant LPT_MODE_NIBBLE.
+     */
     public static final int LPT_MODE_NIBBLE = 5;
 
+    /**
+     * Add event listener.
+     *
+     * @param lsnr the lsnr
+     */
     void addEventListener(ParallelPortEventListener lsnr) {
 
     }
 
+    /**
+     * Gets mode.
+     *
+     * @return the mode
+     */
     int getMode() {
         return LPT_MODE_ANY;
     }
 
+    /**
+     * Gets output buffer free.
+     *
+     * @return the output buffer free
+     */
     int getOutputBufferFree() {
         return 0;
     }
 
+    /**
+     * Is paper out boolean.
+     *
+     * @return the boolean
+     */
     boolean isPaperOut() {
         return false;
     }
 
+    /**
+     * Is printer busy boolean.
+     *
+     * @return the boolean
+     */
     boolean isPrinterBusy() {
         return false;
     }
 
+    /**
+     * Is printer error boolean.
+     *
+     * @return the boolean
+     */
     boolean isPrinterError() {
         return false;
     }
 
+    /**
+     * Is printer selected boolean.
+     *
+     * @return the boolean
+     */
     boolean isPrinterSelected() {
         return false;
     }
 
+    /**
+     * Is printer timed out boolean.
+     *
+     * @return the boolean
+     */
     boolean isPrinterTimedOut() {
         return false;
     }
 
+    /**
+     * Notify on buffer.
+     *
+     * @param notify the notify
+     */
     void notifyOnBuffer(boolean notify) {
 
     }
 
+    /**
+     * Notify on error.
+     *
+     * @param notify the notify
+     */
     void notifyOnError(boolean notify) {
 
     }
 
+    /**
+     * Remove event listener.
+     */
     void removeEventListener() {
 
     }
 
+    /**
+     * Restart.
+     */
     void restart() {
 
     }
 
+    /**
+     * Sets mode.
+     *
+     * @param mode the mode
+     * @return the mode
+     * @throws UnsupportedCommOperationException the unsupported comm operation exception
+     */
     int setMode(int mode) throws UnsupportedCommOperationException {
         return getMode();
     }
 
+    /**
+     * Suspend.
+     */
     void suspend() {
 
     }

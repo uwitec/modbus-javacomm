@@ -38,26 +38,26 @@ public abstract class ModbusRequest
   public abstract ModbusResponse getResponse();
   */
 
-  /**
-   * Returns the <tt>ModbusResponse</tt> that
-   * represents the answer to this <tt>ModbusRequest</tt>.
-   * <p>
-   * The implementation should take care about assembling
-   * the reply to this <tt>ModbusRequest</tt>.
-   * <p>
-   * @return the corresponding <tt>ModbusResponse</tt>.
-   */
-  public abstract ModbusResponse createResponse();
+    /**
+     * Returns the <tt>ModbusResponse</tt> that
+     * represents the answer to this <tt>ModbusRequest</tt>.
+     * <p>
+     * The implementation should take care about assembling
+     * the reply to this <tt>ModbusRequest</tt>.
+     * <p>
+     *
+     * @return the corresponding <tt>ModbusResponse</tt>.
+     */
+    public abstract ModbusResponse createResponse();
 
-  /**
-   * Factory method for creating exception responses with the
-   * given exception code.
-   *
-   * @param EXCEPTION_CODE the code of the exception.
-   * @return a ModbusResponse instance representing the exception
-   *         response.
-   */
-  public ModbusResponse createExceptionResponse(int EXCEPTION_CODE) {
+    /**
+     * Factory method for creating exception responses with the
+     * given exception code.
+     *
+     * @param EXCEPTION_CODE the code of the exception.
+     * @return a ModbusResponse instance representing the exception         response.
+     */
+    public ModbusResponse createExceptionResponse(int EXCEPTION_CODE) {
     ExceptionResponse response =
         new ExceptionResponse(this.getFunctionCode(), EXCEPTION_CODE);
     if (!isHeadless()) {
@@ -70,14 +70,14 @@ public abstract class ModbusRequest
     return response;
   }//createExceptionResponse
 
-  /**
-   * Factory method creating the required specialized <tt>ModbusRequest</tt>
-   * instance.
-   *
-   * @param functionCode the function code of the request as <tt>int</tt>.
-   * @return a ModbusRequest instance specific for the given function type.
-   */
-  public static ModbusRequest createModbusRequest(int functionCode) {
+    /**
+     * Factory method creating the required specialized <tt>ModbusRequest</tt>
+     * instance.
+     *
+     * @param functionCode the function code of the request as <tt>int</tt>.
+     * @return a ModbusRequest instance specific for the given function type.
+     */
+    public static ModbusRequest createModbusRequest(int functionCode) {
     ModbusRequest request = null;
 
     switch (functionCode) {

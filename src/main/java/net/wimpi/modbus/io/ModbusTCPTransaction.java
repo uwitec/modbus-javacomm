@@ -53,47 +53,47 @@ public class ModbusTCPTransaction
 
   private Mutex m_TransactionLock = new Mutex();
 
-  /**
-   * Constructs a new <tt>ModbusTCPTransaction</tt>
-   * instance.
-   */
-  public ModbusTCPTransaction() {
+    /**
+     * Constructs a new <tt>ModbusTCPTransaction</tt>
+     * instance.
+     */
+    public ModbusTCPTransaction() {
   }//constructor
 
-  /**
-   * Constructs a new <tt>ModbusTCPTransaction</tt>
-   * instance with a given <tt>ModbusRequest</tt> to
-   * be send when the transaction is executed.
-   * <p/>
-   *
-   * @param request a <tt>ModbusRequest</tt> instance.
-   */
-  public ModbusTCPTransaction(ModbusRequest request) {
+    /**
+     * Constructs a new <tt>ModbusTCPTransaction</tt>
+     * instance with a given <tt>ModbusRequest</tt> to
+     * be send when the transaction is executed.
+     * <p/>
+     *
+     * @param request a <tt>ModbusRequest</tt> instance.
+     */
+    public ModbusTCPTransaction(ModbusRequest request) {
     setRequest(request);
   }//constructor
 
-  /**
-   * Constructs a new <tt>ModbusTCPTransaction</tt>
-   * instance with a given <tt>TCPMasterConnection</tt> to
-   * be used for transactions.
-   * <p/>
-   *
-   * @param con a <tt>TCPMasterConnection</tt> instance.
-   */
-  public ModbusTCPTransaction(TCPMasterConnection con) {
+    /**
+     * Constructs a new <tt>ModbusTCPTransaction</tt>
+     * instance with a given <tt>TCPMasterConnection</tt> to
+     * be used for transactions.
+     * <p/>
+     *
+     * @param con a <tt>TCPMasterConnection</tt> instance.
+     */
+    public ModbusTCPTransaction(TCPMasterConnection con) {
     setConnection(con);
   }//constructor
 
-  /**
-   * Sets the connection on which this <tt>ModbusTransaction</tt>
-   * should be executed.<p>
-   * An implementation should be able to
-   * handle open and closed connections.<br>
-   * <p/>
-   *
-   * @param con a <tt>TCPMasterConnection</tt>.
-   */
-  public void setConnection(TCPMasterConnection con) {
+    /**
+     * Sets the connection on which this <tt>ModbusTransaction</tt>
+     * should be executed.<p>
+     * An implementation should be able to
+     * handle open and closed connections.<br>
+     * <p/>
+     *
+     * @param con a <tt>TCPMasterConnection</tt>.
+     */
+    public void setConnection(TCPMasterConnection con) {
     m_Connection = con;
     m_IO = con.getModbusTransport();
   }//setConnection
@@ -122,26 +122,26 @@ public class ModbusTCPTransaction
     return m_ValidityCheck;
   }//isCheckingValidity
 
-  /**
-   * Sets the flag that controls whether a
-   * connection is openend and closed for
-   * <b>each</b> execution or not.
-   * <p/>
-   *
-   * @param b true if reconnecting, false otherwise.
-   */
-  public void setReconnecting(boolean b) {
+    /**
+     * Sets the flag that controls whether a
+     * connection is openend and closed for
+     * <b>each</b> execution or not.
+     * <p/>
+     *
+     * @param b true if reconnecting, false otherwise.
+     */
+    public void setReconnecting(boolean b) {
     m_Reconnecting = b;
   }//setReconnecting
 
-  /**
-   * Tests if the connection will be openend
-   * and closed for <b>each</b> execution.
-   * <p/>
-   *
-   * @return true if reconnecting, false otherwise.
-   */
-  public boolean isReconnecting() {
+    /**
+     * Tests if the connection will be openend
+     * and closed for <b>each</b> execution.
+     * <p/>
+     *
+     * @return true if reconnecting, false otherwise.
+     */
+    public boolean isReconnecting() {
     return m_Reconnecting;
   }//isReconnecting
 
@@ -243,15 +243,15 @@ public class ModbusTCPTransaction
     }
   }//assertExecuteable
 
-  /**
-   * Checks the validity of the transaction, by
-   * checking if the values of the response correspond
-   * to the values of the request.
-   * Use an override to provide some checks, this method will only return.
-   *
-   * @throws ModbusException if this transaction has not been valid.
-   */
-  protected void checkValidity() throws ModbusException {
+    /**
+     * Checks the validity of the transaction, by
+     * checking if the values of the response correspond
+     * to the values of the request.
+     * Use an override to provide some checks, this method will only return.
+     *
+     * @throws ModbusException if this transaction has not been valid.
+     */
+    protected void checkValidity() throws ModbusException {
   }//checkValidity
 
 }//class ModbusTCPTransaction

@@ -31,8 +31,17 @@ package com.sparetimelabs.serial;
 
 import static junit.framework.Assert.fail;
 
+/**
+ * The type Test suite.
+ */
 public class TestSuite {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws Exception the exception
+     */
     public static void main(String[] args) throws Exception {
         // Native.setProtected(false);
         if(args.length>0) {

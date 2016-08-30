@@ -38,13 +38,13 @@ public class TCPSlaveConnection {
   private boolean m_Connected;
   private ModbusTCPTransport m_ModbusTransport;
 
-  /**
-   * Constructs a <tt>TCPSlaveConnection</tt> instance
-   * using a given socket instance.
-   *
-   * @param socket the socket instance to be used for communication.
-   */
-  public TCPSlaveConnection(Socket socket) {
+    /**
+     * Constructs a <tt>TCPSlaveConnection</tt> instance
+     * using a given socket instance.
+     *
+     * @param socket the socket instance to be used for communication.
+     */
+    public TCPSlaveConnection(Socket socket) {
     try {
       setSocket(socket);
     } catch (IOException ex) {
@@ -55,10 +55,10 @@ public class TCPSlaveConnection {
     }
   }//constructor
 
-  /**
-   * Closes this <tt>TCPSlaveConnection</tt>.
-   */
-  public void close() {
+    /**
+     * Closes this <tt>TCPSlaveConnection</tt>.
+     */
+    public void close() {
     if(m_Connected) {
       try {
         m_ModbusTransport.close();
@@ -70,13 +70,13 @@ public class TCPSlaveConnection {
     }
   }//close
 
-  /**
-   * Returns the <tt>ModbusTransport</tt> associated with this
-   * <tt>TCPMasterConnection</tt>.
-   *
-   * @return the connection's <tt>ModbusTransport</tt>.
-   */
-  public ModbusTransport getModbusTransport() {
+    /**
+     * Returns the <tt>ModbusTransport</tt> associated with this
+     * <tt>TCPMasterConnection</tt>.
+     *
+     * @return the connection's <tt>ModbusTransport</tt>.
+     */
+    public ModbusTransport getModbusTransport() {
     return m_ModbusTransport;
   }//getIO
 
@@ -97,21 +97,21 @@ public class TCPSlaveConnection {
     m_Connected = true;
   }//prepareIO
 
-  /**
-   * Returns the timeout for this <tt>TCPMasterConnection</tt>.
-   *
-   * @return the timeout as <tt>int</tt>.
-   */
-  public int getTimeout() {
+    /**
+     * Returns the timeout for this <tt>TCPMasterConnection</tt>.
+     *
+     * @return the timeout as <tt>int</tt>.
+     */
+    public int getTimeout() {
     return m_Timeout;
   }//getReceiveTimeout
 
-  /**
-   * Sets the timeout for this <tt>TCPSlaveConnection</tt>.
-   *
-   * @param timeout the timeout as <tt>int</tt>.
-   */
-  public void setTimeout(int timeout) {
+    /**
+     * Sets the timeout for this <tt>TCPSlaveConnection</tt>.
+     *
+     * @param timeout the timeout as <tt>int</tt>.
+     */
+    public void setTimeout(int timeout) {
     m_Timeout = timeout;
     try {
       m_Socket.setSoTimeout(m_Timeout);
@@ -120,32 +120,32 @@ public class TCPSlaveConnection {
     }
   }//setReceiveTimeout
 
-  /**
-   * Returns the destination port of this
-   * <tt>TCPMasterConnection</tt>.
-   *
-   * @return the port number as <tt>int</tt>.
-   */
-  public int getPort() {
+    /**
+     * Returns the destination port of this
+     * <tt>TCPMasterConnection</tt>.
+     *
+     * @return the port number as <tt>int</tt>.
+     */
+    public int getPort() {
     return m_Socket.getLocalPort();
   }//getPort
 
-  /**
-   * Returns the destination <tt>InetAddress</tt> of this
-   * <tt>TCPMasterConnection</tt>.
-   *
-   * @return the destination address as <tt>InetAddress</tt>.
-   */
-  public InetAddress getAddress() {
+    /**
+     * Returns the destination <tt>InetAddress</tt> of this
+     * <tt>TCPMasterConnection</tt>.
+     *
+     * @return the destination address as <tt>InetAddress</tt>.
+     */
+    public InetAddress getAddress() {
     return m_Socket.getLocalAddress();
   }//getAddress
 
-  /**
-   * Tests if this <tt>TCPMasterConnection</tt> is connected.
-   *
-   * @return <tt>true</tt> if connected, <tt>false</tt> otherwise.
-   */
-  public boolean isConnected() {
+    /**
+     * Tests if this <tt>TCPMasterConnection</tt> is connected.
+     *
+     * @return <tt>true</tt> if connected, <tt>false</tt> otherwise.
+     */
+    public boolean isConnected() {
     return m_Connected;
   }//isConnected
 

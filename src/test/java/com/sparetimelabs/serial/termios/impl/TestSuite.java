@@ -36,6 +36,9 @@ import org.junit.Ignore;
 import static com.sparetimelabs.serial.termios.impl.WinAPI.*;
 import static junit.framework.Assert.fail;
 
+/**
+ * The type Test suite.
+ */
 @Ignore
 public class TestSuite {
 
@@ -46,6 +49,9 @@ public class TestSuite {
         }
     }
 
+    /**
+     * Test 1.
+     */
     public void test1() {
         System.out.println("A contorted loopback test with overlapped IO for WinAPI");
 
@@ -165,6 +171,11 @@ public class TestSuite {
         test1();
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         if (args.length > 0) {
             TestSuite ts = new TestSuite();

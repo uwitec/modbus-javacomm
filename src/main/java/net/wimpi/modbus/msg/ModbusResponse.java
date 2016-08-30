@@ -34,14 +34,14 @@ public abstract class ModbusResponse
     extends ModbusMessageImpl {
 
 
-  /**
-   * Utility method to set the raw data of the message.
-   * Should not be used except under rare circumstances.
-   * <p>
-   * @param msg the <tt>byte[]</tt> resembling the raw modbus
-   *        response message.
-   */
-  protected void setMessage(byte[] msg) {
+    /**
+     * Utility method to set the raw data of the message.
+     * Should not be used except under rare circumstances.
+     * <p>
+     *
+     * @param msg the <tt>byte[]</tt> resembling the raw modbus        response message.
+     */
+    protected void setMessage(byte[] msg) {
     try {
       readData(
           new DataInputStream(
@@ -53,14 +53,14 @@ public abstract class ModbusResponse
     }
   }//setMessage
 
-  /**
-   * Factory method creating the required specialized <tt>ModbusResponse</tt>
-   * instance.
-   *
-   * @param functionCode the function code of the response as <tt>int</tt>.
-   * @return a ModbusResponse instance specific for the given function code.
-   */
-  public static ModbusResponse createModbusResponse(int functionCode) {
+    /**
+     * Factory method creating the required specialized <tt>ModbusResponse</tt>
+     * instance.
+     *
+     * @param functionCode the function code of the response as <tt>int</tt>.
+     * @return a ModbusResponse instance specific for the given function code.
+     */
+    public static ModbusResponse createModbusResponse(int functionCode) {
     ModbusResponse response = null;
 
     switch (functionCode) {

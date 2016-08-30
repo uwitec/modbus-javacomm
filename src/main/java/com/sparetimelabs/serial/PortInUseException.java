@@ -29,10 +29,21 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Port in use exception.
+ */
 public class PortInUseException extends Exception {
 
+    /**
+     * The Current owner.
+     */
     public String currentOwner;
 
+    /**
+     * Instantiates a new Port in use exception.
+     *
+     * @param str the str
+     */
     PortInUseException(String str) {
         super(str);
         currentOwner = str;

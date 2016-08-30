@@ -33,23 +33,59 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+/**
+ * The type Test base.
+ */
 public class TestBase {
 
+    /**
+     * The type Test failed exception.
+     */
     static class TestFailedException extends Exception {
 
     }
 
+    /**
+     * The constant APPLICATION_NAME.
+     */
     public static final String APPLICATION_NAME = "PureJavaCommTestSuite";
 
+    /**
+     * The constant m_TestPortName.
+     */
     protected static volatile String m_TestPortName;
+    /**
+     * The constant m_Port.
+     */
     protected static volatile SerialPort m_Port;
     private static volatile long m_T0;
+    /**
+     * The constant m_Out.
+     */
     protected static volatile OutputStream m_Out;
+    /**
+     * The constant m_In.
+     */
     protected static volatile InputStream m_In;
+    /**
+     * The constant m_SyncSema4.
+     */
     protected static volatile int[] m_SyncSema4 = {0};
+    /**
+     * The constant m_Tab.
+     */
     protected static int m_Tab;
+    /**
+     * The constant m_Progress.
+     */
     protected static int m_Progress;
 
+    /**
+     * Sync.
+     *
+     * @param N the n
+     * @throws InterruptedException the interrupted exception
+     */
     protected static void sync(int N) throws InterruptedException {
         synchronized (m_SyncSema4) {
             m_SyncSema4[0]++;
@@ -62,6 +98,11 @@ public class TestBase {
         }
     }
 
+    /**
+     * Open port.
+     *
+     * @throws Exception the exception
+     */
     static protected void openPort() throws Exception {
         try {
             CommPortIdentifier portid = CommPortIdentifier.getPortIdentifier(m_TestPortName);
@@ -74,6 +115,9 @@ public class TestBase {
         }
     }
 
+    /**
+     * Close port.
+     */
     static protected void closePort() {
         if (m_Port != null) {
             try {
@@ -87,6 +131,12 @@ public class TestBase {
         }
     }
 
+    /**
+     * Drain.
+     *
+     * @param ins the ins
+     * @throws Exception the exception
+     */
     static protected void drain(InputStream ins) throws Exception {
         sleep(100);
         int n;
@@ -98,6 +148,11 @@ public class TestBase {
         }
     }
 
+    /**
+     * Begin.
+     *
+     * @param name the name
+     */
     static void begin(String name) {
         System.out.printf("%-46s", name);
         m_Tab = 46;
@@ -108,11 +163,19 @@ public class TestBase {
     /**
      * Sleep a short amount of time to allow hardware feedback, which isn't
      * instant
+     *
+     * @throws InterruptedException the interrupted exception
      */
     static protected void sleep() throws InterruptedException {
         sleep(40);
     }
 
+    /**
+     * Sleep.
+     *
+     * @param t the t
+     * @throws InterruptedException the interrupted exception
+     */
     static protected void sleep(int t) throws InterruptedException {
         int m = 1000;
         while (t > 0) {
@@ -126,6 +189,13 @@ public class TestBase {
         }
     }
 
+    /**
+     * Fail.
+     *
+     * @param format the format
+     * @param args   the args
+     * @throws TestFailedException the test failed exception
+     */
     static void fail(String format, Object... args) throws TestFailedException {
         System.out.println(" FAILED");
         System.out.println("------------------------------------------------------------");
@@ -136,10 +206,19 @@ public class TestBase {
 
     }
 
+    /**
+     * Finished ok.
+     */
     static void finishedOK() {
         finishedOK("");
     }
 
+    /**
+     * Finished ok.
+     *
+     * @param format the format
+     * @param args   the args
+     */
     static void finishedOK(String format, Object... args) {
         for (int i = 0; i < m_Tab; i++) {
             System.out.print(".");
@@ -148,6 +227,11 @@ public class TestBase {
         System.out.println();
     }
 
+    /**
+     * Init.
+     *
+     * @param args the args
+     */
     static public void init(String[] args) {
         m_TestPortName = "cu.usbserial-FTOXM3NX";
         if (args.length > 0) {
@@ -155,6 +239,11 @@ public class TestBase {
         }
     }
 
+    /**
+     * Gets port name.
+     *
+     * @return the port name
+     */
     static public String getPortName() {
         return m_TestPortName;
 

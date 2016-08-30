@@ -40,46 +40,46 @@ public class ModbusUDPListener {
   private boolean m_Listening;
   private InetAddress m_Interface;
 
-  /**
-   * Constructs a new ModbusUDPListener instance.
-   */
-  public ModbusUDPListener() {
+    /**
+     * Constructs a new ModbusUDPListener instance.
+     */
+    public ModbusUDPListener() {
   }//ModbusUDPListener
 
-  /**
-   * Create a new <tt>ModbusUDPListener</tt> instance
-   * listening to the given interface address.
-   *
-   * @param ifc an <tt>InetAddress</tt> instance.
-   */
-  public ModbusUDPListener(InetAddress ifc) {
+    /**
+     * Create a new <tt>ModbusUDPListener</tt> instance
+     * listening to the given interface address.
+     *
+     * @param ifc an <tt>InetAddress</tt> instance.
+     */
+    public ModbusUDPListener(InetAddress ifc) {
     m_Interface = ifc;
   }//ModbusUDPListener
 
-  /**
-   * Returns the number of the port this <tt>ModbusUDPListener</tt>
-   * is listening to.
-   *
-   * @return the number of the IP port as <tt>int</tt>.
-   */
-  public int getPort() {
+    /**
+     * Returns the number of the port this <tt>ModbusUDPListener</tt>
+     * is listening to.
+     *
+     * @return the number of the IP port as <tt>int</tt>.
+     */
+    public int getPort() {
     return m_Port;
   }//getPort
 
-  /**
-   * Sets the number of the port this <tt>ModbusUDPListener</tt>
-   * is listening to.
-   *
-   * @param port the number of the IP port as <tt>int</tt>.
-   */
-  public void setPort(int port) {
+    /**
+     * Sets the number of the port this <tt>ModbusUDPListener</tt>
+     * is listening to.
+     *
+     * @param port the number of the IP port as <tt>int</tt>.
+     */
+    public void setPort(int port) {
     m_Port = ((port>0)? port : Modbus.DEFAULT_PORT);
   }//setPort
 
-  /**
-   * Starts this <tt>ModbusUDPListener</tt>.
-   */
-  public void start() {
+    /**
+     * Starts this <tt>ModbusUDPListener</tt>.
+     */
+    public void start() {
     //start listening
     try {
       if(m_Interface == null) {
@@ -100,34 +100,41 @@ public class ModbusUDPListener {
     m_Listening = true;
   }//start
 
-  /**
-   * Stops this <tt>ModbusUDPListener</tt>.
-   */
-  public void stop() {
+    /**
+     * Stops this <tt>ModbusUDPListener</tt>.
+     */
+    public void stop() {
     //stop listening
     m_Terminal.deactivate();
     m_Handler.stop();
     m_Listening = false;
   }//stop
 
-  /**
-   * Tests if this <tt>ModbusTCPListener</tt> is listening
-   * and accepting incoming connections.
-   *
-   * @return true if listening (and accepting incoming connections),
-   *          false otherwise.
-   */
-  public boolean isListening() {
+    /**
+     * Tests if this <tt>ModbusTCPListener</tt> is listening
+     * and accepting incoming connections.
+     *
+     * @return true if listening (and accepting incoming connections),          false otherwise.
+     */
+    public boolean isListening() {
     return m_Listening;
   }//isListening
 
-  class ModbusUDPHandler
+    /**
+     * The type Modbus udp handler.
+     */
+    class ModbusUDPHandler
       implements Runnable {
 
     private ModbusUDPTransport m_Transport;
     private boolean m_Continue = true;
 
-    public ModbusUDPHandler(ModbusUDPTransport transport) {
+        /**
+         * Instantiates a new Modbus udp handler.
+         *
+         * @param transport the transport
+         */
+        public ModbusUDPHandler(ModbusUDPTransport transport) {
       m_Transport = transport;
     }//constructor
 
@@ -167,7 +174,10 @@ public class ModbusUDPListener {
       }
     }//run
 
-    public void stop() {
+        /**
+         * Stop.
+         */
+        public void stop() {
       m_Continue = false;
     }//stop
 

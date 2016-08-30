@@ -41,11 +41,23 @@ import com.sparetimelabs.serial.termios.TimeVal;
 import static com.sparetimelabs.serial.termios.JTermios.*;
 import static com.sparetimelabs.serial.termios.JTermios.JTermiosLogging.log;
 
+/**
+ * The type Solaris termios.
+ */
 public class SolarisTermios implements JTermiosInterface {
 
     private static String DEVICE_DIR_PATH = "/dev/";
+    /**
+     * The M clib dm.
+     */
     static C_lib_DirectMapping m_ClibDM;
+    /**
+     * The M clib.
+     */
     static C_lib m_Clib;
+    /**
+     * The M clib nd.
+     */
     static NonDirectCLib m_ClibND;
 
     static {
@@ -56,6 +68,9 @@ public class SolarisTermios implements JTermiosInterface {
         m_Clib = m_ClibDM;
     }
 
+    /**
+     * The type C lib direct mapping.
+     */
     public static class C_lib_DirectMapping implements C_lib {
 
         native public int pipe(int[] fds);
@@ -95,56 +110,211 @@ public class SolarisTermios implements JTermiosInterface {
         native public int tcsendbreak(int fd, int duration);
     }
 
+    /**
+     * The interface C lib.
+     */
     public interface C_lib extends Library {
 
+        /**
+         * Pipe int.
+         *
+         * @param fds the fds
+         * @return the int
+         */
         public int pipe(int[] fds);
 
+        /**
+         * Tcdrain int.
+         *
+         * @param fd the fd
+         * @return the int
+         */
         public int tcdrain(int fd);
 
+        /**
+         * Cfmakeraw.
+         *
+         * @param termios the termios
+         */
         public void cfmakeraw(termios termios);
 
+        /**
+         * Fcntl int.
+         *
+         * @param fd  the fd
+         * @param cmd the cmd
+         * @param arg the arg
+         * @return the int
+         */
         public int fcntl(int fd, int cmd, int arg);
 
+        /**
+         * Ioctl int.
+         *
+         * @param fd  the fd
+         * @param cmd the cmd
+         * @param arg the arg
+         * @return the int
+         */
         public int ioctl(int fd, int cmd, int[] arg);
 
+        /**
+         * Open int.
+         *
+         * @param path  the path
+         * @param flags the flags
+         * @return the int
+         */
         public int open(String path, int flags);
 
+        /**
+         * Close int.
+         *
+         * @param fd the fd
+         * @return the int
+         */
         public int close(int fd);
 
+        /**
+         * Tcgetattr int.
+         *
+         * @param fd      the fd
+         * @param termios the termios
+         * @return the int
+         */
         public int tcgetattr(int fd, termios termios);
 
+        /**
+         * Tcsetattr int.
+         *
+         * @param fd      the fd
+         * @param cmd     the cmd
+         * @param termios the termios
+         * @return the int
+         */
         public int tcsetattr(int fd, int cmd, termios termios);
 
+        /**
+         * Cfsetispeed int.
+         *
+         * @param termios the termios
+         * @param i       the
+         * @return the int
+         */
         public int cfsetispeed(termios termios, NativeLong i);
 
+        /**
+         * Cfsetospeed int.
+         *
+         * @param termios the termios
+         * @param i       the
+         * @return the int
+         */
         public int cfsetospeed(termios termios, NativeLong i);
 
+        /**
+         * Cfgetispeed native long.
+         *
+         * @param termios the termios
+         * @return the native long
+         */
         public NativeLong cfgetispeed(termios termios);
 
+        /**
+         * Cfgetospeed native long.
+         *
+         * @param termios the termios
+         * @return the native long
+         */
         public NativeLong cfgetospeed(termios termios);
 
+        /**
+         * Write native size.
+         *
+         * @param fd     the fd
+         * @param buffer the buffer
+         * @param count  the count
+         * @return the native size
+         */
         public NativeSize write(int fd, byte[] buffer, NativeSize count);
 
+        /**
+         * Read native size.
+         *
+         * @param fd     the fd
+         * @param buffer the buffer
+         * @param count  the count
+         * @return the native size
+         */
         public NativeSize read(int fd, byte[] buffer, NativeSize count);
 
+        /**
+         * Tcflush int.
+         *
+         * @param fd the fd
+         * @param qs the qs
+         * @return the int
+         */
         public int tcflush(int fd, int qs);
 
+        /**
+         * Perror.
+         *
+         * @param msg the msg
+         */
         public void perror(String msg);
 
+        /**
+         * Tcsendbreak int.
+         *
+         * @param fd       the fd
+         * @param duration the duration
+         * @return the int
+         */
         public int tcsendbreak(int fd, int duration);
 
     }
 
+    /**
+     * The interface Non direct c lib.
+     */
     public interface NonDirectCLib extends Library {
 
+        /**
+         * Select int.
+         *
+         * @param n       the n
+         * @param read    the read
+         * @param write   the write
+         * @param error   the error
+         * @param timeout the timeout
+         * @return the int
+         */
         public int select(int n, fd_set read, fd_set write, fd_set error, timeval timeout);
 
+        /**
+         * Poll int.
+         *
+         * @param pfds    the pfds
+         * @param nfds    the nfds
+         * @param timeout the timeout
+         * @return the int
+         */
         public int poll(pollfd.ByReference pfds, int nfds, int timeout);
     }
 
+    /**
+     * The type Timeval.
+     */
     static public class timeval extends Structure {
 
+        /**
+         * The Tv sec.
+         */
         public NativeLong tv_sec;
+        /**
+         * The Tv usec.
+         */
         public NativeLong tv_usec;
 
         @Override
@@ -155,18 +325,39 @@ public class SolarisTermios implements JTermiosInterface {
             );
         }
 
+        /**
+         * Instantiates a new Timeval.
+         *
+         * @param timeout the timeout
+         */
         public timeval(com.sparetimelabs.serial.termios.TimeVal timeout) {
             tv_sec = new NativeLong(timeout.tv_sec);
             tv_usec = new NativeLong(timeout.tv_usec);
         }
     }
 
+    /**
+     * The type Pollfd.
+     */
     static public class pollfd extends Structure {
 
+        /**
+         * The type By reference.
+         */
         public static class ByReference extends pollfd implements Structure.ByReference {
         }
+
+        /**
+         * The Fd.
+         */
         public int fd;
+        /**
+         * The Events.
+         */
         public short events;
+        /**
+         * The Revents.
+         */
         public short revents;
 
         @Override
@@ -178,9 +369,17 @@ public class SolarisTermios implements JTermiosInterface {
             );
         }
 
+        /**
+         * Instantiates a new Pollfd.
+         */
         public pollfd() {
         }
 
+        /**
+         * Instantiates a new Pollfd.
+         *
+         * @param pfd the pfd
+         */
         public pollfd(Pollfd pfd) {
             fd = pfd.fd;
             events = pfd.events;
@@ -188,12 +387,21 @@ public class SolarisTermios implements JTermiosInterface {
         }
     }
 
+    /**
+     * The type Fd set.
+     */
     static public class fd_set extends Structure implements FDSet {
 
         private final static int NFBBITS = NativeLong.SIZE * 8;
         private final static int fd_count = 1024;
+        /**
+         * The Fd array.
+         */
         public NativeLong[] fd_array = new NativeLong[(fd_count + NFBBITS - 1) / NFBBITS];
 
+        /**
+         * Instantiates a new Fd set.
+         */
         public fd_set() {
             for (int i = 0; i < fd_array.length; ++i) {
                 fd_array[i] = new NativeLong();
@@ -227,12 +435,30 @@ public class SolarisTermios implements JTermiosInterface {
 
     }
 
+    /**
+     * The type Termios.
+     */
     static public class termios extends Structure {
 
+        /**
+         * The C iflag.
+         */
         public int c_iflag;
+        /**
+         * The C oflag.
+         */
         public int c_oflag;
+        /**
+         * The C cflag.
+         */
         public int c_cflag;
+        /**
+         * The C lflag.
+         */
         public int c_lflag;
+        /**
+         * The C cc.
+         */
         public byte[] c_cc = new byte[32];
 
         @Override
@@ -246,9 +472,17 @@ public class SolarisTermios implements JTermiosInterface {
             );
         }
 
+        /**
+         * Instantiates a new Termios.
+         */
         public termios() {
         }
 
+        /**
+         * Instantiates a new Termios.
+         *
+         * @param t the t
+         */
         public termios(com.sparetimelabs.serial.termios.Termios t) {
             c_iflag = t.c_iflag;
             c_oflag = t.c_oflag;
@@ -257,6 +491,11 @@ public class SolarisTermios implements JTermiosInterface {
             System.arraycopy(t.c_cc, 0, c_cc, 0, Math.min(t.c_cc.length, c_cc.length));
         }
 
+        /**
+         * Update.
+         *
+         * @param t the t
+         */
         public void update(com.sparetimelabs.serial.termios.Termios t) {
             t.c_iflag = c_iflag;
             t.c_oflag = c_oflag;
@@ -266,6 +505,9 @@ public class SolarisTermios implements JTermiosInterface {
         }
     }
 
+    /**
+     * Instantiates a new Solaris termios.
+     */
     public SolarisTermios() {
         log = log && log(1, "instantiating %s\n", getClass().getCanonicalName());
 

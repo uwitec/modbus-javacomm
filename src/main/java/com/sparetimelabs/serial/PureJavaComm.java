@@ -29,13 +29,26 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Pure java comm.
+ */
 public class PureJavaComm {
 
+    /**
+     * Gets version.
+     *
+     * @return the version
+     */
     // change this if you modify the code and re-distribute
     public static String getVersion() {
         return "1.0.0";
     }
 
+    /**
+     * Gets fork.
+     *
+     * @return the fork
+     */
     // change this is if you fork the project
     public static String getFork() {
         return "SpareTimeLabs";

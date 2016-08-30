@@ -25,27 +25,26 @@ import java.io.OutputStream;
  * Class implementing a specialized <tt>OutputStream</tt> which
  * duplicates bytes written to the stream that resemble a
  * frame token.
- *
+ * <p>
  * Note that the "virtual" characters FRAME_START and FRAME_END
  * are exceptions, they are translated to the respective tokens
  * as given by the specification.
  *
  * @author Dieter Wimberger
  * @version @version@ (@date@)
- *
- * @see ModbusBINTransport#FRAME_START
- * @see ModbusBINTransport#FRAME_END
+ * @see ModbusBINTransport#FRAME_START ModbusBINTransport#FRAME_START
+ * @see ModbusBINTransport#FRAME_END ModbusBINTransport#FRAME_END
  */
 public class BINOutputStream
     extends FilterOutputStream {
 
-  /**
-   * Constructs a new <tt>BINOutputStream</tt> instance
-   * writing to the given <tt>OutputStream</tt>.
-   *
-   * @param out a base output stream instance to be wrapped.
-   */
-  public BINOutputStream(OutputStream out) {
+    /**
+     * Constructs a new <tt>BINOutputStream</tt> instance
+     * writing to the given <tt>OutputStream</tt>.
+     *
+     * @param out a base output stream instance to be wrapped.
+     */
+    public BINOutputStream(OutputStream out) {
     super(out);
   }//constructor
 

@@ -31,15 +31,41 @@ package com.sparetimelabs.serial;
 
 import java.io.IOException;
 
+/**
+ * The type Test 9.
+ */
 public class Test9 extends TestBase {
 
+    /**
+     * The M read thread running.
+     */
     static volatile boolean m_ReadThreadRunning;
+    /**
+     * The M read bytes.
+     */
     static volatile int m_ReadBytes = 0;
+    /**
+     * The M t 0.
+     */
     static volatile long m_T0;
+    /**
+     * The M t 1.
+     */
     static volatile long m_T1;
+    /**
+     * The M tx buffer.
+     */
     static byte[] m_TxBuffer = new byte[1000];
+    /**
+     * The M rx buffer.
+     */
     static byte[] m_RxBuffer = new byte[m_TxBuffer.length];
 
+    /**
+     * Start read thread.
+     *
+     * @throws Exception the exception
+     */
     static void startReadThread() throws Exception {
         Thread rxthread = new Thread(new Runnable() {
             public void run() {
@@ -64,6 +90,11 @@ public class Test9 extends TestBase {
 
     }
 
+    /**
+     * Run.
+     *
+     * @throws Exception the exception
+     */
     static void run() throws Exception {
 
         try {

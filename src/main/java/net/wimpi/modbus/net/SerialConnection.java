@@ -53,44 +53,42 @@ public class SerialConnection implements SerialPortEventListener {
 	private boolean m_Open;
 	private InputStream m_SerialIn;
 
-	/**
-	 * Creates a SerialConnection object and initilizes variables passed in as
-	 * params.
-	 *
-	 * @param parameters
-	 *            A SerialParameters object.
-	 */
-	public SerialConnection(SerialParameters parameters) {
+    /**
+     * Creates a SerialConnection object and initilizes variables passed in as
+     * params.
+     *
+     * @param parameters A SerialParameters object.
+     */
+    public SerialConnection(SerialParameters parameters) {
 		m_Parameters = parameters;
 		m_Open = false;
 	}// constructor
 
-	/**
-	 * Returns the reference to the SerialPort instance.
-	 *
-	 * @return a reference to the <tt>SerialPort</tt>.
-	 */
-	public SerialPort getSerialPort() {
+    /**
+     * Returns the reference to the SerialPort instance.
+     *
+     * @return a reference to the <tt>SerialPort</tt>.
+     */
+    public SerialPort getSerialPort() {
 		return m_SerialPort;
 	}// getSerialPort
 
-	/**
-	 * Returns the <tt>ModbusTransport</tt> instance to be used for receiving
-	 * and sending messages.
-	 *
-	 * @return a <tt>ModbusTransport</tt> instance.
-	 */
-	public ModbusTransport getModbusTransport() {
+    /**
+     * Returns the <tt>ModbusTransport</tt> instance to be used for receiving
+     * and sending messages.
+     *
+     * @return a <tt>ModbusTransport</tt> instance.
+     */
+    public ModbusTransport getModbusTransport() {
 		return m_Transport;
 	}// getModbusTransport
 
-	/**
-	 * Opens the communication port.
-	 *
-	 * @throws Exception
-	 *             if an error occurs.
-	 */
-	public void open() throws Exception {
+    /**
+     * Opens the communication port.
+     *
+     * @throws Exception if an error occurs.
+     */
+    public void open() throws Exception {
 
 		// 1. obtain a CommPortIdentifier instance
 		try {
@@ -168,7 +166,12 @@ public class SerialConnection implements SerialPortEventListener {
 		m_Open = true;
 	}// open
 
-	public void setReceiveTimeout(int ms) {
+    /**
+     * Sets receive timeout.
+     *
+     * @param ms the ms
+     */
+    public void setReceiveTimeout(int ms) {
 		// Set receive timeout to allow breaking out of polling loop during
 		// input handling.
 		try {
@@ -179,16 +182,14 @@ public class SerialConnection implements SerialPortEventListener {
 		}
 	}// setReceiveTimeout
 
-	/**
-	 * Sets the connection parameters to the setting in the parameters object.
-	 * If set fails return the parameters object to origional settings and throw
-	 * exception.
-	 *
-	 * @throws Exception
-	 *             if the configured parameters cannot be set properly on the
-	 *             port.
-	 */
-	public void setConnectionParameters() throws Exception {
+    /**
+     * Sets the connection parameters to the setting in the parameters object.
+     * If set fails return the parameters object to origional settings and throw
+     * exception.
+     *
+     * @throws Exception if the configured parameters cannot be set properly on the             port.
+     */
+    public void setConnectionParameters() throws Exception {
 
 		// Save state of parameters before trying a set.
 		int oldBaudRate = m_SerialPort.getBaudRate();
@@ -225,10 +226,10 @@ public class SerialConnection implements SerialPortEventListener {
 		}
 	}// setConnectionParameters
 
-	/**
-	 * Close the port and clean up associated elements.
-	 */
-	public void close() {
+    /**
+     * Close the port and clean up associated elements.
+     */
+    public void close() {
 		// If port is alread closed just return.
 		if (!m_Open) {
 			return;
@@ -249,12 +250,12 @@ public class SerialConnection implements SerialPortEventListener {
 		m_Open = false;
 	}// close
 
-	/**
-	 * Reports the open status of the port.
-	 *
-	 * @return true if port is open, false if port is closed.
-	 */
-	public boolean isOpen() {
+    /**
+     * Reports the open status of the port.
+     *
+     * @return true if port is open, false if port is closed.
+     */
+    public boolean isOpen() {
 		return m_Open;
 	}// isOpen
 

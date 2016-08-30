@@ -21,40 +21,48 @@
  ***/
 package net.wimpi.modbus.util;
 
+/**
+ * The type Linked queue.
+ */
 public class LinkedQueue {
 
-  /**
-   * Dummy header node of list. The first actual node, if it exists, is always
-   * at m_Head.m_NextNode. After each take, the old first node becomes the head.
-   **/
-  protected LinkedNode m_Head;
+    /**
+     * Dummy header node of list. The first actual node, if it exists, is always
+     * at m_Head.m_NextNode. After each take, the old first node becomes the head.
+     */
+    protected LinkedNode m_Head;
 
-  /**
-   * Helper monitor for managing access to last node.
-   **/
-  protected final Object m_PutLock = new Object();
+    /**
+     * Helper monitor for managing access to last node.
+     */
+    protected final Object m_PutLock = new Object();
 
-  /**
-   * The last node of list. Put() appends to list, so modifies m_Tail_
-   **/
-  protected LinkedNode m_Tail;
+    /**
+     * The last node of list. Put() appends to list, so modifies m_Tail_
+     */
+    protected LinkedNode m_Tail;
 
-  /**
-   * The number of threads waiting for a take.
-   * Notifications are provided in put only if greater than zero.
-   * The bookkeeping is worth it here since in reasonably balanced
-   * usages, the notifications will hardly ever be necessary, so
-   * the call overhead to notify can be eliminated.
-   **/
-  protected int m_WaitingForTake = 0;
+    /**
+     * The number of threads waiting for a take.
+     * Notifications are provided in put only if greater than zero.
+     * The bookkeeping is worth it here since in reasonably balanced
+     * usages, the notifications will hardly ever be necessary, so
+     * the call overhead to notify can be eliminated.
+     */
+    protected int m_WaitingForTake = 0;
 
-  public LinkedQueue() {
+    /**
+     * Instantiates a new Linked queue.
+     */
+    public LinkedQueue() {
     m_Head = new LinkedNode(null);
     m_Tail = m_Head;
   }//constructor
 
-  /** Main mechanics for put/offer **/
-  protected void insert(Object x) {
+    /**
+     * Main mechanics for put/offer  @param x the x
+     */
+    protected void insert(Object x) {
     synchronized (m_PutLock) {
       LinkedNode p = new LinkedNode(x);
       synchronized (m_Tail) {
@@ -66,8 +74,10 @@ public class LinkedQueue {
     }
   }//insert
 
-  /** Main mechanics for take/poll **/
-  protected synchronized Object extract() {
+    /**
+     * Main mechanics for take/poll  @return the object
+     */
+    protected synchronized Object extract() {
     synchronized (m_Head) {
       Object x = null;
       LinkedNode first = m_Head.m_NextNode;
@@ -81,13 +91,27 @@ public class LinkedQueue {
   }//extract
 
 
-  public void put(Object x) throws InterruptedException {
+    /**
+     * Put.
+     *
+     * @param x the x
+     * @throws InterruptedException the interrupted exception
+     */
+    public void put(Object x) throws InterruptedException {
     if (x == null) throw new IllegalArgumentException();
     //@commentstart@if (Thread.interrupted()) throw new InterruptedException();//@commentend@
     insert(x);
   }//put
 
-  public boolean offer(Object x, long msecs) throws InterruptedException {
+    /**
+     * Offer boolean.
+     *
+     * @param x     the x
+     * @param msecs the msecs
+     * @return the boolean
+     * @throws InterruptedException the interrupted exception
+     */
+    public boolean offer(Object x, long msecs) throws InterruptedException {
     if (x == null) {
       throw new IllegalArgumentException();
     }
@@ -100,7 +124,13 @@ public class LinkedQueue {
     return true;
   }//offer
 
-  public Object take() throws InterruptedException {
+    /**
+     * Take object.
+     *
+     * @return the object
+     * @throws InterruptedException the interrupted exception
+     */
+    public Object take() throws InterruptedException {
     //@commentstart@if (Thread.interrupted()) throw new InterruptedException();//@commentend@
     // try to extract. If fail, then enter wait-based retry loop
     Object x = extract();
@@ -128,7 +158,12 @@ public class LinkedQueue {
     }
   }//take
 
-  public Object peek() {
+    /**
+     * Peek object.
+     *
+     * @return the object
+     */
+    public Object peek() {
     synchronized (m_Head) {
       LinkedNode first = m_Head.m_NextNode;
       if (first != null) {
@@ -140,13 +175,25 @@ public class LinkedQueue {
   }//peek
 
 
-  public boolean isEmpty() {
+    /**
+     * Is empty boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isEmpty() {
     synchronized (m_Head) {
       return m_Head.m_NextNode == null;
     }
   }//isEmpty
 
-  public Object poll(long msecs) throws InterruptedException {
+    /**
+     * Poll object.
+     *
+     * @param msecs the msecs
+     * @return the object
+     * @throws InterruptedException the interrupted exception
+     */
+    public Object poll(long msecs) throws InterruptedException {
     //@commentstart@if (Thread.interrupted()) throw new InterruptedException();//@commentend@
     Object x = extract();
     if (x != null) {

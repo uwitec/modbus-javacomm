@@ -39,12 +39,12 @@ public class ModbusSerialListener {
   private SerialConnection m_SerialCon;
   private static int c_RequestCounter = 0;          //counter for amount of requests
 
-  /**
-   * Constructs a new <tt>ModbusSerialListener</tt> instance.
-   *
-   * @param params a <tt>SerialParameters</tt> instance.
-   */
-  public ModbusSerialListener(SerialParameters params) {
+    /**
+     * Constructs a new <tt>ModbusSerialListener</tt> instance.
+     *
+     * @param params a <tt>SerialParameters</tt> instance.
+     */
+    public ModbusSerialListener(SerialParameters params) {
     m_SerialCon = new SerialConnection(params);
     //System.out.println("Created connection.");
     listen();
@@ -97,24 +97,22 @@ public class ModbusSerialListener {
     }
   }//listen
 
-  /**
-   * Sets the listening flag of this <tt>ModbusTCPListener</tt>.
-   *
-   * @param b true if listening (and accepting incoming connections),
-   *        false otherwise.
-   */
-  public void setListening(boolean b) {
+    /**
+     * Sets the listening flag of this <tt>ModbusTCPListener</tt>.
+     *
+     * @param b true if listening (and accepting incoming connections),        false otherwise.
+     */
+    public void setListening(boolean b) {
     m_Listening = b;
   }//setListening
 
-  /**
-   * Tests if this <tt>ModbusTCPListener</tt> is listening
-   * and accepting incoming connections.
-   *
-   * @return true if listening (and accepting incoming connections),
-   *          false otherwise.
-   */
-  public boolean isListening() {
+    /**
+     * Tests if this <tt>ModbusTCPListener</tt> is listening
+     * and accepting incoming connections.
+     *
+     * @return true if listening (and accepting incoming connections),          false otherwise.
+     */
+    public boolean isListening() {
     return m_Listening;
   }//isListening
 

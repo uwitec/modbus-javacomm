@@ -29,6 +29,9 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type No such port exception.
+ */
 public class NoSuchPortException extends Exception {
 
 }

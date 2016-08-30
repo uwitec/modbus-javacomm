@@ -29,28 +29,53 @@ import java.util.Vector;
 public class SimpleProcessImage
     implements ProcessImageImplementation {
 
-  //instance attributes
+    /**
+     * The M digital inputs.
+     */
+    //instance attributes
   protected Vector<DigitalIn> m_DigitalInputs;
-  protected Vector<DigitalOut> m_DigitalOutputs;
-  protected Vector<InputRegister> m_InputRegisters;
-  protected Vector<Register> m_Registers;
-  protected boolean m_Locked = false;
+    /**
+     * The M digital outputs.
+     */
+    protected Vector<DigitalOut> m_DigitalOutputs;
+    /**
+     * The M input registers.
+     */
+    protected Vector<InputRegister> m_InputRegisters;
+    /**
+     * The M registers.
+     */
+    protected Vector<Register> m_Registers;
+    /**
+     * The M locked.
+     */
+    protected boolean m_Locked = false;
 
-  /**
-   * Constructs a new <tt>SimpleProcessImage</tt> instance.
-   */
-  public SimpleProcessImage() {
+    /**
+     * Constructs a new <tt>SimpleProcessImage</tt> instance.
+     */
+    public SimpleProcessImage() {
     m_DigitalInputs = new Vector<>();
     m_DigitalOutputs = new Vector<>();
     m_InputRegisters = new Vector<>();
     m_Registers = new Vector<>();
   }//SimpleProcessImage
 
-  public boolean isLocked() {
+    /**
+     * Is locked boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isLocked() {
     return m_Locked;
   }//isLocked
 
-  public void setLocked(boolean locked) {
+    /**
+     * Sets locked.
+     *
+     * @param locked the locked
+     */
+    public void setLocked(boolean locked) {
     m_Locked = locked;
   }//setLocked
 

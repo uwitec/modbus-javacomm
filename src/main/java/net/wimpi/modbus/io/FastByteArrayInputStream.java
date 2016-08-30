@@ -37,34 +37,49 @@ import java.io.InputStream;
 public class FastByteArrayInputStream
     extends InputStream {
 
-  protected int count;
-  protected int pos;
-  protected int mark;
-  protected byte[] buf;
-  protected int readlimit = -1;
+    /**
+     * The Count.
+     */
+    protected int count;
+    /**
+     * The Pos.
+     */
+    protected int pos;
+    /**
+     * The Mark.
+     */
+    protected int mark;
+    /**
+     * The Buf.
+     */
+    protected byte[] buf;
+    /**
+     * The Readlimit.
+     */
+    protected int readlimit = -1;
 
-  /**
-   * Creates a new <tt>FastByteArrayInputStream</tt> instance
-   * that allows to read from the given byte array.
-   *
-   * @param buffer the data to be read.
-   */
-  public FastByteArrayInputStream(byte[] buffer) {
+    /**
+     * Creates a new <tt>FastByteArrayInputStream</tt> instance
+     * that allows to read from the given byte array.
+     *
+     * @param buffer the data to be read.
+     */
+    public FastByteArrayInputStream(byte[] buffer) {
     buf = buffer;
     count = buf.length;
     pos = 0;
     mark = 0;
   }//constructor
 
-  /**
-   * Creates a new <tt>FastByteArrayInputStream</tt> instance
-   * that allows to read from the given byte array.
-   *
-   * @param buffer the data to read.
-   * @param offset the byte offset at which to begin reading.
-   * @param length the number of bytes to read.
-   */
-  public FastByteArrayInputStream(byte[] buffer, int offset, int length) {
+    /**
+     * Creates a new <tt>FastByteArrayInputStream</tt> instance
+     * that allows to read from the given byte array.
+     *
+     * @param buffer the data to read.
+     * @param offset the byte offset at which to begin reading.
+     * @param length the number of bytes to read.
+     */
+    public FastByteArrayInputStream(byte[] buffer, int offset, int length) {
     buf = buffer;
     pos = offset;
     count = length;
@@ -201,30 +216,30 @@ public class FastByteArrayInputStream
     }
   }//reset
 
-  /**
-   * Returns the underlying data being read.
-   *
-   * @return the underlying data.
-   */
-  public byte[] getBuffer() {
+    /**
+     * Returns the underlying data being read.
+     *
+     * @return the underlying data.
+     */
+    public byte[] getBuffer() {
     return buf;
   }//getBuffer
 
-  /**
-   * Returns the offset at which data is being read from the buffer.
-   *
-   * @return the offset at which data is being read.
-   */
-  public int getPosition() {
+    /**
+     * Returns the offset at which data is being read from the buffer.
+     *
+     * @return the offset at which data is being read.
+     */
+    public int getPosition() {
     return pos;
   }//getPosition
 
-  /**
-   * Returns the size of the buffer being read.
-   *
-   * @return the size of the buffer.
-   */
-  public int size() {
+    /**
+     * Returns the size of the buffer being read.
+     *
+     * @return the size of the buffer.
+     */
+    public int size() {
     return count;
   }//size
 

@@ -42,28 +42,27 @@ public final class WriteCoilRequest
   private int m_Reference;
   private boolean m_Coil;
 
-  /**
-   * Constructs a new <tt>WriteCoilRequest</tt>
-   * instance.
-   */
-  public WriteCoilRequest() {
+    /**
+     * Constructs a new <tt>WriteCoilRequest</tt>
+     * instance.
+     */
+    public WriteCoilRequest() {
     super();
     setFunctionCode(Modbus.WRITE_COIL);
     //4 bytes (unit id and function code is excluded)
     setDataLength(4);
   }//constructor
 
-  /**
-   * Constructs a new <tt>WriteCoilRequest</tt>
-   * instance with a given reference and state to
-   * be written.
-   * <p>
-   * @param ref the reference number of the register
-   *        to read from.
-   * @param b true if the coil should be set of
-   *        false if it should be unset.
-   */
-  public WriteCoilRequest(int ref, boolean b) {
+    /**
+     * Constructs a new <tt>WriteCoilRequest</tt>
+     * instance with a given reference and state to
+     * be written.
+     * <p>
+     *
+     * @param ref the reference number of the register        to read from.
+     * @param b   true if the coil should be set of        false if it should be unset.
+     */
+    public WriteCoilRequest(int ref, boolean b) {
     super();
     setFunctionCode(Modbus.WRITE_COIL);
     //4 bytes (unit id and function code is excluded)
@@ -100,50 +99,52 @@ public final class WriteCoilRequest
     return response;
   }//createResponse
 
-  /**
-   * Sets the reference of the register of the coil
-   * that should be written to with this
-   * <tt>ReadCoilsRequest</tt>.
-   * <p>
-   * @param ref the reference of the coil's register.
-   */
-  public void setReference(int ref) {
+    /**
+     * Sets the reference of the register of the coil
+     * that should be written to with this
+     * <tt>ReadCoilsRequest</tt>.
+     * <p>
+     *
+     * @param ref the reference of the coil's register.
+     */
+    public void setReference(int ref) {
     m_Reference = ref;
     //setChanged(true);
   }//setReference
 
-  /**
-   * Returns the reference of the register of the coil
-   * that should be written to with this
-   * <tt>ReadCoilsRequest</tt>.
-   * <p>
-   * @return the reference of the coil's register.
-   */
-  public int getReference() {
+    /**
+     * Returns the reference of the register of the coil
+     * that should be written to with this
+     * <tt>ReadCoilsRequest</tt>.
+     * <p>
+     *
+     * @return the reference of the coil's register.
+     */
+    public int getReference() {
     return m_Reference;
   }//getReference
 
 
-  /**
-   * Sets the state that should be written
-   * with this <tt>WriteCoilRequest</tt>.
-   * <p>
-   * @param b true if the coil should be set of
-   *        false if it should be unset.
-   */
-  public void setCoil(boolean b) {
+    /**
+     * Sets the state that should be written
+     * with this <tt>WriteCoilRequest</tt>.
+     * <p>
+     *
+     * @param b true if the coil should be set of        false if it should be unset.
+     */
+    public void setCoil(boolean b) {
     m_Coil = b;
     //setChanged(true);
   }//setCoil
 
-  /**
-   * Returns the state that should be written
-   * with this <tt>WriteCoilRequest</tt>.
-   * <p>
-   * @return true if the coil should be set of
-   *        false if it should be unset.
-   */
-  public boolean getCoil() {
+    /**
+     * Returns the state that should be written
+     * with this <tt>WriteCoilRequest</tt>.
+     * <p>
+     *
+     * @return true if the coil should be set of        false if it should be unset.
+     */
+    public boolean getCoil() {
     return m_Coil;
   }//getCoil
 

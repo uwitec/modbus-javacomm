@@ -29,10 +29,10 @@ public class ObservableDigitalOut
     extends Observable
     implements DigitalOut {
 
-  /**
-   * A boolean holding the state of this digital out.
-   */
-  protected boolean m_Set;
+    /**
+     * A boolean holding the state of this digital out.
+     */
+    protected boolean m_Set;
 
   public boolean isSet() {
     return m_Set;

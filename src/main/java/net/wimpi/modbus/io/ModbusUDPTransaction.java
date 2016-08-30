@@ -55,56 +55,56 @@ public class ModbusUDPTransaction
 
   private Mutex m_TransactionLock = new Mutex();
 
-  /**
-   * Constructs a new <tt>ModbusUDPTransaction</tt>
-   * instance.
-   */
-  public ModbusUDPTransaction() {
+    /**
+     * Constructs a new <tt>ModbusUDPTransaction</tt>
+     * instance.
+     */
+    public ModbusUDPTransaction() {
   }//constructor
 
-  /**
-   * Constructs a new <tt>ModbusUDPTransaction</tt>
-   * instance with a given <tt>ModbusRequest</tt> to
-   * be send when the transaction is executed.
-   * <p/>
-   *
-   * @param request a <tt>ModbusRequest</tt> instance.
-   */
-  public ModbusUDPTransaction(ModbusRequest request) {
+    /**
+     * Constructs a new <tt>ModbusUDPTransaction</tt>
+     * instance with a given <tt>ModbusRequest</tt> to
+     * be send when the transaction is executed.
+     * <p/>
+     *
+     * @param request a <tt>ModbusRequest</tt> instance.
+     */
+    public ModbusUDPTransaction(ModbusRequest request) {
     setRequest(request);
   }//constructor
 
-  /**
-   * Constructs a new <tt>ModbusUDPTransaction</tt>
-   * instance with a given <tt>UDPTerminal</tt> to
-   * be used for transactions.
-   * <p/>
-   *
-   * @param terminal a <tt>UDPTerminal</tt> instance.
-   */
-  public ModbusUDPTransaction(UDPTerminal terminal) {
+    /**
+     * Constructs a new <tt>ModbusUDPTransaction</tt>
+     * instance with a given <tt>UDPTerminal</tt> to
+     * be used for transactions.
+     * <p/>
+     *
+     * @param terminal a <tt>UDPTerminal</tt> instance.
+     */
+    public ModbusUDPTransaction(UDPTerminal terminal) {
     setTerminal(terminal);
   }//constructor
 
-  /**
-   * Constructs a new <tt>ModbusUDPTransaction</tt>
-   * instance with a given <tt>ModbusUDPConnection</tt>
-   * to be used for transactions.
-   * <p/>
-   *
-   * @param con a <tt>ModbusUDPConnection</tt> instance.
-   */
-  public ModbusUDPTransaction(UDPMasterConnection con) {
+    /**
+     * Constructs a new <tt>ModbusUDPTransaction</tt>
+     * instance with a given <tt>ModbusUDPConnection</tt>
+     * to be used for transactions.
+     * <p/>
+     *
+     * @param con a <tt>ModbusUDPConnection</tt> instance.
+     */
+    public ModbusUDPTransaction(UDPMasterConnection con) {
     setTerminal(con.getTerminal());
   }//constructor
 
-  /**
-   * Sets the terminal on which this <tt>ModbusTransaction</tt>
-   * should be executed.<p>
-   *
-   * @param terminal a <tt>UDPSlaveTerminal</tt>.
-   */
-  public void setTerminal(UDPTerminal terminal) {
+    /**
+     * Sets the terminal on which this <tt>ModbusTransaction</tt>
+     * should be executed.<p>
+     *
+     * @param terminal a <tt>UDPSlaveTerminal</tt>.
+     */
+    public void setTerminal(UDPTerminal terminal) {
     m_Terminal = terminal;
     if (terminal.isActive()) {
       m_IO = terminal.getModbusTransport();
@@ -230,15 +230,15 @@ public class ModbusUDPTransaction
     }
   }//assertExecuteable
 
-  /**
-   * Checks the validity of the transaction, by
-   * checking if the values of the response correspond
-   * to the values of the request.
-   * Use an override to provide some checks, this method will only return.
-   *
-   * @throws ModbusException if this transaction has not been valid.
-   */
-  protected void checkValidity() throws ModbusException {
+    /**
+     * Checks the validity of the transaction, by
+     * checking if the values of the response correspond
+     * to the values of the request.
+     * Use an override to provide some checks, this method will only return.
+     *
+     * @throws ModbusException if this transaction has not been valid.
+     */
+    protected void checkValidity() throws ModbusException {
   }//checkValidity
 
 }//class ModbusUDPTransaction

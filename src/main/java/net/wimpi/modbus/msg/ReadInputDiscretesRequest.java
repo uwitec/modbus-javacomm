@@ -61,8 +61,8 @@ public final class ReadInputDiscretesRequest
      * instance with a given reference and count of input
      * discretes (i.e. bits) to be read.
      * <p>
-     * @param ref the reference number of the register
-     *        to read from.
+     *
+     * @param ref   the reference number of the register        to read from.
      * @param count the number of bits to be read.
      */
     public ReadInputDiscretesRequest(int ref, int count) {
@@ -117,8 +117,8 @@ public final class ReadInputDiscretesRequest
      * Sets the reference of the register to start reading
      * from with this <tt>ReadInputDiscretesRequest</tt>.
      * <p>
-     * @param ref the reference of the register
-     *        to start reading from.
+     *
+     * @param ref the reference of the register        to start reading from.
      */
     public void setReference(int ref) {
         m_Reference = ref;
@@ -130,8 +130,8 @@ public final class ReadInputDiscretesRequest
      * reading from with this
      * <tt>ReadInputDiscretesRequest</tt>.
      * <p>
-     * @return the reference of the register
-     *        to start reading from as <tt>int</tt>.
+     *
+     * @return the reference of the register        to start reading from as <tt>int</tt>.
      */
     public int getReference() {
         return m_Reference;
@@ -141,6 +141,7 @@ public final class ReadInputDiscretesRequest
      * Sets the number of bits (i.e. input discretes) to be
      * read with this <tt>ReadInputDiscretesRequest</tt>.
      * <p>
+     *
      * @param count the number of bits to be read.
      */
     public void setBitCount(int count) {
@@ -154,6 +155,7 @@ public final class ReadInputDiscretesRequest
      * to be read with this
      * <tt>ReadInputDiscretesRequest</tt>.
      * <p>
+     *
      * @return the number of bits to be read.
      */
     public int getBitCount() {

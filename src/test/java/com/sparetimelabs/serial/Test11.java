@@ -29,12 +29,26 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Test 11.
+ */
 public class Test11 extends TestBase {
 
+    /**
+     * The M thread running.
+     */
     static volatile boolean m_ThreadRunning;
 
+    /**
+     * The M exit via exception.
+     */
     static volatile boolean m_ExitViaException;
 
+    /**
+     * Run.
+     *
+     * @throws Exception the exception
+     */
     static void run() throws Exception {
 
         try {

@@ -47,14 +47,13 @@ public class ModbusUDPMaster {
   private WriteSingleRegisterRequest m_WriteSingleRegisterRequest;
   private WriteMultipleRegistersRequest m_WriteMultipleRegistersRequest;
 
-  /**
-   * Constructs a new master facade instance for communication
-   * with a given slave.
-   *
-   * @param addr an internet address as resolvable IP name or IP number,
-   *             specifying the slave to communicate with.
-   */
-  public ModbusUDPMaster(String addr) {
+    /**
+     * Constructs a new master facade instance for communication
+     * with a given slave.
+     *
+     * @param addr an internet address as resolvable IP name or IP number,             specifying the slave to communicate with.
+     */
+    public ModbusUDPMaster(String addr) {
     try {
       m_SlaveAddress = InetAddress.getByName(addr);
       m_Connection = new UDPMasterConnection(m_SlaveAddress);
@@ -72,25 +71,24 @@ public class ModbusUDPMaster {
     }
   }//constructor
 
-  /**
-   * Constructs a new master facade instance for communication
-   * with a given slave.
-   *
-   * @param addr an internet address as resolvable IP name or IP number,
-   *             specifying the slave to communicate with.
-   * @param port the port the slave is listening to.
-   */
-  public ModbusUDPMaster(String addr, int port) {
+    /**
+     * Constructs a new master facade instance for communication
+     * with a given slave.
+     *
+     * @param addr an internet address as resolvable IP name or IP number,             specifying the slave to communicate with.
+     * @param port the port the slave is listening to.
+     */
+    public ModbusUDPMaster(String addr, int port) {
     this(addr);
     m_Connection.setPort(port);
   }//constructor
 
-  /**
-   * Connects this <tt>ModbusUDPMaster</tt> with the slave.
-   *
-   * @throws Exception if the connection cannot be established.
-   */
-  public void connect()
+    /**
+     * Connects this <tt>ModbusUDPMaster</tt> with the slave.
+     *
+     * @throws Exception if the connection cannot be established.
+     */
+    public void connect()
       throws Exception {
     if (m_Connection != null && !m_Connection.isConnected()) {
       m_Connection.connect();
@@ -98,30 +96,28 @@ public class ModbusUDPMaster {
     }
   }//connect
 
-  /**
-   * Disconnects this <tt>ModbusTCPMaster</tt> from the slave.
-   */
-  public void disconnect() {
+    /**
+     * Disconnects this <tt>ModbusTCPMaster</tt> from the slave.
+     */
+    public void disconnect() {
     if (m_Connection != null && m_Connection.isConnected()) {
       m_Connection.close();
       m_Transaction = null;
     }
   }//disconnect
 
-  /**
-   * Reads a given number of coil states from the slave.
-   * <p/>
-   * Note that the number of bits in the bit vector will be
-   * forced to the number originally requested.
-   *
-   * @param ref   the offset of the coil to start reading from.
-   * @param count the number of coil states to be read.
-   * @return a <tt>BitVector</tt> instance holding the
-   *         received coil states.
-   * @throws ModbusException if an I/O error, a slave exception or
-   *                         a transaction error occurs.
-   */
-  public synchronized BitVector readCoils(int ref, int count)
+    /**
+     * Reads a given number of coil states from the slave.
+     * <p/>
+     * Note that the number of bits in the bit vector will be
+     * forced to the number originally requested.
+     *
+     * @param ref   the offset of the coil to start reading from.
+     * @param count the number of coil states to be read.
+     * @return a <tt>BitVector</tt> instance holding the         received coil states.
+     * @throws ModbusException if an I/O error, a slave exception or                         a transaction error occurs.
+     */
+    public synchronized BitVector readCoils(int ref, int count)
       throws ModbusException {
     m_ReadCoilsRequest.setReference(ref);
     m_ReadCoilsRequest.setBitCount(count);
@@ -132,17 +128,16 @@ public class ModbusUDPMaster {
     return bv;
   }//readCoils
 
-  /**
-   * Writes a coil state to the slave.
-   *
-   * @param unitid the slave unit id.
-   * @param ref    the offset of the coil to be written.
-   * @param state  the coil state to be written.
-   * @return the state of the coil as returned from the slave.
-   * @throws ModbusException if an I/O error, a slave exception or
-   *                         a transaction error occurs.
-   */
-  public synchronized boolean writeCoil(int unitid, int ref, boolean state)
+    /**
+     * Writes a coil state to the slave.
+     *
+     * @param unitid the slave unit id.
+     * @param ref    the offset of the coil to be written.
+     * @param state  the coil state to be written.
+     * @return the state of the coil as returned from the slave.
+     * @throws ModbusException if an I/O error, a slave exception or                         a transaction error occurs.
+     */
+    public synchronized boolean writeCoil(int unitid, int ref, boolean state)
       throws ModbusException {
     m_WriteCoilRequest.setUnitID(unitid);
     m_WriteCoilRequest.setReference(ref);
@@ -152,18 +147,17 @@ public class ModbusUDPMaster {
     return ((WriteCoilResponse) m_Transaction.getResponse()).getCoil();
   }//writeCoil
 
-  /**
-   * Writes a given number of coil states to the slave.
-   * <p/>
-   * Note that the number of coils to be written is given
-   * implicitly, through {@link BitVector#size()}.
-   *
-   * @param ref   the offset of the coil to start writing to.
-   * @param coils a <tt>BitVector</tt> which holds the coil states to be written.
-   * @throws ModbusException if an I/O error, a slave exception or
-   *                         a transaction error occurs.
-   */
-  public synchronized void writeMultipleCoils(int ref, BitVector coils)
+    /**
+     * Writes a given number of coil states to the slave.
+     * <p/>
+     * Note that the number of coils to be written is given
+     * implicitly, through {@link BitVector#size()}.
+     *
+     * @param ref   the offset of the coil to start writing to.
+     * @param coils a <tt>BitVector</tt> which holds the coil states to be written.
+     * @throws ModbusException if an I/O error, a slave exception or                         a transaction error occurs.
+     */
+    public synchronized void writeMultipleCoils(int ref, BitVector coils)
       throws ModbusException {
     m_WriteMultipleCoilsRequest.setReference(ref);
     m_WriteMultipleCoilsRequest.setCoils(coils);
@@ -171,20 +165,18 @@ public class ModbusUDPMaster {
     m_Transaction.execute();
   }//writeMultipleCoils
 
-  /**
-   * Reads a given number of input discrete states from the slave.
-   * <p/>
-   * Note that the number of bits in the bit vector will be
-   * forced to the number originally requested.
-   *
-   * @param ref   the offset of the input discrete to start reading from.
-   * @param count the number of input discrete states to be read.
-   * @return a <tt>BitVector</tt> instance holding the received input discrete
-   *         states.
-   * @throws ModbusException if an I/O error, a slave exception or
-   *                         a transaction error occurs.
-   */
-  public synchronized BitVector readInputDiscretes(int ref, int count)
+    /**
+     * Reads a given number of input discrete states from the slave.
+     * <p/>
+     * Note that the number of bits in the bit vector will be
+     * forced to the number originally requested.
+     *
+     * @param ref   the offset of the input discrete to start reading from.
+     * @param count the number of input discrete states to be read.
+     * @return a <tt>BitVector</tt> instance holding the received input discrete         states.
+     * @throws ModbusException if an I/O error, a slave exception or                         a transaction error occurs.
+     */
+    public synchronized BitVector readInputDiscretes(int ref, int count)
       throws ModbusException {
     m_ReadInputDiscretesRequest.setReference(ref);
     m_ReadInputDiscretesRequest.setBitCount(count);
@@ -196,19 +188,18 @@ public class ModbusUDPMaster {
   }//readInputDiscretes
 
 
-  /**
-   * Reads a given number of input registers from the slave.
-   * <p/>
-   * Note that the number of input registers returned (i.e. array length)
-   * will be according to the number received in the slave response.
-   *
-   * @param ref   the offset of the input register to start reading from.
-   * @param count the number of input registers to be read.
-   * @return a <tt>InputRegister[]</tt> with the received input registers.
-   * @throws ModbusException if an I/O error, a slave exception or
-   *                         a transaction error occurs.
-   */
-  public synchronized InputRegister[] readInputRegisters(int ref, int count)
+    /**
+     * Reads a given number of input registers from the slave.
+     * <p/>
+     * Note that the number of input registers returned (i.e. array length)
+     * will be according to the number received in the slave response.
+     *
+     * @param ref   the offset of the input register to start reading from.
+     * @param count the number of input registers to be read.
+     * @return a <tt>InputRegister[]</tt> with the received input registers.
+     * @throws ModbusException if an I/O error, a slave exception or                         a transaction error occurs.
+     */
+    public synchronized InputRegister[] readInputRegisters(int ref, int count)
       throws ModbusException {
     m_ReadInputRegistersRequest.setReference(ref);
     m_ReadInputRegistersRequest.setWordCount(count);
@@ -217,19 +208,18 @@ public class ModbusUDPMaster {
     return ((ReadInputRegistersResponse) m_Transaction.getResponse()).getRegisters();
   }//readInputRegisters
 
-  /**
-   * Reads a given number of registers from the slave.
-   * <p/>
-   * Note that the number of registers returned (i.e. array length)
-   * will be according to the number received in the slave response.
-   *
-   * @param ref   the offset of the register to start reading from.
-   * @param count the number of registers to be read.
-   * @return a <tt>Register[]</tt> holding the received registers.
-   * @throws ModbusException if an I/O error, a slave exception or
-   *                         a transaction error occurs.
-   */
-  public synchronized Register[] readMultipleRegisters(int ref, int count)
+    /**
+     * Reads a given number of registers from the slave.
+     * <p/>
+     * Note that the number of registers returned (i.e. array length)
+     * will be according to the number received in the slave response.
+     *
+     * @param ref   the offset of the register to start reading from.
+     * @param count the number of registers to be read.
+     * @return a <tt>Register[]</tt> holding the received registers.
+     * @throws ModbusException if an I/O error, a slave exception or                         a transaction error occurs.
+     */
+    public synchronized Register[] readMultipleRegisters(int ref, int count)
       throws ModbusException {
     m_ReadMultipleRegistersRequest.setReference(ref);
     m_ReadMultipleRegistersRequest.setWordCount(count);
@@ -238,16 +228,14 @@ public class ModbusUDPMaster {
     return ((ReadMultipleRegistersResponse) m_Transaction.getResponse()).getRegisters();
   }//readMultipleRegisters
 
-  /**
-   * Writes a single register to the slave.
-   *
-   * @param ref      the offset of the register to be written.
-   * @param register a <tt>Register</tt> holding the value of the register
-   *                 to be written.
-   * @throws ModbusException if an I/O error, a slave exception or
-   *                         a transaction error occurs.
-   */
-  public synchronized void writeSingleRegister(int ref, Register register)
+    /**
+     * Writes a single register to the slave.
+     *
+     * @param ref      the offset of the register to be written.
+     * @param register a <tt>Register</tt> holding the value of the register                 to be written.
+     * @throws ModbusException if an I/O error, a slave exception or                         a transaction error occurs.
+     */
+    public synchronized void writeSingleRegister(int ref, Register register)
       throws ModbusException {
     m_WriteSingleRegisterRequest.setReference(ref);
     m_WriteSingleRegisterRequest.setRegister(register);
@@ -255,16 +243,14 @@ public class ModbusUDPMaster {
     m_Transaction.execute();
   }//writeSingleRegister
 
-  /**
-   * Writes a number of registers to the slave.
-   *
-   * @param ref       the offset of the register to start writing to.
-   * @param registers a <tt>Register[]</tt> holding the values of
-   *                  the registers to be written.
-   * @throws ModbusException if an I/O error, a slave exception or
-   *                         a transaction error occurs.
-   */
-  public synchronized void writeMultipleRegisters(int ref, Register[] registers)
+    /**
+     * Writes a number of registers to the slave.
+     *
+     * @param ref       the offset of the register to start writing to.
+     * @param registers a <tt>Register[]</tt> holding the values of                  the registers to be written.
+     * @throws ModbusException if an I/O error, a slave exception or                         a transaction error occurs.
+     */
+    public synchronized void writeMultipleRegisters(int ref, Register[] registers)
       throws ModbusException {
     m_WriteMultipleRegistersRequest.setReference(ref);
     m_WriteMultipleRegistersRequest.setRegisters(registers);

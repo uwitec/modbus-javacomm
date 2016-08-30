@@ -31,17 +31,42 @@ package com.sparetimelabs.serial.termios;
 
 import static com.sparetimelabs.serial.termios.JTermios.errno;
 
+/**
+ * The type Test base.
+ */
 public class TestBase {
 
+    /**
+     * The constant m_TestPortName.
+     */
     protected static volatile String m_TestPortName;
+    /**
+     * The constant m_Tab.
+     */
     protected static int m_Tab;
+    /**
+     * The constant m_Progress.
+     */
     protected static int m_Progress;
     private static volatile long m_T0;
 
+    /**
+     * S.
+     *
+     * @param result the result
+     * @throws TestFailedException the test failed exception
+     */
     public static void S(int result) throws TestFailedException {
         S(result, null);
     }
 
+    /**
+     * S.
+     *
+     * @param result the result
+     * @param msg    the msg
+     * @throws TestFailedException the test failed exception
+     */
     public static void S(int result, String msg) throws TestFailedException {
         if (result == -1) {
             fail(msg == null ? "Operation failed with errno %d"
@@ -49,6 +74,11 @@ public class TestBase {
         }
     }
 
+    /**
+     * Begin.
+     *
+     * @param name the name
+     */
     static void begin(String name) {
         System.out.printf("%-46s", name);
         m_Tab = 46;
@@ -56,6 +86,12 @@ public class TestBase {
         m_Progress = 0;
     }
 
+    /**
+     * Sleep.
+     *
+     * @param t the t
+     * @throws InterruptedException the interrupted exception
+     */
     static protected void sleep(int t) throws InterruptedException {
         int m = 1000;
         while (t > 0) {
@@ -69,6 +105,13 @@ public class TestBase {
         }
     }
 
+    /**
+     * Fail.
+     *
+     * @param format the format
+     * @param args   the args
+     * @throws TestFailedException the test failed exception
+     */
     static void fail(String format, Object... args) throws TestFailedException {
         System.out.println(" FAILED");
         System.out.println("------------------------------------------------------------");
@@ -78,10 +121,19 @@ public class TestBase {
         throw new TestFailedException();
     }
 
+    /**
+     * Finished ok.
+     */
     static void finishedOK() {
         finishedOK("");
     }
 
+    /**
+     * Finished ok.
+     *
+     * @param format the format
+     * @param args   the args
+     */
     static void finishedOK(String format, Object... args) {
         for (int i = 0; i < m_Tab; i++) {
             System.out.print(".");
@@ -90,6 +142,11 @@ public class TestBase {
         System.out.println();
     }
 
+    /**
+     * Init.
+     *
+     * @param args the args
+     */
     static public void init(String[] args) {
         m_TestPortName = "cu.usbserial-FTOXM3NX";
         if (args.length > 0) {
@@ -101,6 +158,11 @@ public class TestBase {
         }
     }
 
+    /**
+     * Gets port name.
+     *
+     * @return the port name
+     */
     static public String getPortName() {
         return m_TestPortName;
     }

@@ -32,20 +32,19 @@ import java.io.OutputStream;
  *
  * @author Dieter Wimberger
  * @version @version@ (@date@)
- *
- * @see net.wimpi.modbus.io.ModbusASCIITransport#FRAME_START
- * @see net.wimpi.modbus.io.ModbusASCIITransport#FRAME_END
+ * @see net.wimpi.modbus.io.ModbusASCIITransport#FRAME_START net.wimpi.modbus.io.ModbusASCIITransport#FRAME_START
+ * @see net.wimpi.modbus.io.ModbusASCIITransport#FRAME_END net.wimpi.modbus.io.ModbusASCIITransport#FRAME_END
  */
 public class ASCIIOutputStream
     extends FilterOutputStream {
 
-  /**
-   * Constructs a new <tt>ASCIIOutputStream</tt> instance
-   * writing to the given <tt>OutputStream</tt>.
-   *
-   * @param out a base output stream instance to be wrapped.
-   */
-  public ASCIIOutputStream(OutputStream out) {
+    /**
+     * Constructs a new <tt>ASCIIOutputStream</tt> instance
+     * writing to the given <tt>OutputStream</tt>.
+     *
+     * @param out a base output stream instance to be wrapped.
+     */
+    public ASCIIOutputStream(OutputStream out) {
     super(out);
   }//constructor
 

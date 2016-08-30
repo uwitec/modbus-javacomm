@@ -29,11 +29,28 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The interface Comm port ownership listener.
+ */
 public interface CommPortOwnershipListener {
 
+    /**
+     * The constant PORT_OWNED.
+     */
     public static final int PORT_OWNED = 1;
+    /**
+     * The constant PORT_OWNERSHIP_REQUESTED.
+     */
     public static final int PORT_OWNERSHIP_REQUESTED = 3;
+    /**
+     * The constant PORT_UNOWNED.
+     */
     public static final int PORT_UNOWNED = 2;
 
+    /**
+     * Ownership change.
+     *
+     * @param type the type
+     */
     public void ownershipChange(int type);
 }

@@ -29,8 +29,17 @@
  */
 package com.sparetimelabs.serial.termios;
 
+/**
+ * The type Test suite.
+ */
 public class TestSuite {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws Exception the exception
+     */
     public static void main(String[] args) throws Exception {
         if (args.length > 0) {
 

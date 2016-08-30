@@ -33,7 +33,12 @@ import net.wimpi.modbus.util.SerialParameters;
  */
 public class SerialDITest {
 
-	public static void main(String[] args) {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
 
 		SerialConnection con = null;
 		ModbusSerialTransaction trans = null;

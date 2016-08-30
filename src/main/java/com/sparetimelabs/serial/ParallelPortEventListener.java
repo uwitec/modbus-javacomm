@@ -29,7 +29,15 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The interface Parallel port event listener.
+ */
 public interface ParallelPortEventListener {
 
+    /**
+     * Parallel event.
+     *
+     * @param ev the ev
+     */
     void parallelEvent(ParallelPortEvent ev);
 }

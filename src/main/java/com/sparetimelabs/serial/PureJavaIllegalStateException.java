@@ -29,12 +29,25 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Pure java illegal state exception.
+ */
 public class PureJavaIllegalStateException extends IllegalStateException {
 
+    /**
+     * Instantiates a new Pure java illegal state exception.
+     *
+     * @param message the message
+     */
     public PureJavaIllegalStateException(String message) {
         super(message);
     }
 
+    /**
+     * Instantiates a new Pure java illegal state exception.
+     *
+     * @param e the e
+     */
     public PureJavaIllegalStateException(Exception e) {
         super(e);
     }

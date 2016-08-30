@@ -31,6 +31,9 @@ package com.sparetimelabs.serial;
 
 import java.util.Random;
 
+/**
+ * The type Test 2.
+ */
 public class Test2 extends TestBase {
 
     private static boolean m_Done;
@@ -45,6 +48,12 @@ public class Test2 extends TestBase {
     private static volatile int m_ErrorCount = 0;
     private static int N = 1000;
 
+    /**
+     * Run.
+     *
+     * @param speed the speed
+     * @throws Exception the exception
+     */
     static void run(int speed) throws Exception {
         try {
             m_Done = false;

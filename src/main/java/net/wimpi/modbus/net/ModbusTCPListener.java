@@ -47,13 +47,12 @@ public class ModbusTCPListener
   private boolean m_Listening;
   private InetAddress m_Address;
 
-  /**
-   * Constructs a ModbusTCPListener instance.<br>
-   *
-   * @param poolsize the size of the <tt>ThreadPool</tt> used to handle
-   *        incoming requests.
-   */
-  public ModbusTCPListener(int poolsize) {
+    /**
+     * Constructs a ModbusTCPListener instance.<br>
+     *
+     * @param poolsize the size of the <tt>ThreadPool</tt> used to handle        incoming requests.
+     */
+    public ModbusTCPListener(int poolsize) {
     m_ThreadPool = new ThreadPool(poolsize);
     try {
       m_Address = InetAddress.getLocalHost();
@@ -62,50 +61,49 @@ public class ModbusTCPListener
     }
   }//constructor
 
-  /**
-   * Constructs a ModbusTCPListener instance.<br>
-   *
-   * @param poolsize the size of the <tt>ThreadPool</tt> used to handle
-   *        incoming requests.
-   * @param addr the interface to use for listening.
-   */
-  public ModbusTCPListener(int poolsize, InetAddress addr) {
+    /**
+     * Constructs a ModbusTCPListener instance.<br>
+     *
+     * @param poolsize the size of the <tt>ThreadPool</tt> used to handle        incoming requests.
+     * @param addr     the interface to use for listening.
+     */
+    public ModbusTCPListener(int poolsize, InetAddress addr) {
     m_ThreadPool = new ThreadPool(poolsize);
     m_Address = addr;
   }//constructor
 
 
-  /**
-   * Sets the port to be listened to.
-   *
-   * @param port the number of the IP port as <tt>int</tt>.
-   */
-  public void setPort(int port) {
+    /**
+     * Sets the port to be listened to.
+     *
+     * @param port the number of the IP port as <tt>int</tt>.
+     */
+    public void setPort(int port) {
     m_Port = port;
   }//setPort
 
-  /**
-   * Sets the address of the interface to be listened to.
-   *
-   * @param addr an <tt>InetAddress</tt> instance.
-   */
-  public void setAddress(InetAddress addr) {
+    /**
+     * Sets the address of the interface to be listened to.
+     *
+     * @param addr an <tt>InetAddress</tt> instance.
+     */
+    public void setAddress(InetAddress addr) {
     m_Address = addr;
   }//setAddress
 
-  /**
-   * Starts this <tt>ModbusTCPListener</tt>.
-   */
-  public void start() {
+    /**
+     * Starts this <tt>ModbusTCPListener</tt>.
+     */
+    public void start() {
     m_Listener = new Thread(this);
     m_Listener.start();
     m_Listening = true;
   }//start
 
-  /**
-   * Stops this <tt>ModbusTCPListener</tt>.
-   */
-  public void stop() {
+    /**
+     * Stops this <tt>ModbusTCPListener</tt>.
+     */
+    public void stop() {
     m_Listening = false;
     try {
       m_ServerSocket.close();
@@ -158,14 +156,13 @@ public class ModbusTCPListener
     }
   }//run
 
-  /**
-   * Tests if this <tt>ModbusTCPListener</tt> is listening
-   * and accepting incoming connections.
-   *
-   * @return true if listening (and accepting incoming connections),
-   *          false otherwise.
-   */
-  public boolean isListening() {
+    /**
+     * Tests if this <tt>ModbusTCPListener</tt> is listening
+     * and accepting incoming connections.
+     *
+     * @return true if listening (and accepting incoming connections),          false otherwise.
+     */
+    public boolean isListening() {
     return m_Listening;
   }//isListening
 

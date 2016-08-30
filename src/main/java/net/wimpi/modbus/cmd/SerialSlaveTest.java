@@ -33,7 +33,12 @@ import net.wimpi.modbus.util.SerialParameters;
  */
 public class SerialSlaveTest {
 
-  public static void main(String[] args) {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
 
     ModbusSerialListener listener = null;
     SimpleProcessImage spi = new SimpleProcessImage();

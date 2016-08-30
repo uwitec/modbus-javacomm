@@ -37,22 +37,22 @@ public class UDPMasterConnection {
   private InetAddress m_Address;
   private int m_Port = Modbus.DEFAULT_PORT;
 
-  /**
-   * Constructs a <tt>UDPMasterConnection</tt> instance
-   * with a given destination address.
-   *
-   * @param adr the destination <tt>InetAddress</tt>.
-   */
-  public UDPMasterConnection(InetAddress adr) {
+    /**
+     * Constructs a <tt>UDPMasterConnection</tt> instance
+     * with a given destination address.
+     *
+     * @param adr the destination <tt>InetAddress</tt>.
+     */
+    public UDPMasterConnection(InetAddress adr) {
     m_Address = adr;
   }//constructor
 
-  /**
-   * Opens this <tt>UDPMasterConnection</tt>.
-   *
-   * @throws Exception if there is a network failure.
-   */
-  public synchronized void connect()
+    /**
+     * Opens this <tt>UDPMasterConnection</tt>.
+     *
+     * @throws Exception if there is a network failure.
+     */
+    public synchronized void connect()
       throws Exception {
     if (!m_Connected) {
       m_Terminal = new UDPMasterTerminal();
@@ -66,10 +66,10 @@ public class UDPMasterConnection {
     }
   }//connect
 
-  /**
-   * Closes this <tt>UDPMasterConnection</tt>.
-   */
-  public void close() {
+    /**
+     * Closes this <tt>UDPMasterConnection</tt>.
+     */
+    public void close() {
     if (m_Connected) {
       try {
         m_Terminal.deactivate();
@@ -80,91 +80,91 @@ public class UDPMasterConnection {
     }
   }//close
 
-  /**
-   * Returns the <tt>ModbusTransport</tt> associated with this
-   * <tt>UDPMasterConnection</tt>.
-   *
-   * @return the connection's <tt>ModbusTransport</tt>.
-   */
-  public ModbusTransport getModbusTransport() {
+    /**
+     * Returns the <tt>ModbusTransport</tt> associated with this
+     * <tt>UDPMasterConnection</tt>.
+     *
+     * @return the connection's <tt>ModbusTransport</tt>.
+     */
+    public ModbusTransport getModbusTransport() {
     return m_Terminal.getModbusTransport();
   }//getModbusTransport
 
-  /**
-   * Returns the terminal used for handling the package traffic.
-   *
-   * @return a <tt>UDPTerminal</tt> instance.
-   */
-  public UDPTerminal getTerminal() {
+    /**
+     * Returns the terminal used for handling the package traffic.
+     *
+     * @return a <tt>UDPTerminal</tt> instance.
+     */
+    public UDPTerminal getTerminal() {
     return m_Terminal;
   }//getTerminal
 
-  /**
-   * Returns the timeout for this <tt>UDPMasterConnection</tt>.
-   *
-   * @return the timeout as <tt>int</tt>.
-   */
-  public int getTimeout() {
+    /**
+     * Returns the timeout for this <tt>UDPMasterConnection</tt>.
+     *
+     * @return the timeout as <tt>int</tt>.
+     */
+    public int getTimeout() {
     return m_Timeout;
   }//getReceiveTimeout
 
-  /**
-   * Sets the timeout for this <tt>UDPMasterConnection</tt>.
-   *
-   * @param timeout the timeout as <tt>int</tt>.
-   */
-  public void setTimeout(int timeout) {
+    /**
+     * Sets the timeout for this <tt>UDPMasterConnection</tt>.
+     *
+     * @param timeout the timeout as <tt>int</tt>.
+     */
+    public void setTimeout(int timeout) {
     m_Timeout = timeout;
     m_Terminal.setTimeout(timeout);
   }//setReceiveTimeout
 
-  /**
-   * Returns the destination port of this
-   * <tt>UDPMasterConnection</tt>.
-   *
-   * @return the port number as <tt>int</tt>.
-   */
-  public int getPort() {
+    /**
+     * Returns the destination port of this
+     * <tt>UDPMasterConnection</tt>.
+     *
+     * @return the port number as <tt>int</tt>.
+     */
+    public int getPort() {
     return m_Port;
   }//getPort
 
-  /**
-   * Sets the destination port of this
-   * <tt>UDPMasterConnection</tt>.
-   * The default is defined as <tt>Modbus.DEFAULT_PORT</tt>.
-   *
-   * @param port the port number as <tt>int</tt>.
-   */
-  public void setPort(int port) {
+    /**
+     * Sets the destination port of this
+     * <tt>UDPMasterConnection</tt>.
+     * The default is defined as <tt>Modbus.DEFAULT_PORT</tt>.
+     *
+     * @param port the port number as <tt>int</tt>.
+     */
+    public void setPort(int port) {
     m_Port = port;
   }//setPort
 
-  /**
-   * Returns the destination <tt>InetAddress</tt> of this
-   * <tt>UDPMasterConnection</tt>.
-   *
-   * @return the destination address as <tt>InetAddress</tt>.
-   */
-  public InetAddress getAddress() {
+    /**
+     * Returns the destination <tt>InetAddress</tt> of this
+     * <tt>UDPMasterConnection</tt>.
+     *
+     * @return the destination address as <tt>InetAddress</tt>.
+     */
+    public InetAddress getAddress() {
     return m_Address;
   }//getAddress
 
-  /**
-   * Sets the destination <tt>InetAddress</tt> of this
-   * <tt>UDPMasterConnection</tt>.
-   *
-   * @param adr the destination address as <tt>InetAddress</tt>.
-   */
-  public void setAddress(InetAddress adr) {
+    /**
+     * Sets the destination <tt>InetAddress</tt> of this
+     * <tt>UDPMasterConnection</tt>.
+     *
+     * @param adr the destination address as <tt>InetAddress</tt>.
+     */
+    public void setAddress(InetAddress adr) {
     m_Address = adr;
   }//setAddress
 
-  /**
-   * Tests if this <tt>UDPMasterConnection</tt> is connected.
-   *
-   * @return <tt>true</tt> if connected, <tt>false</tt> otherwise.
-   */
-  public boolean isConnected() {
+    /**
+     * Tests if this <tt>UDPMasterConnection</tt> is connected.
+     *
+     * @return <tt>true</tt> if connected, <tt>false</tt> otherwise.
+     */
+    public boolean isConnected() {
     return m_Connected;
   }//isConnected
 

@@ -29,9 +29,22 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The interface Comm driver.
+ */
 public interface CommDriver {
 
+    /**
+     * Gets comm port.
+     *
+     * @param portName the port name
+     * @param portType the port type
+     * @return the comm port
+     */
     public CommPort getCommPort(String portName, int portType);
 
+    /**
+     * Initialize.
+     */
     public void initialize();
 }

@@ -36,23 +36,23 @@ public final class WriteSingleRegisterResponse
   private int m_Reference;
   private int m_RegisterValue;
 
-  /**
-   * Constructs a new <tt>WriteSingleRegisterResponse</tt>
-   * instance.
-   */
-  public WriteSingleRegisterResponse() {
+    /**
+     * Constructs a new <tt>WriteSingleRegisterResponse</tt>
+     * instance.
+     */
+    public WriteSingleRegisterResponse() {
     super();
     setDataLength(4);
   }//constructor
 
-  /**
-   * Constructs a new <tt>WriteSingleRegisterResponse</tt>
-   * instance.
-   *
-   * @param reference the offset of the register written.
-   * @param value the value of the register.
-   */
-  public WriteSingleRegisterResponse(int reference, int value) {
+    /**
+     * Constructs a new <tt>WriteSingleRegisterResponse</tt>
+     * instance.
+     *
+     * @param reference the offset of the register written.
+     * @param value     the value of the register.
+     */
+    public WriteSingleRegisterResponse(int reference, int value) {
     super();
     setReference(reference);
     setRegisterValue(value);
@@ -60,13 +60,14 @@ public final class WriteSingleRegisterResponse
   }//constructor
 
 
-  /**
-   * Returns the value that has been returned in
-   * this <tt>WriteSingleRegisterResponse</tt>.
-   * <p>
-   * @return the value of the register.
-   */
-  public int getRegisterValue() {
+    /**
+     * Returns the value that has been returned in
+     * this <tt>WriteSingleRegisterResponse</tt>.
+     * <p>
+     *
+     * @return the value of the register.
+     */
+    public int getRegisterValue() {
     return m_RegisterValue;
   }//getValue
 
@@ -80,13 +81,14 @@ public final class WriteSingleRegisterResponse
     m_RegisterValue = value;
   }//setRegisterValue
 
-  /**
-   * Returns the reference of the register
-   * that has been written to.
-   * <p>
-   * @return the reference of the written register.
-   */
-  public int getReference() {
+    /**
+     * Returns the reference of the register
+     * that has been written to.
+     * <p>
+     *
+     * @return the reference of the written register.
+     */
+    public int getReference() {
     return m_Reference;
   }//getReference
 

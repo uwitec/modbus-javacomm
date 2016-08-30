@@ -31,7 +31,15 @@ package com.sparetimelabs.serial;
 
 import java.util.EventListener;
 
+/**
+ * The interface Serial port event listener.
+ */
 public interface SerialPortEventListener extends EventListener {
 
+    /**
+     * Serial event.
+     *
+     * @param event the event
+     */
     public void serialEvent(SerialPortEvent event);
 }

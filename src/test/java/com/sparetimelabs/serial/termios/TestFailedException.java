@@ -29,6 +29,9 @@
  */
 package com.sparetimelabs.serial.termios;
 
+/**
+ * The type Test failed exception.
+ */
 @SuppressWarnings("serial")
 class TestFailedException extends Exception {
 }

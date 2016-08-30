@@ -29,12 +29,20 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Test 4.
+ */
 public class Test4 extends TestBase {
 
     private static Exception m_Exception = null;
     private static Thread m_Receiver;
     private static Thread m_Transmitter;
 
+    /**
+     * Run.
+     *
+     * @throws Exception the exception
+     */
     static void run() throws Exception {
         try {
             begin("Test4 - indefinite blocking");

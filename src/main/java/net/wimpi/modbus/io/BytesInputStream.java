@@ -31,37 +31,40 @@ public class BytesInputStream
     extends FastByteArrayInputStream
     implements DataInput {
 
-  DataInputStream m_Din;
+    /**
+     * The M din.
+     */
+    DataInputStream m_Din;
 
-  /**
-   * Constructs a new <tt>BytesInputStream</tt> instance,
-   * with an empty buffer of a given size.
-   *
-   * @param size the size of the input buffer.
-   */
-  public BytesInputStream(int size) {
+    /**
+     * Constructs a new <tt>BytesInputStream</tt> instance,
+     * with an empty buffer of a given size.
+     *
+     * @param size the size of the input buffer.
+     */
+    public BytesInputStream(int size) {
     super(new byte[size]);
     m_Din = new DataInputStream(this);
   }//BytesInputStream
 
-  /**
-   * Constructs a new <tt>BytesInputStream</tt> instance,
-   * that will read from the given data.
-   *
-   * @param data a byte array containing data to be read.
-   */
-  public BytesInputStream(byte[] data) {
+    /**
+     * Constructs a new <tt>BytesInputStream</tt> instance,
+     * that will read from the given data.
+     *
+     * @param data a byte array containing data to be read.
+     */
+    public BytesInputStream(byte[] data) {
     super(data);
     m_Din = new DataInputStream(this);
   }//BytesInputStream
 
-  /**
-   * Resets this <tt>BytesInputStream</tt> using the given
-   * byte[] as new input buffer.
-   *
-   * @param data a byte array with data to be read.
-   */
-  public void reset(byte[] data) {
+    /**
+     * Resets this <tt>BytesInputStream</tt> using the given
+     * byte[] as new input buffer.
+     *
+     * @param data a byte array with data to be read.
+     */
+    public void reset(byte[] data) {
    // System.out.println("reset(byte[])::count=" + count + " pos=" + pos);
     pos = 0;
     mark = 0;
@@ -69,14 +72,14 @@ public class BytesInputStream
     count = data.length;
   }//reset
 
-  /**
-   * Resets this <tt>BytesInputStream</tt> using the given
-   * byte[] as new input buffer and a given length.
-   *
-   * @param data a byte array with data to be read.
-   * @param length the length of the buffer to be considered.
-   */
-  public void reset(byte[] data, int length) {
+    /**
+     * Resets this <tt>BytesInputStream</tt> using the given
+     * byte[] as new input buffer and a given length.
+     *
+     * @param data   a byte array with data to be read.
+     * @param length the length of the buffer to be considered.
+     */
+    public void reset(byte[] data, int length) {
     pos = 0;
     mark = 0;
     count = length;
@@ -85,26 +88,26 @@ public class BytesInputStream
     //System.out.println("reset(byte[],int)::count=" + count + " pos=" + pos);
   }//reset
 
-  /**
-   * Resets this <tt>BytesInputStream</tt>  assigning the input buffer
-   * a new length.
-   *
-   * @param length the length of the buffer to be considered.
-   */
-  public void reset(int length) {
+    /**
+     * Resets this <tt>BytesInputStream</tt>  assigning the input buffer
+     * a new length.
+     *
+     * @param length the length of the buffer to be considered.
+     */
+    public void reset(int length) {
     //System.out.println("reset(int)::count=" + count + " pos=" + pos);
     pos = 0;
     count = length;
   }//reset
 
-  /**
-   * Skips the given number of bytes or all bytes till the end
-   * of the assigned input buffer length.
-   *
-   * @param n the number of bytes to be skipped as <tt>int</tt>.
-   * @return the number of bytes skipped.
-   */
-  public int skip(int n) {
+    /**
+     * Skips the given number of bytes or all bytes till the end
+     * of the assigned input buffer length.
+     *
+     * @param n the number of bytes to be skipped as <tt>int</tt>.
+     * @return the number of bytes skipped.
+     */
+    public int skip(int n) {
     mark(pos);
     pos += n;
     return n;
@@ -119,7 +122,12 @@ public class BytesInputStream
     return buf;
   }//getBuffer
 
-  public int getBufferLength() {
+    /**
+     * Gets buffer length.
+     *
+     * @return the buffer length
+     */
+    public int getBufferLength() {
     return buf.length;
   }//getBufferLength
 

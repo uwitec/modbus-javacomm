@@ -33,19 +33,18 @@ public class IllegalAddressException extends RuntimeException {
 	 */
 	private static final long serialVersionUID = -3998925253230678777L;
 
-	/**
-	 * Constructs a new <tt>IllegalAddressException</tt>.
-	 */
-	public IllegalAddressException() {
+    /**
+     * Constructs a new <tt>IllegalAddressException</tt>.
+     */
+    public IllegalAddressException() {
 	}// constructor()
 
-	/**
-	 * Constructs a new <tt>IllegalAddressException</tt> with the given message.
-	 *
-	 * @param message
-	 *            a message as <tt>String</tt>.
-	 */
-	public IllegalAddressException(String message) {
+    /**
+     * Constructs a new <tt>IllegalAddressException</tt> with the given message.
+     *
+     * @param message a message as <tt>String</tt>.
+     */
+    public IllegalAddressException(String message) {
 		super(message);
 	}// constructor(String)
 

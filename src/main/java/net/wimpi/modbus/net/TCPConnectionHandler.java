@@ -34,22 +34,22 @@ public class TCPConnectionHandler implements Runnable {
   private TCPSlaveConnection m_Connection;
   private ModbusTransport m_Transport;
 
-  /**
-   * Constructs a new <tt>TCPConnectionHandler</tt> instance.
-   *
-   * @param con an incoming connection.
-   */
-  public TCPConnectionHandler(TCPSlaveConnection con) {
+    /**
+     * Constructs a new <tt>TCPConnectionHandler</tt> instance.
+     *
+     * @param con an incoming connection.
+     */
+    public TCPConnectionHandler(TCPSlaveConnection con) {
     setConnection(con);
   }//constructor
 
-  /**
-   * Sets a connection to be handled by this <tt>
-   * TCPConnectionHandler</tt>.
-   *
-   * @param con a <tt>TCPSlaveConnection</tt>.
-   */
-  public void setConnection(TCPSlaveConnection con) {
+    /**
+     * Sets a connection to be handled by this <tt>
+     * TCPConnectionHandler</tt>.
+     *
+     * @param con a <tt>TCPSlaveConnection</tt>.
+     */
+    public void setConnection(TCPSlaveConnection con) {
     m_Connection = con;
     m_Transport = m_Connection.getModbusTransport();
   }//setConnection

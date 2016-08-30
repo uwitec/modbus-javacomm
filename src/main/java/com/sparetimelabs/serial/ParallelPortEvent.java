@@ -29,20 +29,47 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Parallel port event.
+ */
 public class ParallelPortEvent {
 
+    /**
+     * The constant PAR_EV_ERROR.
+     */
     public static final int PAR_EV_ERROR = 1;
+    /**
+     * The constant PAR_EV_BUFFER.
+     */
     public static final int PAR_EV_BUFFER = 2;
+    /**
+     * The Event type.
+     */
     int eventType;
 
+    /**
+     * Gets event type.
+     *
+     * @return the event type
+     */
     int getEventType() {
         return eventType;
     }
 
+    /**
+     * Gets new value.
+     *
+     * @return the new value
+     */
     boolean getNewValue() {
         return false;
     }
 
+    /**
+     * Gets old value.
+     *
+     * @return the old value
+     */
     boolean getOldValue() {
         return false;
     }

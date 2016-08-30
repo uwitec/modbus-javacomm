@@ -42,11 +42,11 @@ public final class ReadMultipleRegistersRequest
   private int m_Reference;
   private int m_WordCount;
 
-  /**
-   * Constructs a new <tt>ReadMultipleRegistersRequest</tt>
-   * instance.
-   */
-  public ReadMultipleRegistersRequest() {
+    /**
+     * Constructs a new <tt>ReadMultipleRegistersRequest</tt>
+     * instance.
+     */
+    public ReadMultipleRegistersRequest() {
     super();
     setFunctionCode(Modbus.READ_MULTIPLE_REGISTERS);
     //4 bytes (remember unit identifier and function
@@ -54,16 +54,16 @@ public final class ReadMultipleRegistersRequest
     setDataLength(4);
   }//constructor
 
-  /**
-   * Constructs a new <tt>ReadMultipleRegistersRequest</tt>
-   * instance with a given reference and count of words
-   * to be read.
-   * <p>
-   * @param ref the reference number of the register
-   *        to read from.
-   * @param count the number of words to be read.
-   */
-  public ReadMultipleRegistersRequest(int ref, int count) {
+    /**
+     * Constructs a new <tt>ReadMultipleRegistersRequest</tt>
+     * instance with a given reference and count of words
+     * to be read.
+     * <p>
+     *
+     * @param ref   the reference number of the register        to read from.
+     * @param count the number of words to be read.
+     */
+    public ReadMultipleRegistersRequest(int ref, int count) {
     super();
     setFunctionCode(Modbus.READ_MULTIPLE_REGISTERS);
     setDataLength(4);
@@ -97,48 +97,49 @@ public final class ReadMultipleRegistersRequest
     return response;
   }//createResponse
 
-  /**
-   * Sets the reference of the register to start reading
-   * from with this <tt>ReadMultipleRegistersRequest</tt>.
-   * <p>
-   * @param ref the reference of the register
-   *        to start reading from.
-   */
-  public void setReference(int ref) {
+    /**
+     * Sets the reference of the register to start reading
+     * from with this <tt>ReadMultipleRegistersRequest</tt>.
+     * <p>
+     *
+     * @param ref the reference of the register        to start reading from.
+     */
+    public void setReference(int ref) {
     m_Reference = ref;
   }//setReference
 
-  /**
-   * Returns the reference of the register to to start
-   * reading from with this
-   * <tt>ReadMultipleRegistersRequest</tt>.
-   * <p>
-   * @return the reference of the register
-   *        to start reading from as <tt>int</tt>.
-   */
-  public int getReference() {
+    /**
+     * Returns the reference of the register to to start
+     * reading from with this
+     * <tt>ReadMultipleRegistersRequest</tt>.
+     * <p>
+     *
+     * @return the reference of the register        to start reading from as <tt>int</tt>.
+     */
+    public int getReference() {
     return m_Reference;
   }//getReference
 
-  /**
-   * Sets the number of words to be read with this
-   * <tt>ReadMultipleRegistersRequest</tt>.
-   * <p>
-   * @param count the number of words to be read.
-   */
-  public void setWordCount(int count) {
+    /**
+     * Sets the number of words to be read with this
+     * <tt>ReadMultipleRegistersRequest</tt>.
+     * <p>
+     *
+     * @param count the number of words to be read.
+     */
+    public void setWordCount(int count) {
     m_WordCount = count;
     //setChanged(true);
   }//setWordCount
 
-  /**
-   * Returns the number of words to be read with this
-   * <tt>ReadMultipleRegistersRequest</tt>.
-   * <p>
-   * @return the number of words to be read as
-   *        <tt>int</tt>.
-   */
-  public int getWordCount() {
+    /**
+     * Returns the number of words to be read with this
+     * <tt>ReadMultipleRegistersRequest</tt>.
+     * <p>
+     *
+     * @return the number of words to be read as        <tt>int</tt>.
+     */
+    public int getWordCount() {
     return m_WordCount;
   }//getWordCount
 

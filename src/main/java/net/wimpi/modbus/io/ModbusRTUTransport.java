@@ -33,7 +33,6 @@ import java.io.OutputStream;
  *
  * @author John Charlton
  * @author Dieter Wimberger
- *
  * @version @version@ (@date@)
  */
 public class ModbusRTUTransport
@@ -89,12 +88,12 @@ public class ModbusRTUTransport
     throw new RuntimeException("Operation not supported.");
   } //readRequest
 
-  /**
-   * Clear the input if characters are found in the input stream.
-   *
-   * @throws IOException
-   */
-  public void clearInput() throws IOException {
+    /**
+     * Clear the input if characters are found in the input stream.
+     *
+     * @throws IOException the io exception
+     */
+    public void clearInput() throws IOException {
     if (m_InputStream.available() > 0) {
       int len = m_InputStream.available();
       byte buf[] = new byte[len];

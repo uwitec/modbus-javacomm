@@ -31,13 +31,33 @@ package com.sparetimelabs.serial;
 
 import java.io.IOException;
 
+/**
+ * The type Test 14.
+ */
 public class Test14 extends TestBase {
 
+    /**
+     * The M read thread running.
+     */
     static volatile boolean m_ReadThreadRunning;
+    /**
+     * The M read bytes.
+     */
     static volatile int m_ReadBytes = 0;
+    /**
+     * The M t 0.
+     */
     static volatile long m_T0;
+    /**
+     * The M t 1.
+     */
     static volatile long m_T1;
 
+    /**
+     * Run.
+     *
+     * @throws Exception the exception
+     */
     static void run() throws Exception {
 
         try {

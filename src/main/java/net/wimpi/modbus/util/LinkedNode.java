@@ -26,17 +26,34 @@ package net.wimpi.modbus.util;
  *
  * @author Doug Lea, Dieter Wimberger
  * @version @version@ (@date@)
- */ 
+ */
 public class LinkedNode {
 
-  protected Object m_Node;
-  protected LinkedNode m_NextNode = null;
+    /**
+     * The M node.
+     */
+    protected Object m_Node;
+    /**
+     * The M next node.
+     */
+    protected LinkedNode m_NextNode = null;
 
-  public LinkedNode(Object node) {
+    /**
+     * Instantiates a new Linked node.
+     *
+     * @param node the node
+     */
+    public LinkedNode(Object node) {
     m_Node = node;
   }//constructor(Object)
 
-  public LinkedNode(Object node, LinkedNode linkednode) {
+    /**
+     * Instantiates a new Linked node.
+     *
+     * @param node       the node
+     * @param linkednode the linkednode
+     */
+    public LinkedNode(Object node, LinkedNode linkednode) {
     m_Node = node;
     m_NextNode = linkednode;
   }//constructor(Object,LinkedNode)

@@ -43,6 +43,9 @@ import com.sparetimelabs.serial.termios.TimeVal;
 import static com.sparetimelabs.serial.termios.impl.WinAPI.*;
 import static com.sparetimelabs.serial.termios.impl.WinAPI.DCB.*;
 
+/**
+ * The type Windows termios.
+ */
 public class WindowsTermios implements JTermiosInterface {
 
     private volatile int m_ErrNo = 0;
@@ -53,43 +56,153 @@ public class WindowsTermios implements JTermiosInterface {
 
     private class Port {
 
+        /**
+         * The M fd.
+         */
         volatile int m_FD = -1;
+        /**
+         * The M locked.
+         */
         volatile boolean m_Locked;
+        /**
+         * The M comm.
+         */
         volatile HANDLE m_Comm;
+        /**
+         * The M open flags.
+         */
         volatile int m_OpenFlags;
+        /**
+         * The M dcb.
+         */
         volatile DCB m_DCB = new DCB();
+        /**
+         * The M timeouts.
+         */
         volatile COMMTIMEOUTS m_Timeouts = new COMMTIMEOUTS();
+        /**
+         * The M comstat.
+         */
         volatile COMSTAT m_COMSTAT = new COMSTAT();
+        /**
+         * The M clear err.
+         */
         volatile int[] m_ClearErr = {0};
+        /**
+         * The M rd buffer.
+         */
         volatile Memory m_RdBuffer = new Memory(2048);
+        /**
+         * The M rd err.
+         */
         volatile int[] m_RdErr = {0};
+        /**
+         * The M rd n.
+         */
         volatile int m_RdN[] = {0};
+        /**
+         * The M rd ovl.
+         */
         volatile OVERLAPPED m_RdOVL = new OVERLAPPED();
+        /**
+         * The M read cancel object.
+         */
         volatile HANDLE m_ReadCancelObject;
+        /**
+         * The M read wait objects.
+         */
         volatile HANDLE[] m_ReadWaitObjects = new HANDLE[2];
+        /**
+         * The M wr buffer.
+         */
         volatile Memory m_WrBuffer = new Memory(2048);
+        /**
+         * The M wr stat.
+         */
         volatile COMSTAT m_WrStat = new COMSTAT();
+        /**
+         * The M wr err.
+         */
         volatile int[] m_WrErr = {0};
+        /**
+         * The M wr n.
+         */
         volatile int m_WrN[] = {0};
+        /**
+         * The M write pending.
+         */
         volatile int m_WritePending;
+        /**
+         * The M wr ovl.
+         */
         volatile OVERLAPPED m_WrOVL = new OVERLAPPED();
+        /**
+         * The M write cancel object.
+         */
         volatile HANDLE m_WriteCancelObject;
+        /**
+         * The M write wait objects.
+         */
         volatile HANDLE[] m_WriteWaitObjects = new HANDLE[2];
+        /**
+         * The M wait pending.
+         */
         volatile boolean m_WaitPending;
+        /**
+         * The M sel n.
+         */
         volatile int m_SelN[] = {0};
+        /**
+         * The Wait comm event cancel object.
+         */
         volatile HANDLE WaitCommEventCancelObject;
+        /**
+         * The M sel ovl.
+         */
         volatile OVERLAPPED m_SelOVL = new OVERLAPPED();
+        /**
+         * The M event flags.
+         */
         volatile IntByReference m_EventFlags = new IntByReference();
+        /**
+         * The M termios.
+         */
         volatile Termios m_Termios = new Termios();
+        /**
+         * The Msr.
+         */
         volatile int MSR; // initial value
+        /**
+         * The M vtime.
+         */
         // these cached values are used to detect changes in termios structure and speed up things by avoiding unnecessary updates
         volatile int m_VTIME = -1;
+        /**
+         * The M vmin.
+         */
         volatile int m_VMIN = -1;
+        /**
+         * The M c speed.
+         */
         volatile int m_c_speed = -1;
+        /**
+         * The M c cflag.
+         */
         volatile int m_c_cflag = -1;
+        /**
+         * The M c iflag.
+         */
         volatile int m_c_iflag = -1;
+        /**
+         * The M c oflag.
+         */
         volatile int m_c_oflag = -1;
 
+        /**
+         * Fail.
+         *
+         * @throws Fail the fail
+         */
         synchronized public void fail() throws Fail {
             int err = GetLastError();
             Memory buffer = new Memory(2048);
@@ -102,6 +215,11 @@ public class WindowsTermios implements JTermiosInterface {
             throw f;
         }
 
+        /**
+         * Lock.
+         *
+         * @throws InterruptedException the interrupted exception
+         */
         synchronized public void lock() throws InterruptedException {
             while (m_Locked) {
                 wait();
@@ -109,6 +227,9 @@ public class WindowsTermios implements JTermiosInterface {
             m_Locked = true;
         }
 
+        /**
+         * Unlock.
+         */
         synchronized public void unlock() {
             if (!m_Locked) {
                 throw new IllegalArgumentException("Port was not locked");
@@ -117,6 +238,9 @@ public class WindowsTermios implements JTermiosInterface {
             notifyAll();
         }
 
+        /**
+         * Wait unlock.
+         */
         synchronized public void waitUnlock() {
             while (m_Locked) {
                 try {
@@ -127,6 +251,13 @@ public class WindowsTermios implements JTermiosInterface {
             }
         }
 
+        /**
+         * Open.
+         *
+         * @param filename the filename
+         * @param flags    the flags
+         * @throws Fail the fail
+         */
         public void open(String filename, int flags) throws Fail {
             synchronized (WindowsTermios.this) {
                 m_FD = -1;
@@ -201,6 +332,9 @@ public class WindowsTermios implements JTermiosInterface {
             }
         }
 
+        /**
+         * Close.
+         */
         public void close() {
             synchronized (WindowsTermios.this) {
                 if (m_FD >= 0) {
@@ -268,14 +402,26 @@ public class WindowsTermios implements JTermiosInterface {
 
     };
 
+    /**
+     * The type Fail.
+     */
     static class Fail extends Exception {
 
     }
 
     static private class FDSetImpl implements FDSet {
 
+        /**
+         * The Fd set size.
+         */
         static final int FD_SET_SIZE = 256; // Windows supports max 255 serial ports so this is enough
+        /**
+         * The Nfbbits.
+         */
         static final int NFBBITS = 32;
+        /**
+         * The Bits.
+         */
         int[] bits = new int[(FD_SET_SIZE + NFBBITS - 1) / NFBBITS];
 
         @Override
@@ -299,6 +445,9 @@ public class WindowsTermios implements JTermiosInterface {
         }
     }
 
+    /**
+     * Instantiates a new Windows termios.
+     */
     public WindowsTermios() {
         log = log && log(1, "instantiating %s\n", getClass().getCanonicalName());
     }
@@ -704,6 +853,13 @@ public class WindowsTermios implements JTermiosInterface {
         }
     }
 
+    /**
+     * Update from termios int.
+     *
+     * @param port the port
+     * @return the int
+     * @throws Fail the fail
+     */
     // FIXME this needs serious code review from people who know this stuff...
     public int updateFromTermios(Port port) throws Fail {
         Termios tios = port.m_Termios;
@@ -1048,6 +1204,14 @@ public class WindowsTermios implements JTermiosInterface {
         return -1;
     }
 
+    /**
+     * Poll int.
+     *
+     * @param fds     the fds
+     * @param nfds    the nfds
+     * @param timeout the timeout
+     * @return the int
+     */
     public int poll(int fds[], int nfds, int timeout) {
         m_ErrNo = EINVAL;
         return -1;
@@ -1111,6 +1275,12 @@ public class WindowsTermios implements JTermiosInterface {
         return new FDSetImpl();
     }
 
+    /**
+     * Fd clr.
+     *
+     * @param fd  the fd
+     * @param set the set
+     */
     public void FD_CLR(int fd, FDSet set) {
         if (set == null) {
             return;
@@ -1119,6 +1289,13 @@ public class WindowsTermios implements JTermiosInterface {
         p.bits[fd / FDSetImpl.NFBBITS] &= ~(1 << (fd % FDSetImpl.NFBBITS));
     }
 
+    /**
+     * Fd isset boolean.
+     *
+     * @param fd  the fd
+     * @param set the set
+     * @return the boolean
+     */
     public boolean FD_ISSET(int fd, FDSet set) {
         if (set == null) {
             return false;
@@ -1127,6 +1304,12 @@ public class WindowsTermios implements JTermiosInterface {
         return (p.bits[fd / FDSetImpl.NFBBITS] & (1 << (fd % FDSetImpl.NFBBITS))) != 0;
     }
 
+    /**
+     * Fd set.
+     *
+     * @param fd  the fd
+     * @param set the set
+     */
     public void FD_SET(int fd, FDSet set) {
         if (set == null) {
             return;
@@ -1135,6 +1318,11 @@ public class WindowsTermios implements JTermiosInterface {
         p.bits[fd / FDSetImpl.NFBBITS] |= 1 << (fd % FDSetImpl.NFBBITS);
     }
 
+    /**
+     * Fd zero.
+     *
+     * @param set the set
+     */
     public void FD_ZERO(FDSet set) {
         if (set == null) {
             return;

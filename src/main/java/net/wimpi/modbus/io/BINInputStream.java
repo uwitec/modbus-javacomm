@@ -26,20 +26,19 @@ import java.io.InputStream;
  *
  * @author Dieter Wimberger
  * @version @version@ (@date@)
- *
- * @see ModbusBINTransport#FRAME_START
- * @see ModbusBINTransport#FRAME_END
+ * @see ModbusBINTransport#FRAME_START ModbusBINTransport#FRAME_START
+ * @see ModbusBINTransport#FRAME_END ModbusBINTransport#FRAME_END
  */
 public class BINInputStream
     extends FilterInputStream {
 
-  /**
-   * Constructs a new <tt>BINInputStream</tt> instance
-   * reading from the given <tt>InputStream</tt>.
-   *
-   * @param in a base input stream to be wrapped.
-   */
-  public BINInputStream(InputStream in) {
+    /**
+     * Constructs a new <tt>BINInputStream</tt> instance
+     * reading from the given <tt>InputStream</tt>.
+     *
+     * @param in a base input stream to be wrapped.
+     */
+    public BINInputStream(InputStream in) {
     super(in);
     if(!in.markSupported()) {
       throw new RuntimeException("Accepts only input streams that support marking.");

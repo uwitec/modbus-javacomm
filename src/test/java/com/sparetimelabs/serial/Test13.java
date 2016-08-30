@@ -29,8 +29,16 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Test 13.
+ */
 public class Test13 extends TestBase {
 
+    /**
+     * Run.
+     *
+     * @throws Exception the exception
+     */
     static void run() throws Exception {
 
         try {

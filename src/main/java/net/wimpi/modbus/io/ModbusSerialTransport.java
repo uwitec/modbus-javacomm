@@ -35,23 +35,28 @@ import java.io.OutputStream;
  *
  * @author Dieter Wimberger
  * @author John Charlton
- *
  * @version @version@ (@date@)
  */
 abstract public class ModbusSerialTransport
     implements ModbusTransport {
-  protected CommPort  m_CommPort;
-  protected boolean   m_Echo = false;     // require RS-485 echo processing
+    /**
+     * The M comm port.
+     */
+    protected CommPort  m_CommPort;
+    /**
+     * The M echo.
+     */
+    protected boolean   m_Echo = false;     // require RS-485 echo processing
 
-  /**
-   * <code>prepareStreams</code> prepares the input and output streams of this
-   * <tt>ModbusSerialTransport</tt> instance.
-   *
-   * @param in the input stream to be read from.
-   * @param out the output stream to write to.
-   * @throws IOException if an I\O error occurs.
-   */
-  abstract public void prepareStreams(InputStream in, OutputStream out)
+    /**
+     * <code>prepareStreams</code> prepares the input and output streams of this
+     * <tt>ModbusSerialTransport</tt> instance.
+     *
+     * @param in  the input stream to be read from.
+     * @param out the output stream to write to.
+     * @throws IOException if an I\O error occurs.
+     */
+    abstract public void prepareStreams(InputStream in, OutputStream out)
       throws IOException;
 
   /**
@@ -92,59 +97,59 @@ abstract public class ModbusSerialTransport
    * @exception IOException if an error occurs
    */
   abstract public void close() throws IOException;
-  
-  /**
-   * <code>setCommPort</code> sets the comm port member and prepares the input
-   * and output streams to be used for reading from and writing to.
-   *
-   * @param cp the comm port to read from/write to.
-   * @throws IOException if an I/O related error occurs.
-   */
-  public void setCommPort(CommPort cp) throws IOException {
+
+    /**
+     * <code>setCommPort</code> sets the comm port member and prepares the input
+     * and output streams to be used for reading from and writing to.
+     *
+     * @param cp the comm port to read from/write to.
+     * @throws IOException if an I/O related error occurs.
+     */
+    public void setCommPort(CommPort cp) throws IOException {
     m_CommPort = cp;
     if (cp != null) {
       prepareStreams(cp.getInputStream(), cp.getOutputStream());
     }
   }
-  
-  /**
-   * <code>isEcho</code> method returns the output echo state.
-   *
-   * @return a <code>boolean</code> value
-   */
-  public boolean isEcho() {
+
+    /**
+     * <code>isEcho</code> method returns the output echo state.
+     *
+     * @return a <code>boolean</code> value
+     */
+    public boolean isEcho() {
     return m_Echo;
   }//isEcho
 
-  /**
-   * <code>setEcho</code> method sets the output echo state.
-   *
-   * @param b a <code>boolean</code> value
-   */
-  public void setEcho(boolean b) {
+    /**
+     * <code>setEcho</code> method sets the output echo state.
+     *
+     * @param b a <code>boolean</code> value
+     */
+    public void setEcho(boolean b) {
     this.m_Echo = b;
   }//setEcho
 
 
-  /**
-   * Describe <code>setReceiveThreshold</code> method here.
-   *
-   * @param th an <code>int</code> value
-   */
-  public void setReceiveThreshold(int th) {
+    /**
+     * Describe <code>setReceiveThreshold</code> method here.
+     *
+     * @param th an <code>int</code> value
+     */
+    public void setReceiveThreshold(int th) {
     try {
       m_CommPort.enableReceiveThreshold(th); /* chars */
     } catch (UnsupportedCommOperationException e) {
       System.out.println(e.getMessage());
     }
   }
-  
-  /**
-   * Describe <code>setReceiveTimeout</code> method here.
-   *
-   * @param ms an <code>int</code> value
-   */
-  public void setReceiveTimeout(int ms) {
+
+    /**
+     * Describe <code>setReceiveTimeout</code> method here.
+     *
+     * @param ms an <code>int</code> value
+     */
+    public void setReceiveTimeout(int ms) {
     try {
       m_CommPort.enableReceiveTimeout(ms); /* milliseconds */
     } catch (UnsupportedCommOperationException e) {
@@ -152,16 +157,14 @@ abstract public class ModbusSerialTransport
     }
   }
 
-  /**
-   * Reads the own message echo produced in RS485 Echo Mode
-   * within the given time frame.
-   *
-   * @param len is the length of the echo to read.  Timeout will occur if the
-   * echo is not received in the time specified in the SerialConnection.
-   *
-   * @throws IOException if a I/O error occurred.
-   */
-  public void readEcho(int len) throws IOException {
+    /**
+     * Reads the own message echo produced in RS485 Echo Mode
+     * within the given time frame.
+     *
+     * @param len is the length of the echo to read.  Timeout will occur if the echo is not received in the time specified in the SerialConnection.
+     * @throws IOException if a I/O error occurred.
+     */
+    public void readEcho(int len) throws IOException {
 
     byte echoBuf[] = new byte[len];
     setReceiveThreshold(len);

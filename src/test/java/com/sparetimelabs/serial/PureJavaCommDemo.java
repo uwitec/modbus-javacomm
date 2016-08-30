@@ -35,8 +35,16 @@ import java.util.Enumeration;
 import java.util.Random;
 
 
+/**
+ * The type Pure java comm demo.
+ */
 public class PureJavaCommDemo {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         try {
             System.out.println("PureJavaCommDemo");

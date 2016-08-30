@@ -35,16 +35,33 @@ class UDPMasterTerminal
   private DatagramSocket m_Socket;
   private int m_Timeout = Modbus.DEFAULT_TIMEOUT;
   private boolean m_Active;
-  protected InetAddress m_LocalAddress;
-  protected InetAddress m_RemoteAddress;
+    /**
+     * The M local address.
+     */
+    protected InetAddress m_LocalAddress;
+    /**
+     * The M remote address.
+     */
+    protected InetAddress m_RemoteAddress;
   private int m_RemotePort = Modbus.DEFAULT_PORT;
   private int m_LocalPort = Modbus.DEFAULT_PORT;
-  protected ModbusUDPTransport m_ModbusTransport;
+    /**
+     * The M modbus transport.
+     */
+    protected ModbusUDPTransport m_ModbusTransport;
 
-  public UDPMasterTerminal() {
+    /**
+     * Instantiates a new Udp master terminal.
+     */
+    public UDPMasterTerminal() {
   }//constructor
 
-  protected UDPMasterTerminal(InetAddress addr) {
+    /**
+     * Instantiates a new Udp master terminal.
+     *
+     * @param addr the addr
+     */
+    protected UDPMasterTerminal(InetAddress addr) {
     m_RemoteAddress = addr;
   }//constructor
 
@@ -52,7 +69,12 @@ class UDPMasterTerminal
     return m_LocalAddress;
   }//getLocalAddress
 
-  public void setLocalAddress(InetAddress addr) {
+    /**
+     * Sets local address.
+     *
+     * @param addr the addr
+     */
+    public void setLocalAddress(InetAddress addr) {
     m_LocalAddress = addr;
   }//setLocalAddress
 
@@ -60,48 +82,53 @@ class UDPMasterTerminal
     return m_LocalPort;
   }//getLocalPort
 
-  protected void setLocalPort(int port) {
+    /**
+     * Sets local port.
+     *
+     * @param port the port
+     */
+    protected void setLocalPort(int port) {
     m_LocalPort = port;
   }//setLocalPort
 
-  /**
-   * Returns the destination port of this
-   * <tt>UDPSlaveTerminal</tt>.
-   *
-   * @return the port number as <tt>int</tt>.
-   */
-  public int getRemotePort() {
+    /**
+     * Returns the destination port of this
+     * <tt>UDPSlaveTerminal</tt>.
+     *
+     * @return the port number as <tt>int</tt>.
+     */
+    public int getRemotePort() {
     return m_RemotePort;
   }//getDestinationPort
 
-  /**
-   * Sets the destination port of this
-   * <tt>UDPSlaveTerminal</tt>.
-   * The default is defined as <tt>Modbus.DEFAULT_PORT</tt>.
-   *
-   * @param port the port number as <tt>int</tt>.
-   */
-  public void setRemotePort(int port) {
+    /**
+     * Sets the destination port of this
+     * <tt>UDPSlaveTerminal</tt>.
+     * The default is defined as <tt>Modbus.DEFAULT_PORT</tt>.
+     *
+     * @param port the port number as <tt>int</tt>.
+     */
+    public void setRemotePort(int port) {
     m_RemotePort = port;
   }//setPort
 
-  /**
-   * Returns the destination <tt>InetAddress</tt> of this
-   * <tt>UDPSlaveTerminal</tt>.
-   *
-   * @return the destination address as <tt>InetAddress</tt>.
-   */
-  public InetAddress getRemoteAddress() {
+    /**
+     * Returns the destination <tt>InetAddress</tt> of this
+     * <tt>UDPSlaveTerminal</tt>.
+     *
+     * @return the destination address as <tt>InetAddress</tt>.
+     */
+    public InetAddress getRemoteAddress() {
     return m_RemoteAddress;
   }//getAddress
 
-  /**
-   * Sets the destination <tt>InetAddress</tt> of this
-   * <tt>UDPSlaveTerminal</tt>.
-   *
-   * @param adr the destination address as <tt>InetAddress</tt>.
-   */
-  public void setRemoteAddress(InetAddress adr) {
+    /**
+     * Sets the destination <tt>InetAddress</tt> of this
+     * <tt>UDPSlaveTerminal</tt>.
+     *
+     * @param adr the destination address as <tt>InetAddress</tt>.
+     */
+    public void setRemoteAddress(InetAddress adr) {
     m_RemoteAddress = adr;
   }//setAddress
 
@@ -170,21 +197,21 @@ class UDPMasterTerminal
     return m_ModbusTransport;
   }//getModbusTransport
 
-  /**
-   * Returns the timeout for this <tt>UDPMasterTerminal</tt>.
-   *
-   * @return the timeout as <tt>int</tt>.
-   */
-  public int getTimeout() {
+    /**
+     * Returns the timeout for this <tt>UDPMasterTerminal</tt>.
+     *
+     * @return the timeout as <tt>int</tt>.
+     */
+    public int getTimeout() {
     return m_Timeout;
   }//getReceiveTimeout
 
-  /**
-   * Sets the timeout for this <tt>UDPMasterTerminal</tt>.
-   *
-   * @param timeout the timeout as <tt>int</tt>.
-   */
-  public void setTimeout(int timeout) {
+    /**
+     * Sets the timeout for this <tt>UDPMasterTerminal</tt>.
+     *
+     * @param timeout the timeout as <tt>int</tt>.
+     */
+    public void setTimeout(int timeout) {
     m_Timeout = timeout;
   }//setReceiveTimeout
 
@@ -215,7 +242,13 @@ class UDPMasterTerminal
     return buffer;
   }//receiveMessage
 
-  public void receiveMessage(byte[] buffer)
+    /**
+     * Receive message.
+     *
+     * @param buffer the buffer
+     * @throws Exception the exception
+     */
+    public void receiveMessage(byte[] buffer)
       throws Exception {
     DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
     m_Socket.setSoTimeout(m_Timeout);

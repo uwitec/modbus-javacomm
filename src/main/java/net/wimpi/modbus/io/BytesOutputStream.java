@@ -33,24 +33,24 @@ public class BytesOutputStream
 
   private DataOutputStream m_Dout;
 
- /**
-  * Constructs a new <tt>BytesOutputStream</tt> instance with
-   * a new output buffer of the given size.
-  *
-  * @param size the size of the output buffer as <tt>int</tt>.
-  */
-  public BytesOutputStream(int size) {
+    /**
+     * Constructs a new <tt>BytesOutputStream</tt> instance with
+     * a new output buffer of the given size.
+     *
+     * @param size the size of the output buffer as <tt>int</tt>.
+     */
+    public BytesOutputStream(int size) {
     super(size);
     m_Dout = new DataOutputStream(this);
   }//BytesOutputStream
 
-  /**
-   * Constructs a new <tt>BytesOutputStream</tt> instance with
-   * a given output buffer.
-   *
-   * @param buffer the output buffer as <tt>byte[]</tt>.
-   */
-  public BytesOutputStream(byte[] buffer) {
+    /**
+     * Constructs a new <tt>BytesOutputStream</tt> instance with
+     * a given output buffer.
+     *
+     * @param buffer the output buffer as <tt>byte[]</tt>.
+     */
+    public BytesOutputStream(byte[] buffer) {
     buf = buffer;
     count = 0;
     m_Dout = new DataOutputStream(this);

@@ -41,7 +41,12 @@ import java.net.InetAddress;
  */
 public class UDPDOTest {
 
-	public static void main(String[] args) {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
 
 		UDPMasterConnection conn = null;
 		ModbusUDPTransaction trans = null;

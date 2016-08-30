@@ -29,8 +29,16 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Test 3.
+ */
 public class Test3 extends TestBase {
 
+    /**
+     * Run.
+     *
+     * @throws Exception the exception
+     */
     static void run() throws Exception {
         try {
             begin("Test3 - transmit all characters");

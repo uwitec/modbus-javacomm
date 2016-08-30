@@ -8,6 +8,7 @@ This lib contains:
 
 Since purejavacomm is not available in maven central, the code is copied into this artifact (because of the "no-foreign-repository" policy).
 
+There are also some modifications to get valid tests and valid javadoc.
 
 Provided licenses
 -----------------

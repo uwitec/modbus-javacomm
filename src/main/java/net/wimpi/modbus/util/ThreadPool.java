@@ -28,24 +28,24 @@ public class ThreadPool {
   private LinkedQueue m_TaskPool;
   private int m_Size = 1;
 
-  /**
-   * Constructs a new <tt>ThreadPool</tt> instance.
-   *
-   * @param size the size of the thread pool.
-   */
-  public ThreadPool(int size) {
+    /**
+     * Constructs a new <tt>ThreadPool</tt> instance.
+     *
+     * @param size the size of the thread pool.
+     */
+    public ThreadPool(int size) {
     m_Size = size;
     m_TaskPool = new LinkedQueue();
     initPool();
   }//constructor
 
-  /**
-   * Execute the <tt>Runnable</tt> instance
-   * through a thread in this <tt>ThreadPool</tt>.
-   *
-   * @param task the <tt>Runnable</tt> to be executed.
-   */
-  public synchronized void execute(Runnable task) {
+    /**
+     * Execute the <tt>Runnable</tt> instance
+     * through a thread in this <tt>ThreadPool</tt>.
+     *
+     * @param task the <tt>Runnable</tt> to be executed.
+     */
+    public synchronized void execute(Runnable task) {
     try {
       m_TaskPool.put(task);
     } catch (InterruptedException ex) {
@@ -53,11 +53,11 @@ public class ThreadPool {
     }
   }//execute
 
-  /**
-   * Initializes the pool, populating it with
-   * n started threads.
-   */
-  protected void initPool() {
+    /**
+     * Initializes the pool, populating it with
+     * n started threads.
+     */
+    protected void initPool() {
     for (int i = m_Size; --i >= 0;) {
       new PoolThread().start();
     }

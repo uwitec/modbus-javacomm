@@ -47,10 +47,10 @@ public class ModbusBINTransport
   private BytesOutputStream m_ByteInOut;     //to buffer message to
   private BytesOutputStream m_ByteOut;      //write frames
 
-  /**
-   * Constructs a new <tt>MobusBINTransport</tt> instance.
-   */
-  public ModbusBINTransport() {
+    /**
+     * Constructs a new <tt>MobusBINTransport</tt> instance.
+     */
+    public ModbusBINTransport() {
   }//constructor
 
   public void close() throws IOException {
@@ -215,24 +215,24 @@ public class ModbusBINTransport
     m_ByteInOut = new BytesOutputStream(m_InBuffer);
   }//prepareStreams
 
-  /**
-   * Defines a virtual number for the FRAME START token (COLON).
-   */
-  public static final int FRAME_START = 1000;
+    /**
+     * Defines a virtual number for the FRAME START token (COLON).
+     */
+    public static final int FRAME_START = 1000;
 
-  /**
-   * Defines a virtual number for the FRAME_END token (CR LF).
-   */
-  public static final int FRAME_END = 2000;
+    /**
+     * Defines a virtual number for the FRAME_END token (CR LF).
+     */
+    public static final int FRAME_END = 2000;
 
-  /**
-   * Defines the frame start token <tt>{</tt>.
-   */
-  public static final int FRAME_START_TOKEN = 123;
+    /**
+     * Defines the frame start token <tt>{</tt>.
+     */
+    public static final int FRAME_START_TOKEN = 123;
 
-  /**
-   * Defines the frame end token <tt>}</tt>.
-   */
-  public static final int FRAME_END_TOKEN = 125;
+    /**
+     * Defines the frame end token <tt>}</tt>.
+     */
+    public static final int FRAME_END_TOKEN = 125;
 
 }//class ModbusASCIITransport

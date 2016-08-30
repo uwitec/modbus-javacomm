@@ -105,16 +105,21 @@ package net.wimpi.modbus.util;
  * }
  *
  * @author Doug Lea
- * @version @version@ (@date@)
+ * @version  @version@ (@date@)
  */
 public class Mutex {
 
-  /**
-   * The lock status
-   */
-  protected boolean inuse_ = false;
+    /**
+     * The lock status
+     */
+    protected boolean inuse_ = false;
 
-  public void acquire() throws InterruptedException {
+    /**
+     * Acquire.
+     *
+     * @throws InterruptedException the interrupted exception
+     */
+    public void acquire() throws InterruptedException {
     if (Thread.interrupted()) throw new InterruptedException();
     synchronized (this) {
       try {
@@ -127,12 +132,22 @@ public class Mutex {
     }
   }//accquire
 
-  public synchronized void release() {
+    /**
+     * Release.
+     */
+    public synchronized void release() {
     inuse_ = false;
     notify();
   }//release
 
-  public boolean attempt(long msecs) throws InterruptedException {
+    /**
+     * Attempt boolean.
+     *
+     * @param msecs the msecs
+     * @return the boolean
+     * @throws InterruptedException the interrupted exception
+     */
+    public boolean attempt(long msecs) throws InterruptedException {
     if (Thread.interrupted()) throw new InterruptedException();
     synchronized (this) {
       if (!inuse_) {

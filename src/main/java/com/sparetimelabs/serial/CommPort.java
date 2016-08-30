@@ -33,8 +33,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+/**
+ * The type Comm port.
+ */
 public abstract class CommPort {
 
+    /**
+     * The Name.
+     */
     protected String name;
 
     /**
@@ -62,16 +68,16 @@ public abstract class CommPort {
     /**
      * Enables receive framing.
      *
-     * @param framingByte
-     * @throws UnsupportedCommOperationException
+     * @param framingByte the framing byte
+     * @throws UnsupportedCommOperationException the unsupported comm operation exception
      */
     public abstract void enableReceiveFraming(int framingByte) throws UnsupportedCommOperationException;
 
     /**
      * Enables receive threshold.
      *
-     * @param threshold
-     * @throws UnsupportedCommOperationException
+     * @param threshold the threshold
+     * @throws UnsupportedCommOperationException the unsupported comm operation exception
      */
     public abstract void enableReceiveThreshold(int threshold) throws UnsupportedCommOperationException;
 
@@ -79,7 +85,7 @@ public abstract class CommPort {
      * Enables receive timeout.
      *
      * @param rcvTimeout Timeout value in milliseconds
-     * @throws UnsupportedCommOperationException
+     * @throws UnsupportedCommOperationException the unsupported comm operation exception
      */
     public abstract void enableReceiveTimeout(int rcvTimeout) throws UnsupportedCommOperationException;
 
@@ -93,9 +99,8 @@ public abstract class CommPort {
     /**
      * Returns an input stream.
      *
-     * @return An input stream, or <code>null</code> if the port is
-     * unidirectional and doesn't support receiving data.
-     * @throws IOException
+     * @return An input stream, or <code>null</code> if the port is unidirectional and doesn't support receiving data.
+     * @throws IOException the io exception
      */
     public abstract InputStream getInputStream() throws IOException;
 
@@ -118,9 +123,8 @@ public abstract class CommPort {
     /**
      * Returns an output stream.
      *
-     * @return An output stream, or <code>null</code> if the port is
-     * unidirectional and doesn't support sending data.
-     * @throws IOException
+     * @return An output stream, or <code>null</code> if the port is unidirectional and doesn't support sending data.
+     * @throws IOException the io exception
      */
     public abstract OutputStream getOutputStream() throws IOException;
 
@@ -180,14 +184,14 @@ public abstract class CommPort {
     /**
      * Sets the input buffer size.
      *
-     * @param size
+     * @param size the size
      */
     public abstract void setInputBufferSize(int size);
 
     /**
      * Sets the output buffer size.
      *
-     * @param size
+     * @param size the size
      */
     public abstract void setOutputBufferSize(int size);
 }

@@ -39,9 +39,15 @@ class UDPSlaveTerminal implements UDPTerminal {
 	@SuppressWarnings("unused")
 	private int m_Timeout = Modbus.DEFAULT_TIMEOUT;
 	private boolean m_Active;
-	protected InetAddress m_LocalAddress;
+    /**
+     * The M local address.
+     */
+    protected InetAddress m_LocalAddress;
 	private int m_LocalPort = Modbus.DEFAULT_PORT;
-	protected ModbusUDPTransport m_ModbusTransport;
+    /**
+     * The M modbus transport.
+     */
+    protected ModbusUDPTransport m_ModbusTransport;
 	@SuppressWarnings("unused")
 	private int m_Retries = Modbus.DEFAULT_RETRIES;
 
@@ -52,16 +58,27 @@ class UDPSlaveTerminal implements UDPTerminal {
 	private Thread m_Receiver;
 	private Thread m_Sender;
 
-	protected Hashtable<Integer, DatagramPacket> m_Requests;
+    /**
+     * The M requests.
+     */
+    protected Hashtable<Integer, DatagramPacket> m_Requests;
 
-	protected UDPSlaveTerminal() {
+    /**
+     * Instantiates a new Udp slave terminal.
+     */
+    protected UDPSlaveTerminal() {
 		m_SendQueue = new LinkedQueue();
 		m_ReceiveQueue = new LinkedQueue();
 		// m_Requests = new Hashtable(342,0.75F);
 		m_Requests = new Hashtable<>(342);
 	}// constructor
 
-	protected UDPSlaveTerminal(InetAddress localaddress) {
+    /**
+     * Instantiates a new Udp slave terminal.
+     *
+     * @param localaddress the localaddress
+     */
+    protected UDPSlaveTerminal(InetAddress localaddress) {
 		m_LocalAddress = localaddress;
 		m_SendQueue = new LinkedQueue();
 		m_ReceiveQueue = new LinkedQueue();
@@ -77,7 +94,12 @@ class UDPSlaveTerminal implements UDPTerminal {
 		return m_LocalPort;
 	}// getLocalPort
 
-	protected void setLocalPort(int port) {
+    /**
+     * Sets local port.
+     *
+     * @param port the port
+     */
+    protected void setLocalPort(int port) {
 		m_LocalPort = port;
 	}// setLocalPort
 
@@ -167,7 +189,12 @@ class UDPSlaveTerminal implements UDPTerminal {
 		return m_ModbusTransport;
 	}// getModbusTransport
 
-	protected boolean hasResponse() {
+    /**
+     * Has response boolean.
+     *
+     * @return the boolean
+     */
+    protected boolean hasResponse() {
 		return !m_ReceiveQueue.isEmpty();
 	}// hasResponse
 
@@ -189,22 +216,21 @@ class UDPSlaveTerminal implements UDPTerminal {
 	 *            (IOException ex) { ex.printStackTrace(); //handle? }
 	 *            }//setReceiveTimeout
 	 */
-	/**
-	 * Returns the socket of this <tt>UDPSlaveTerminal</tt>.
-	 *
-	 * @return the socket as <tt>DatagramSocket</tt>.
-	 */
-	public DatagramSocket getSocket() {
+    /**
+     * Returns the socket of this <tt>UDPSlaveTerminal</tt>.
+     *
+     * @return the socket as <tt>DatagramSocket</tt>.
+     */
+    public DatagramSocket getSocket() {
 		return m_Socket;
 	}// getSocket
 
-	/**
-	 * Sets the socket of this <tt>UDPTerminal</tt>.
-	 *
-	 * @param sock
-	 *            the <tt>DatagramSocket</tt> for this terminal.
-	 */
-	protected void setSocket(DatagramSocket sock) {
+    /**
+     * Sets the socket of this <tt>UDPTerminal</tt>.
+     *
+     * @param sock the <tt>DatagramSocket</tt> for this terminal.
+     */
+    protected void setSocket(DatagramSocket sock) {
 		m_Socket = sock;
 	}// setSocket
 
@@ -216,11 +242,17 @@ class UDPSlaveTerminal implements UDPTerminal {
 		return (byte[]) m_ReceiveQueue.take();
 	}// receiveMessage
 
-	class PacketSender implements Runnable {
+    /**
+     * The type Packet sender.
+     */
+    class PacketSender implements Runnable {
 
 		private boolean m_Continue;
 
-		public PacketSender() {
+        /**
+         * Instantiates a new Packet sender.
+         */
+        public PacketSender() {
 			m_Continue = true;
 		}// constructor
 
@@ -242,17 +274,26 @@ class UDPSlaveTerminal implements UDPTerminal {
 			} while (m_Continue || !m_SendQueue.isEmpty());
 		}// run
 
-		public void stop() {
+        /**
+         * Stop.
+         */
+        public void stop() {
 			m_Continue = false;
 		}// stop
 
 	}// PacketSender
 
-	class PacketReceiver implements Runnable {
+    /**
+     * The type Packet receiver.
+     */
+    class PacketReceiver implements Runnable {
 
 		private boolean m_Continue;
 
-		public PacketReceiver() {
+        /**
+         * Instantiates a new Packet receiver.
+         */
+        public PacketReceiver() {
 			m_Continue = true;
 		}// constructor
 
@@ -276,7 +317,10 @@ class UDPSlaveTerminal implements UDPTerminal {
 			} while (m_Continue);
 		}// run
 
-		public void stop() {
+        /**
+         * Stop.
+         */
+        public void stop() {
 			m_Continue = false;
 		}// stop
 

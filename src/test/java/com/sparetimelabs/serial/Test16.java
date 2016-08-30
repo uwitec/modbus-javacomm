@@ -31,8 +31,16 @@ package com.sparetimelabs.serial;
 
 import java.util.Enumeration;
 
+/**
+ * The type Test 16.
+ */
 public class Test16 extends TestBase {
 
+    /**
+     * Run.
+     *
+     * @throws Exception the exception
+     */
     @SuppressWarnings("unchecked")
     static void run() throws Exception {
 

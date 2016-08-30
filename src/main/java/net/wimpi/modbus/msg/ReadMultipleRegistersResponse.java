@@ -39,21 +39,20 @@ public final class ReadMultipleRegistersResponse extends ModbusResponse {
 	private int m_ByteCount;
 	private Register[] m_Registers;
 
-	/**
-	 * Constructs a new <tt>ReadMultipleRegistersResponse</tt> instance.
-	 */
-	public ReadMultipleRegistersResponse() {
+    /**
+     * Constructs a new <tt>ReadMultipleRegistersResponse</tt> instance.
+     */
+    public ReadMultipleRegistersResponse() {
 		super();
 		setFunctionCode(Modbus.READ_MULTIPLE_REGISTERS);
 	}// constructor
 
-	/**
-	 * Constructs a new <tt>ReadInputRegistersResponse</tt> instance.
-	 *
-	 * @param registers
-	 *            the Register[] holding response registers.
-	 */
-	public ReadMultipleRegistersResponse(Register[] registers) {
+    /**
+     * Constructs a new <tt>ReadInputRegistersResponse</tt> instance.
+     *
+     * @param registers the Register[] holding response registers.
+     */
+    public ReadMultipleRegistersResponse(Register[] registers) {
 		super();
 		m_Registers = registers;
 		m_ByteCount = registers.length * 2;
@@ -62,25 +61,25 @@ public final class ReadMultipleRegistersResponse extends ModbusResponse {
 		setDataLength(m_ByteCount + 1);
 	}// constructor
 
-	/**
-	 * Returns the number of bytes that have been read.
-	 * <p>
-	 * 
-	 * @return the number of bytes that have been read as <tt>int</tt>.
-	 */
-	public int getByteCount() {
+    /**
+     * Returns the number of bytes that have been read.
+     * <p>
+     *
+     * @return the number of bytes that have been read as <tt>int</tt>.
+     */
+    public int getByteCount() {
 		return m_ByteCount;
 	}// getByteCount
 
-	/**
-	 * Returns the number of words that have been read. The returned value
-	 * should be half of the the byte count of this
-	 * <tt>ReadMultipleRegistersResponse</tt>.
-	 * <p>
-	 * 
-	 * @return the number of words that have been read as <tt>int</tt>.
-	 */
-	public int getWordCount() {
+    /**
+     * Returns the number of words that have been read. The returned value
+     * should be half of the the byte count of this
+     * <tt>ReadMultipleRegistersResponse</tt>.
+     * <p>
+     *
+     * @return the number of words that have been read as <tt>int</tt>.
+     */
+    public int getWordCount() {
 		return m_ByteCount / 2;
 	}// getWordCount
 
@@ -95,38 +94,29 @@ public final class ReadMultipleRegistersResponse extends ModbusResponse {
 		m_ByteCount = count;
 	}// setByteCount
 
-	/**
-	 * Returns the value of the register at the given position (relative to the
-	 * reference used in the request) interpreted as unsigned short.
-	 * <p>
-	 * 
-	 * @param index
-	 *            the relative index of the register for which the value should
-	 *            be retrieved.
-	 *
-	 * @return the value as <tt>int</tt>.
-	 *
-	 * @throws IndexOutOfBoundsException
-	 *             if the index is out of bounds.
-	 */
-	public int getRegisterValue(int index) throws IndexOutOfBoundsException {
+    /**
+     * Returns the value of the register at the given position (relative to the
+     * reference used in the request) interpreted as unsigned short.
+     * <p>
+     *
+     * @param index the relative index of the register for which the value should            be retrieved.
+     * @return the value as <tt>int</tt>.
+     * @throws IndexOutOfBoundsException if the index is out of bounds.
+     */
+    public int getRegisterValue(int index) throws IndexOutOfBoundsException {
 		return m_Registers[index].toUnsignedShort();
 	}// getRegisterValue
 
-	/**
-	 * Returns the <tt>Register</tt> at the given position (relative to the
-	 * reference used in the request).
-	 * <p>
-	 * 
-	 * @param index
-	 *            the relative index of the <tt>Register</tt>.
-	 *
-	 * @return the register as <tt>Register</tt>.
-	 *
-	 * @throws IndexOutOfBoundsException
-	 *             if the index is out of bounds.
-	 */
-	public Register getRegister(int index) throws IndexOutOfBoundsException {
+    /**
+     * Returns the <tt>Register</tt> at the given position (relative to the
+     * reference used in the request).
+     * <p>
+     *
+     * @param index the relative index of the <tt>Register</tt>.
+     * @return the register as <tt>Register</tt>.
+     * @throws IndexOutOfBoundsException if the index is out of bounds.
+     */
+    public Register getRegister(int index) throws IndexOutOfBoundsException {
 
 		if (index >= getWordCount()) {
 			throw new IndexOutOfBoundsException();
@@ -135,12 +125,12 @@ public final class ReadMultipleRegistersResponse extends ModbusResponse {
 		}
 	}// getRegister
 
-	/**
-	 * Returns a reference to the array of registers read.
-	 *
-	 * @return a <tt>Register[]</tt> instance.
-	 */
-	public Register[] getRegisters() {
+    /**
+     * Returns a reference to the array of registers read.
+     *
+     * @return a <tt>Register[]</tt> instance.
+     */
+    public Register[] getRegisters() {
 		return m_Registers;
 	}// getRegisters
 

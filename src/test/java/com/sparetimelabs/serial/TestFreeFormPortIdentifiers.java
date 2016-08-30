@@ -36,12 +36,16 @@ import java.io.File;
  * Serial ports are notorious for not being able to enumerate reliably, so an
  * application that allows a user to select a serial port will always have to
  * provide a free-form entry to provide the serial device name.
- *
- * The API that takes this device name and returns an identifier is
- * {@link CommPortIdentifier#getPortIdentifier(String)}.
+ * <p>
+ * The API that takes this device name and returns an identifier.
  */
 public class TestFreeFormPortIdentifiers extends TestBase {
 
+    /**
+     * Test missing port in comm port identifier.
+     *
+     * @throws Exception the exception
+     */
     public static void testMissingPortInCommPortIdentifier() throws Exception {
         begin("TestMissingPort"); //  - getPortIdentifier on missing port
 
@@ -57,6 +61,11 @@ public class TestFreeFormPortIdentifiers extends TestBase {
         finishedOK();
     }
 
+    /**
+     * Test device path in comm port identifier.
+     *
+     * @throws Exception the exception
+     */
     public static void testDevicePathInCommPortIdentifier() throws Exception {
         begin("TestDevicePath "); // - getPortIdentifier on device path");
 
@@ -70,6 +79,11 @@ public class TestFreeFormPortIdentifiers extends TestBase {
         finishedOK();
     }
 
+    /**
+     * Test device path to invalid tty in comm port identifier.
+     *
+     * @throws Exception the exception
+     */
     public static void testDevicePathToInvalidTTYInCommPortIdentifier() throws Exception {
         begin("TestDevicePathToInvalidTTY");// - getPortIdentifier on invalid device");
 

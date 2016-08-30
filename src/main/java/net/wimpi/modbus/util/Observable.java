@@ -29,26 +29,31 @@ public class Observable {
 
   private Vector<Observer> m_Observers;
 
-  /**
-   * Constructs a new Observable instance.
-   */
-  public Observable() {
+    /**
+     * Constructs a new Observable instance.
+     */
+    public Observable() {
     m_Observers = new Vector<>(10);
   }//constructor
 
-  public int getObserverCount() {
+    /**
+     * Gets observer count.
+     *
+     * @return the observer count
+     */
+    public int getObserverCount() {
     synchronized (m_Observers) {
       return m_Observers.size();
     }
   }//getObserverCount
 
-  /**
-   * Adds an observer instance if it is not already in the
-   * set of observers for this <tt>Observable</tt>.
-   *
-   * @param o an observer instance to be added.
-   */
-  public void addObserver(Observer o) {
+    /**
+     * Adds an observer instance if it is not already in the
+     * set of observers for this <tt>Observable</tt>.
+     *
+     * @param o an observer instance to be added.
+     */
+    public void addObserver(Observer o) {
     synchronized (m_Observers) {
       if (!m_Observers.contains(o)) {
         m_Observers.addElement(o);
@@ -57,35 +62,35 @@ public class Observable {
     }
   }//addObserver
 
-  /**
-   * Removes an observer instance from the set of observers
-   * of this <tt>Observable</tt>.
-   *
-   * @param o an observer instance to be removed.
-   */
-  public void removeObserver(Observer o) {
+    /**
+     * Removes an observer instance from the set of observers
+     * of this <tt>Observable</tt>.
+     *
+     * @param o an observer instance to be removed.
+     */
+    public void removeObserver(Observer o) {
     synchronized (m_Observers) {
       m_Observers.removeElement(o);
     }
   }//removeObserver
 
-  /**
-   * Removes all observer instances from the set of observers
-   * of this <tt>Observable</tt>.
-   */
-  public void removeObservers() {
+    /**
+     * Removes all observer instances from the set of observers
+     * of this <tt>Observable</tt>.
+     */
+    public void removeObservers() {
     synchronized (m_Observers) {
       m_Observers.removeAllElements();
     }
   }//removeObservers
 
-  /**
-   * Notifies all observer instances in the set of observers
-   * of this <tt>Observable</tt>.
-   *
-   * @param arg an arbitrary argument to be passed.
-   */
-  public void notifyObservers(Object arg) {
+    /**
+     * Notifies all observer instances in the set of observers
+     * of this <tt>Observable</tt>.
+     *
+     * @param arg an arbitrary argument to be passed.
+     */
+    public void notifyObservers(Object arg) {
     synchronized (m_Observers) {
       for (int i = 0; i < m_Observers.size(); i++) {
         ((Observer) m_Observers.elementAt(i)).update(this, arg);

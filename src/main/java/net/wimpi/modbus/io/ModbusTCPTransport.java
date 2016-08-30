@@ -48,13 +48,14 @@ public class ModbusTCPTransport
   private DataOutputStream m_Output;	 //output stream
   private BytesInputStream m_ByteIn;
 
-  /**
-   * Constructs a new <tt>ModbusTransport</tt> instance,
-   * for a given <tt>Socket</tt>.
-   * <p>
-   * @param socket the <tt>Socket</tt> used for message transport.
-   */
-  public ModbusTCPTransport(Socket socket) {
+    /**
+     * Constructs a new <tt>ModbusTransport</tt> instance,
+     * for a given <tt>Socket</tt>.
+     * <p>
+     *
+     * @param socket the <tt>Socket</tt> used for message transport.
+     */
+    public ModbusTCPTransport(Socket socket) {
     try {
       setSocket(socket);
     } catch (IOException ex) {
@@ -65,14 +66,14 @@ public class ModbusTCPTransport
     }
   }//constructor
 
-  /**
-   * Sets the <tt>Socket</tt> used for message transport and
-   * prepares the streams used for the actual I/O.
-   *
-   * @param socket the <tt>Socket</tt> used for message transport.
-   * @throws IOException if an I/O related error occurs.
-   */
-  public void setSocket(Socket socket) throws IOException {
+    /**
+     * Sets the <tt>Socket</tt> used for message transport and
+     * prepares the streams used for the actual I/O.
+     *
+     * @param socket the <tt>Socket</tt> used for message transport.
+     * @throws IOException if an I/O related error occurs.
+     */
+    public void setSocket(Socket socket) throws IOException {
     prepareStreams(socket);
   }//setSocket
 

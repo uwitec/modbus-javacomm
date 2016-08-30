@@ -29,6 +29,9 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Pure java comm driver.
+ */
 public class PureJavaCommDriver implements CommDriver {
 
     @Override

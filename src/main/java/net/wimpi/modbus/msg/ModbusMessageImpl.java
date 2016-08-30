@@ -44,12 +44,12 @@ public abstract class ModbusMessageImpl
 
   /*** Header ******************************************/
 
-  /**
-   * Tests if this message instance is headless.
-   *
-   * @return true if headless, false otherwise.
-   */
-  public boolean isHeadless() {
+    /**
+     * Tests if this message instance is headless.
+     *
+     * @return true if headless, false otherwise.
+     */
+    public boolean isHeadless() {
     return m_Headless;
   }//isHeadless
 
@@ -57,12 +57,12 @@ public abstract class ModbusMessageImpl
     m_Headless = true;
   }//setHeadless
 
-  /**
-   * Sets the headless flag of this message.
-   *
-   * @param b true if headless, false otherwise.
-   */
-  protected void setHeadless(boolean b) {
+    /**
+     * Sets the headless flag of this message.
+     *
+     * @param b true if headless, false otherwise.
+     */
+    protected void setHeadless(boolean b) {
     m_Headless = b;
   }//setHeadless
 
@@ -70,15 +70,16 @@ public abstract class ModbusMessageImpl
     return m_TransactionID;
   }//getTransactionID
 
-  /**
-   * Sets the transaction identifier of this
-   * <tt>ModbusMessage</tt>.<p>
-   * The identifier should be a 2-byte (short) non negative
-   * integer value valid in the range of 0-65535.<br>
-   * <p>
-   * @param tid the transaction identifier as <tt>int</tt>.
-   */
-  public void setTransactionID(int tid) {
+    /**
+     * Sets the transaction identifier of this
+     * <tt>ModbusMessage</tt>.<p>
+     * The identifier should be a 2-byte (short) non negative
+     * integer value valid in the range of 0-65535.<br>
+     * <p>
+     *
+     * @param tid the transaction identifier as <tt>int</tt>.
+     */
+    public void setTransactionID(int tid) {
     m_TransactionID = tid;
     //setChanged(true);
   }//setTransactionID
@@ -87,15 +88,16 @@ public abstract class ModbusMessageImpl
     return m_ProtocolID;
   }//getProtocolID
 
-  /**
-   * Sets the protocol identifier of this
-   * <tt>ModbusMessage</tt>.<p>
-   * The identifier should be a 2-byte (short) non negative
-   * integer value valid in the range of 0-65535.<br>
-   * <p>
-   * @param pid the protocol identifier as <tt>int</tt>.
-   */
-  public void setProtocolID(int pid) {
+    /**
+     * Sets the protocol identifier of this
+     * <tt>ModbusMessage</tt>.<p>
+     * The identifier should be a 2-byte (short) non negative
+     * integer value valid in the range of 0-65535.<br>
+     * <p>
+     *
+     * @param pid the protocol identifier as <tt>int</tt>.
+     */
+    public void setProtocolID(int pid) {
     m_ProtocolID = pid;
     //setChanged(true);
   }//setProtocolID
@@ -104,18 +106,19 @@ public abstract class ModbusMessageImpl
     return m_DataLength;
   }//getDataLength
 
-  /**
-   * Sets the length of the data appended
-   * after the protocol header.<p>
-   * Note that this library, a bit in contrast to the
-   * specification, counts the unit identifier and the
-   * function code to the header, because it is part
-   * of each and every message. Thus this message will
-   * append two (2) to the passed in integer value.
-   * <p>
-   * @param length the data length as <tt>int</tt>.
-   */
-  public void setDataLength(int length) {
+    /**
+     * Sets the length of the data appended
+     * after the protocol header.<p>
+     * Note that this library, a bit in contrast to the
+     * specification, counts the unit identifier and the
+     * function code to the header, because it is part
+     * of each and every message. Thus this message will
+     * append two (2) to the passed in integer value.
+     * <p>
+     *
+     * @param length the data length as <tt>int</tt>.
+     */
+    public void setDataLength(int length) {
     //should be below 255, check!
     m_DataLength = length + 2;
   }//setData
@@ -124,15 +127,15 @@ public abstract class ModbusMessageImpl
     return m_UnitID;
   }//getUnitID
 
-  /**
-   * Sets the unit identifier of  this
-   * <tt>ModbusMessage</tt>.<br>
-   * The identifier should be a 1-byte non negative
-   * integer value valid in the range of 0-255.
-   *
-   * @param num the unit identifier number to be set.
-   */
-  public void setUnitID(int num) {
+    /**
+     * Sets the unit identifier of  this
+     * <tt>ModbusMessage</tt>.<br>
+     * The identifier should be a 1-byte non negative
+     * integer value valid in the range of 0-255.
+     *
+     * @param num the unit identifier number to be set.
+     */
+    public void setUnitID(int num) {
     m_UnitID = num;
     //setChanged(true);
   }//setUnitID
@@ -141,18 +144,18 @@ public abstract class ModbusMessageImpl
     return m_FunctionCode;
   }//getFunctionCode
 
-  /**
-   * Sets the function code of this <tt>ModbusMessage</tt>.<br>
-   * The function code should be a 1-byte non negative
-   * integer value valid in the range of 0-127.<br>
-   * Function codes are ordered in conformance
-   * classes their values are specified in
-   * <tt>net.wimpi.modbus.Modbus</tt>.
-   *
-   * @param code the code of the function to be set.
-   * @see net.wimpi.modbus.Modbus
-   */
-  protected void setFunctionCode(int code) {
+    /**
+     * Sets the function code of this <tt>ModbusMessage</tt>.<br>
+     * The function code should be a 1-byte non negative
+     * integer value valid in the range of 0-127.<br>
+     * Function codes are ordered in conformance
+     * classes their values are specified in
+     * <tt>net.wimpi.modbus.Modbus</tt>.
+     *
+     * @param code the code of the function to be set.
+     * @see net.wimpi.modbus.Modbus
+     */
+    protected void setFunctionCode(int code) {
     m_FunctionCode = code;
     //setChanged(true);
   }//setFunctionCode
@@ -181,13 +184,13 @@ public abstract class ModbusMessageImpl
     writeData(dout);
   }//writeTo
 
-  /**
-   * Writes the subclass specific data to the given DataOutput.
-   *
-   * @param dout the DataOutput to be written to.
-   * @throws IOException if an I/O related error occurs.
-   */
-  public abstract void writeData(DataOutput dout)
+    /**
+     * Writes the subclass specific data to the given DataOutput.
+     *
+     * @param dout the DataOutput to be written to.
+     * @throws IOException if an I/O related error occurs.
+     */
+    public abstract void writeData(DataOutput dout)
       throws IOException;
 
   public void readFrom(DataInput din)
@@ -202,13 +205,13 @@ public abstract class ModbusMessageImpl
     readData(din);
   }//readFrom
 
-  /**
-   * Reads the subclass specific data from the given DataInput instance.
-   *
-   * @param din the DataInput to read from.
-   * @throws IOException if an I/O related error occurs.
-   */
-  public abstract void readData(DataInput din)
+    /**
+     * Reads the subclass specific data from the given DataInput instance.
+     *
+     * @param din the DataInput to read from.
+     * @throws IOException if an I/O related error occurs.
+     */
+    public abstract void readData(DataInput din)
       throws IOException;
 
   public int getOutputLength() {

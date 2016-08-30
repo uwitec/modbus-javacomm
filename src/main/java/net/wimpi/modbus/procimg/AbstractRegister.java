@@ -25,10 +25,10 @@ package net.wimpi.modbus.procimg;
 public abstract class AbstractRegister
     implements Register {
 
-  /**
-   * The word (<tt>byte[2]</tt>) holding the register content.
-   */
-  protected byte[] m_Register = new byte[2];
+    /**
+     * The word (<tt>byte[2]</tt>) holding the register content.
+     */
+    protected byte[] m_Register = new byte[2];
 
   public int getValue() {
     return ((m_Register[0] & 0xff) << 8 | (m_Register[1] & 0xff));

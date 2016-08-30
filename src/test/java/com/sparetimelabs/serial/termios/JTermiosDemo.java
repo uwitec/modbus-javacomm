@@ -33,8 +33,16 @@ import static com.sparetimelabs.serial.termios.JTermios.*;
 import static com.sparetimelabs.serial.termios.TestBase.S;
 import static com.sparetimelabs.serial.termios.TestBase.fail;
 
+/**
+ * The type J termios demo.
+ */
 public class JTermiosDemo {
 
+    /**
+     * Run.
+     *
+     * @throws TestFailedException the test failed exception
+     */
     public static void run() throws TestFailedException {
         String port = TestBase.getPortName();
 

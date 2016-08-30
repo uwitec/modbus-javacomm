@@ -29,22 +29,21 @@ public class ModbusException extends Exception {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Constructs a new <tt>ModbusException</tt> instance.
-	 */
-	public ModbusException() {
+    /**
+     * Constructs a new <tt>ModbusException</tt> instance.
+     */
+    public ModbusException() {
 		super();
 	}// constructor
 
-	/**
-	 * Constructs a new <tt>ModbusException</tt> instance with the given
-	 * message.
-	 * <p>
-	 * 
-	 * @param message
-	 *            the message describing this <tt>ModbusException</tt>.
-	 */
-	public ModbusException(String message) {
+    /**
+     * Constructs a new <tt>ModbusException</tt> instance with the given
+     * message.
+     * <p>
+     *
+     * @param message the message describing this <tt>ModbusException</tt>.
+     */
+    public ModbusException(String message) {
 		super(message);
 	}// constructor
 

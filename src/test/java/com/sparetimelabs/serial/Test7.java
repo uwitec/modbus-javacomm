@@ -29,6 +29,9 @@
  */
 package com.sparetimelabs.serial;
 
+/**
+ * The type Test 7.
+ */
 public class Test7 extends TestBase {
 
     private static Exception m_Exception = null;
@@ -36,6 +39,11 @@ public class Test7 extends TestBase {
     private static Thread m_Transmitter;
     private static volatile long m_T0;
 
+    /**
+     * Run.
+     *
+     * @throws Exception the exception
+     */
     static void run() throws Exception {
         try {
             begin("Test7 - threshold");

@@ -42,27 +42,26 @@ public final class WriteSingleRegisterRequest
   private int m_Reference;
   private Register m_Register;
 
-  /**
-   * Constructs a new <tt>WriteSingleRegisterRequest</tt>
-   * instance.
-   */
-  public WriteSingleRegisterRequest() {
+    /**
+     * Constructs a new <tt>WriteSingleRegisterRequest</tt>
+     * instance.
+     */
+    public WriteSingleRegisterRequest() {
     super();
     setFunctionCode(Modbus.WRITE_SINGLE_REGISTER);
     //4 bytes (unit id and function code is excluded)
     setDataLength(4);
   }//constructor
 
-  /**
-   * Constructs a new <tt>WriteSingleRegisterRequest</tt>
-   * instance with a given reference and value to be written.
-   * <p/>
-   *
-   * @param ref the reference number of the register
-   *            to read from.
-   * @param reg the register containing the data to be written.
-   */
-  public WriteSingleRegisterRequest(int ref, Register reg) {
+    /**
+     * Constructs a new <tt>WriteSingleRegisterRequest</tt>
+     * instance with a given reference and value to be written.
+     * <p/>
+     *
+     * @param ref the reference number of the register            to read from.
+     * @param reg the register containing the data to be written.
+     */
+    public WriteSingleRegisterRequest(int ref, Register reg) {
     super();
     setFunctionCode(Modbus.WRITE_SINGLE_REGISTER);
     m_Reference = ref;
@@ -98,51 +97,49 @@ public final class WriteSingleRegisterRequest
     return response;
   }//createResponse
 
-  /**
-   * Sets the reference of the register to be written
-   * to with this <tt>WriteSingleRegisterRequest</tt>.
-   * <p/>
-   *
-   * @param ref the reference of the register
-   *            to be written to.
-   */
-  public void setReference(int ref) {
+    /**
+     * Sets the reference of the register to be written
+     * to with this <tt>WriteSingleRegisterRequest</tt>.
+     * <p/>
+     *
+     * @param ref the reference of the register            to be written to.
+     */
+    public void setReference(int ref) {
     m_Reference = ref;
     //setChanged(true);
   }//setReference
 
-  /**
-   * Returns the reference of the register to be
-   * written to with this
-   * <tt>WriteSingleRegisterRequest</tt>.
-   * <p/>
-   *
-   * @return the reference of the register
-   *         to be written to.
-   */
-  public int getReference() {
+    /**
+     * Returns the reference of the register to be
+     * written to with this
+     * <tt>WriteSingleRegisterRequest</tt>.
+     * <p/>
+     *
+     * @return the reference of the register         to be written to.
+     */
+    public int getReference() {
     return m_Reference;
   }//getReference
 
-  /**
-   * Sets the value that should be written to the
-   * register with this <tt>WriteSingleRegisterRequest</tt>.
-   * <p/>
-   *
-   * @param reg the register to be written.
-   */
-  public void setRegister(Register reg) {
+    /**
+     * Sets the value that should be written to the
+     * register with this <tt>WriteSingleRegisterRequest</tt>.
+     * <p/>
+     *
+     * @param reg the register to be written.
+     */
+    public void setRegister(Register reg) {
     m_Register = reg;
   }//setRegister
 
-  /**
-   * Returns the value that should be written to the
-   * register with this <tt>WriteSingleRegisterRequest</tt>.
-   * <p/>
-   *
-   * @return the value to be written to the register.
-   */
-  public Register getRegister() {
+    /**
+     * Returns the value that should be written to the
+     * register with this <tt>WriteSingleRegisterRequest</tt>.
+     * <p/>
+     *
+     * @return the value to be written to the register.
+     */
+    public Register getRegister() {
     return m_Register;
   }//getRegister
 

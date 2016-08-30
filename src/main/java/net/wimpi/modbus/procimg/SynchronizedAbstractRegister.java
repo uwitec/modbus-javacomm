@@ -26,11 +26,11 @@ package net.wimpi.modbus.procimg;
 public abstract class SynchronizedAbstractRegister
     implements Register {
 
-  /**
-   * The word (<tt>byte[2]</tt>) hodling the state of this
-   * register.
-   */
-  protected byte[] m_Register = new byte[2];
+    /**
+     * The word (<tt>byte[2]</tt>) hodling the state of this
+     * register.
+     */
+    protected byte[] m_Register = new byte[2];
 
   public int getValue() {
     return ((m_Register[0] & 0xff) << 8 | (m_Register[1] & 0xff));

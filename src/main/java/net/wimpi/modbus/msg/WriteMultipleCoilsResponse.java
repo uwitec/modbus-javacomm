@@ -41,24 +41,25 @@ public final class WriteMultipleCoilsResponse
   private int m_Reference;
   private int m_BitCount;
 
-  /**
-   * Constructs a new <tt>WriteMultipleCoilsResponse</tt>
-   * instance.
-   */
-  public WriteMultipleCoilsResponse() {
+    /**
+     * Constructs a new <tt>WriteMultipleCoilsResponse</tt>
+     * instance.
+     */
+    public WriteMultipleCoilsResponse() {
     super();
     setFunctionCode(Modbus.WRITE_MULTIPLE_COILS);
     setDataLength(4);
   }//constructor(int)
 
-  /**
-   * Constructs a new <tt>WriteMultipleCoilsResponse</tt>
-   * instance with a given count of coils (i.e. bits).
-   * <b>
-   * @param ref the offset to begin writing from.
-   * @param count the number of bits to be read.
-   */
-  public WriteMultipleCoilsResponse(int ref,int count) {
+    /**
+     * Constructs a new <tt>WriteMultipleCoilsResponse</tt>
+     * instance with a given count of coils (i.e. bits).
+     * <b>
+     *
+     * @param ref   the offset to begin writing from.
+     * @param count the number of bits to be read.
+     */
+    public WriteMultipleCoilsResponse(int ref,int count) {
     super();
     setFunctionCode(Modbus.WRITE_MULTIPLE_COILS);
     setDataLength(4);
@@ -66,34 +67,35 @@ public final class WriteMultipleCoilsResponse
     m_BitCount = count;
   }//constructor(int)
 
-  /**
-   * Returns the reference of the register to to start
-   * reading from with this <tt>WriteMultipleCoilsRequest</tt>.
-   * <p>
-   * @return the reference of the register
-   *        to start reading from as <tt>int</tt>.
-   */
-  public int getReference() {
+    /**
+     * Returns the reference of the register to to start
+     * reading from with this <tt>WriteMultipleCoilsRequest</tt>.
+     * <p>
+     *
+     * @return the reference of the register        to start reading from as <tt>int</tt>.
+     */
+    public int getReference() {
     return m_Reference;
   }//getReference
 
-  /**
-   * Returns the number of bits (i.e. coils)
-   * read with the request.
-   * <p>
-   * @return the number of bits that have been read.
-   */
-  public int getBitCount() {
+    /**
+     * Returns the number of bits (i.e. coils)
+     * read with the request.
+     * <p>
+     *
+     * @return the number of bits that have been read.
+     */
+    public int getBitCount() {
     return m_BitCount;
   }//getBitCount
 
-  /**
-   * Sets the number of bits (i.e. coils)
-   * that will be in a response.
-   *
-   * @param count the number of bits in the response.
-   */
-  public void setBitCount(int count) {
+    /**
+     * Sets the number of bits (i.e. coils)
+     * that will be in a response.
+     *
+     * @param count the number of bits in the response.
+     */
+    public void setBitCount(int count) {
     m_BitCount = count;
   }//setBitCount
 

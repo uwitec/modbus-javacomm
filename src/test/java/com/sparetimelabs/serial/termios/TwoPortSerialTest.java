@@ -31,7 +31,7 @@ package com.sparetimelabs.serial.termios;
 
 import com.sparetimelabs.serial.CommPortIdentifier;
 import com.sparetimelabs.serial.SerialPort;
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -43,14 +43,11 @@ import static com.sparetimelabs.serial.termios.TestBase.fail;
  * Executes tests to check the correct implementation of frame format settings.
  * You'll need two serial ports connected by a null-modem cable to execute them.
  * <p>
- * <p>
  * Start this application for the receiving port first and then the sender.
- * <p>
  * <p>
  * <strong>Beware that you'll need capable hardware and drivers to check all
  * settings, especially mark/space parity and &lt; 7 data bits. The bleeding
  * edge Linux or Win32 drivers for PL2303 are good candidates.</strong>
- * <p>
  * <p>
  * To ensure that your driver/device isn't lying about its support of a specific
  * setting, you should run your tests with different models of serial ports for
@@ -60,10 +57,16 @@ import static com.sparetimelabs.serial.termios.TestBase.fail;
  */
 public class TwoPortSerialTest {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws Exception the exception
+     */
     public static void main(String[] args) throws Exception {
         if (args.length > 0) {
             if (args.length != 6 || (!args[0].equalsIgnoreCase("S") && !args[0].equalsIgnoreCase("R"))) {
-                fail("usage: %s <S|R> <port> <baudrate> <databits> <stopbits> <parity>%n", TwoPortSerialTest.class.getName());
+                Assert.fail("usage: %s <S|R> <port> <baudrate> <databits> <stopbits> <parity>%n: "+TwoPortSerialTest.class.getName());
                 return;
             }
 
@@ -75,6 +78,12 @@ public class TwoPortSerialTest {
         }
     }
 
+    /**
+     * Run sender.
+     *
+     * @param args the args
+     * @throws Exception the exception
+     */
     public static void runSender(String[] args) throws Exception {
         int baudRate = Integer.valueOf(args[1]);
         int dataBits = Integer.valueOf(args[2]);
@@ -135,6 +144,12 @@ public class TwoPortSerialTest {
         }
     }
 
+    /**
+     * Run receiver.
+     *
+     * @param args the args
+     * @throws Exception the exception
+     */
     public static void runReceiver(String[] args) throws Exception {
         int baudRate = Integer.valueOf(args[1]);
         int dataBits = Integer.valueOf(args[2]);

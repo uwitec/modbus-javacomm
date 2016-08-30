@@ -33,14 +33,14 @@ public final class BitVector {
   private byte[] m_Data;
   private boolean m_MSBAccess = false;
 
-  /**
-   * Constructs a new <tt>BitVector</tt> instance
-   * with a given size.
-   * <p>
-   * @param size the number of bits the <tt>BitVector</tt>
-   *        should be able to hold.
-   */
-  public BitVector(int size) {
+    /**
+     * Constructs a new <tt>BitVector</tt> instance
+     * with a given size.
+     * <p>
+     *
+     * @param size the number of bits the <tt>BitVector</tt>        should be able to hold.
+     */
+    public BitVector(int size) {
     //store bits
     m_Size = size;
 
@@ -53,82 +53,84 @@ public final class BitVector {
     m_Data = new byte[size];
   }//constructor
 
-  /**
-   * Toggles the flag deciding whether the LSB
-   * or the MSB of the byte corresponds to the
-   * first bit (index=0).
-   *
-   * @param b true if LSB=0 up to MSB=7, false otherwise.
-   */
-  public void toggleAccess(boolean b) {
+    /**
+     * Toggles the flag deciding whether the LSB
+     * or the MSB of the byte corresponds to the
+     * first bit (index=0).
+     *
+     * @param b true if LSB=0 up to MSB=7, false otherwise.
+     */
+    public void toggleAccess(boolean b) {
     m_MSBAccess = !m_MSBAccess;
   }//toggleAccess
 
-  /**
-   * Tests if this <tt>BitVector</tt> has
-   * the LSB (rightmost) as the first bit
-   * (i.e. at index 0).
-   *
-   * @return true if LSB=0 up to MSB=7, false otherwise.
-   */
-  public boolean isLSBAccess() {
+    /**
+     * Tests if this <tt>BitVector</tt> has
+     * the LSB (rightmost) as the first bit
+     * (i.e. at index 0).
+     *
+     * @return true if LSB=0 up to MSB=7, false otherwise.
+     */
+    public boolean isLSBAccess() {
     return !m_MSBAccess;
   }//isLSBAccess
 
-  /**
-   * Tests if this <tt>BitVector</tt> has
-   * the MSB (leftmost) as the first bit
-   * (i.e. at index 0).
-   *
-   * @return true if LSB=0 up to MSB=7, false otherwise.
-   */
-  public boolean isMSBAccess() {
+    /**
+     * Tests if this <tt>BitVector</tt> has
+     * the MSB (leftmost) as the first bit
+     * (i.e. at index 0).
+     *
+     * @return true if LSB=0 up to MSB=7, false otherwise.
+     */
+    public boolean isMSBAccess() {
     return m_MSBAccess;
   }//isMSBAccess
 
-  /**
-   * Returns the <tt>byte[]</tt> which is used to store
-   * the bits of this <tt>BitVector</tt>.
-   * <p>
-   * @return the <tt>byte[]</tt> used to store the bits.
-   */
-  public final byte[] getBytes() {
+    /**
+     * Returns the <tt>byte[]</tt> which is used to store
+     * the bits of this <tt>BitVector</tt>.
+     * <p>
+     *
+     * @return the <tt>byte[]</tt> used to store the bits.
+     */
+    public final byte[] getBytes() {
     return m_Data;
   }//getBytes
 
-  /**
-   * Sets the <tt>byte[]</tt> which stores
-   * the bits of this <tt>BitVector</tt>.
-   * <p>
-   * @param data a <tt>byte[]</tt>.
-   */
-  public final void setBytes(byte[] data) {
+    /**
+     * Sets the <tt>byte[]</tt> which stores
+     * the bits of this <tt>BitVector</tt>.
+     * <p>
+     *
+     * @param data a <tt>byte[]</tt>.
+     */
+    public final void setBytes(byte[] data) {
     System.arraycopy(data, 0, m_Data, 0, data.length);
   }//setBytes
 
-  /**
-   * Sets the <tt>byte[]</tt> which stores
-   * the bits of this <tt>BitVector</tt>.
-   * <p>
-   * @param data a <tt>byte[]</tt>.
-   */
-  public final void setBytes(byte[] data, int size) {
+    /**
+     * Sets the <tt>byte[]</tt> which stores
+     * the bits of this <tt>BitVector</tt>.
+     * <p>
+     *
+     * @param data a <tt>byte[]</tt>.
+     * @param size the size
+     */
+    public final void setBytes(byte[] data, int size) {
     System.arraycopy(data, 0, m_Data, 0, data.length);
     m_Size = size;
   }//setBytes
 
-  /**
-   * Returns the state of the bit at the given index of this
-   * <tt>BitVector</tt>.
-   * <p>
-   * @param index the index of the bit to be returned.
-   *
-   * @return true if the bit at the specified index is set,
-   *         false otherwise.
-   *
-   * @throws IndexOutOfBoundsException if the index is out of bounds.
-   */
-  public final boolean getBit(int index)
+    /**
+     * Returns the state of the bit at the given index of this
+     * <tt>BitVector</tt>.
+     * <p>
+     *
+     * @param index the index of the bit to be returned.
+     * @return true if the bit at the specified index is set,         false otherwise.
+     * @throws IndexOutOfBoundsException if the index is out of bounds.
+     */
+    public final boolean getBit(int index)
       throws IndexOutOfBoundsException {
     index = translateIndex(index);
     //System.out.println("Get bit #" + index);
@@ -139,16 +141,16 @@ public final class BitVector {
   }//getBit
 
 
-  /**
-   * Sets the state of the bit at the given index of
-   * this <tt>BitVector</tt>.
-   * <p>
-   * @param index the index of the bit to be set.
-   * @param b true if the bit should be set, false if it should be reset.
-   *
-   * @throws IndexOutOfBoundsException if the index is out of bounds.
-   */
-  public final void setBit(int index, boolean b)
+    /**
+     * Sets the state of the bit at the given index of
+     * this <tt>BitVector</tt>.
+     * <p>
+     *
+     * @param index the index of the bit to be set.
+     * @param b     true if the bit should be set, false if it should be reset.
+     * @throws IndexOutOfBoundsException if the index is out of bounds.
+     */
+    public final void setBit(int index, boolean b)
       throws IndexOutOfBoundsException {
     index = translateIndex(index);
     //System.out.println("Set bit #"+index);
@@ -161,24 +163,24 @@ public final class BitVector {
         );
   }//setBit
 
-  /**
-   * Returns the number of bits in this <tt>BitVector</tt>
-   * as <tt>int</tt>.
-   * <p>
-   * @return the number of bits in this <tt>BitVector</tt>.
-   */
-  public final int size() {
+    /**
+     * Returns the number of bits in this <tt>BitVector</tt>
+     * as <tt>int</tt>.
+     * <p>
+     *
+     * @return the number of bits in this <tt>BitVector</tt>.
+     */
+    public final int size() {
     return m_Size;
   }//size
 
-  /**
-   * Forces the number of bits in this <tt>BitVector</tt>.
-   * 
-   * @param size
-   * @throws IllegalArgumentException if the size exceeds
-   *         the byte[] store size multiplied by 8.
-   */
-  public final void forceSize(int size) {
+    /**
+     * Forces the number of bits in this <tt>BitVector</tt>.
+     *
+     * @param size the size
+     * @throws IllegalArgumentException if the size exceeds         the byte[] store size multiplied by 8.
+     */
+    public final void forceSize(int size) {
     if(size > m_Data.length * 8) {
       throw new IllegalArgumentException("Size exceeds byte[] store.");
     } else {
@@ -186,13 +188,14 @@ public final class BitVector {
     }
   }//forceSize
 
-  /**
-   * Returns the number of bytes used to store the
-   * collection of bits as <tt>int</tt>.
-   * <p>
-   * @return the number of bits in this <tt>BitVector</tt>.
-   */
-  public final int byteSize() {
+    /**
+     * Returns the number of bytes used to store the
+     * collection of bits as <tt>int</tt>.
+     * <p>
+     *
+     * @return the number of bits in this <tt>BitVector</tt>.
+     */
+    public final int byteSize() {
     return m_Data.length;
   }//byteSize
 
@@ -298,34 +301,40 @@ public final class BitVector {
       }
   }//translateIndex
 
-  /**
-   * Factory method for creating a <tt>BitVector</tt> instance
-   * wrapping the given byte data.
-   *
-   * @param data a byte[] containing packed bits.
-   * @return the newly created <tt>BitVector</tt> instance.
-   */
-  public static BitVector createBitVector(byte[] data, int size) {
+    /**
+     * Factory method for creating a <tt>BitVector</tt> instance
+     * wrapping the given byte data.
+     *
+     * @param data a byte[] containing packed bits.
+     * @param size the size
+     * @return the newly created <tt>BitVector</tt> instance.
+     */
+    public static BitVector createBitVector(byte[] data, int size) {
     BitVector bv = new BitVector(data.length * 8);
     bv.setBytes(data);
     bv.m_Size = size;
     return bv;
   }//createBitVector
 
-  /**
-   * Factory method for creating a <tt>BitVector</tt> instance
-   * wrapping the given byte data.
-   *
-   * @param data a byte[] containing packed bits.
-   * @return the newly created <tt>BitVector</tt> instance.
-   */
-  public static BitVector createBitVector(byte[] data) {
+    /**
+     * Factory method for creating a <tt>BitVector</tt> instance
+     * wrapping the given byte data.
+     *
+     * @param data a byte[] containing packed bits.
+     * @return the newly created <tt>BitVector</tt> instance.
+     */
+    public static BitVector createBitVector(byte[] data) {
     BitVector bv = new BitVector(data.length * 8);
     bv.setBytes(data);
     return bv;
   }//createBitVector
 
-  public static void main(String[] args) {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
     BitVector test = new BitVector(24);
     System.out.println(test.isLSBAccess());
     test.setBit(7, true);

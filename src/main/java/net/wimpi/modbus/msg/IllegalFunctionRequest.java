@@ -35,13 +35,13 @@ import java.io.IOException;
 public class IllegalFunctionRequest
     extends ModbusRequest {
 
-  /**
-   * Constructs a new <tt>IllegalFunctionRequest</tt> instance for
-   * a given function code.
-   *
-   * @param fc the function code as <tt>int</tt>.
-   */
-  public IllegalFunctionRequest(int fc) {
+    /**
+     * Constructs a new <tt>IllegalFunctionRequest</tt> instance for
+     * a given function code.
+     *
+     * @param fc the function code as <tt>int</tt>.
+     */
+    public IllegalFunctionRequest(int fc) {
     setFunctionCode(fc);
   }//constructor
 

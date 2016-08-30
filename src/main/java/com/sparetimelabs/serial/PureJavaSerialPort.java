@@ -42,9 +42,18 @@ import static com.sparetimelabs.serial.termios.JTermios.JTermiosLogging.*;
 import static com.sparetimelabs.serial.termios.JTermios.*;
 import com.sparetimelabs.serial.termios.JTermios.JTermiosInterface.Pollfd;
 
+/**
+ * The type Pure java serial port.
+ */
 public class PureJavaSerialPort extends SerialPort {
 
+    /**
+     * The Use poll.
+     */
     final boolean USE_POLL;
+    /**
+     * The Raw read mode.
+     */
     final boolean RAW_READ_MODE;
     private Thread m_Thread;
     private volatile SerialPortEventListener m_EventListener;
@@ -578,7 +587,7 @@ public class PureJavaSerialPort extends SerialPort {
      * <p>
      * Below is a sketch of minimum necessary to perform a read using raw
      * JTermios functionality.
-     *
+     * <p>
      * <pre>
      * <code>
      * 		// import the JTermios functionality like this
@@ -1121,7 +1130,14 @@ public class PureJavaSerialPort extends SerialPort {
         }
     }
 
-    /* package */
+    /**
+     * Instantiates a new Pure java serial port.
+     *
+     * @param name    the name
+     * @param timeout the timeout
+     * @throws PortInUseException the port in use exception
+     */
+/* package */
     PureJavaSerialPort(String name, int timeout) throws PortInUseException {
         super();
 
@@ -1393,6 +1409,8 @@ public class PureJavaSerialPort extends SerialPort {
     /**
      * This is not part of the PureJavaComm API, this is purely for testing, do
      * not depend on this
+     *
+     * @return the boolean
      */
     public boolean isInternalThreadRunning() {
         return m_ThreadRunning;

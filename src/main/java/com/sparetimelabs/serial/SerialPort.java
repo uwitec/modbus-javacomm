@@ -33,6 +33,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.TooManyListenersException;
 
+/**
+ * The type Serial port.
+ */
 abstract public class SerialPort extends CommPort {
 
     /**
@@ -107,6 +110,9 @@ abstract public class SerialPort extends CommPort {
      */
     public static final int FLOWCONTROL_XONXOFF_OUT = 8;
 
+    /**
+     * Instantiates a new Serial port.
+     */
     public SerialPort() {
     }
 
@@ -114,8 +120,8 @@ abstract public class SerialPort extends CommPort {
      * Registers a <CODE>SerialPortEventListener</CODE> object to listen for
      * <CODE>SerialEvent</CODE>s.
      *
-     * @param listener
-     * @throws TooManyListenersException
+     * @param listener the listener
+     * @throws TooManyListenersException the too many listeners exception
      */
     public abstract void addEventListener(SerialPortEventListener listener) throws TooManyListenersException;
 
@@ -206,7 +212,7 @@ abstract public class SerialPort extends CommPort {
      * Expresses interest in receiving notification when there is a break
      * interrupt on the line.
      *
-     * @param enable
+     * @param enable the enable
      */
     public abstract void notifyOnBreakInterrupt(boolean enable);
 
@@ -214,7 +220,7 @@ abstract public class SerialPort extends CommPort {
      * Expresses interest in receiving notification when the CD (Carrier Detect)
      * bit changes.
      *
-     * @param enable
+     * @param enable the enable
      */
     public abstract void notifyOnCarrierDetect(boolean enable);
 
@@ -222,7 +228,7 @@ abstract public class SerialPort extends CommPort {
      * Expresses interest in receiving notification when the CTS (Clear To Send)
      * bit changes.
      *
-     * @param enable
+     * @param enable the enable
      */
     public abstract void notifyOnCTS(boolean enable);
 
@@ -230,18 +236,18 @@ abstract public class SerialPort extends CommPort {
      * Expresses interest in receiving notification when input data is
      * available.
      *
-     * @param enable
+     * @param enable the enable
      */
     public abstract void notifyOnDataAvailable(boolean enable);
 
     /**
      * Expresses interest in receiving notification when the DSR (Data Set
      * Ready) bit changes.
-     * <P>
+     * <p>
      * This notification is hardware dependent and may not be supported by all
      * implementations.
      *
-     * @param enable
+     * @param enable the enable
      */
     public abstract void notifyOnDSR(boolean enable);
 
@@ -249,7 +255,7 @@ abstract public class SerialPort extends CommPort {
      * Expresses interest in receiving notification when there is a framing
      * error.
      *
-     * @param enable
+     * @param enable the enable
      */
     public abstract void notifyOnFramingError(boolean enable);
 
@@ -257,7 +263,7 @@ abstract public class SerialPort extends CommPort {
      * Expresses interest in receiving notification when the output buffer is
      * empty.
      *
-     * @param enable
+     * @param enable the enable
      */
     public abstract void notifyOnOutputEmpty(boolean enable);
 
@@ -265,7 +271,7 @@ abstract public class SerialPort extends CommPort {
      * Expresses interest in receiving notification when there is an overrun
      * error.
      *
-     * @param enable
+     * @param enable the enable
      */
     public abstract void notifyOnOverrunError(boolean enable);
 
@@ -273,7 +279,7 @@ abstract public class SerialPort extends CommPort {
      * Expresses interest in receiving notification when there is a parity
      * error.
      *
-     * @param enable
+     * @param enable the enable
      */
     public abstract void notifyOnParityError(boolean enable);
 
@@ -281,14 +287,14 @@ abstract public class SerialPort extends CommPort {
      * Expresses interest in receiving notification when the RI (Ring Indicator)
      * bit changes.
      *
-     * @param enable
+     * @param enable the enable
      */
     public abstract void notifyOnRingIndicator(boolean enable);
 
     /**
      * Deregisters event listener registered using <CODE>addEventListener</CODE>
      * .
-     * <P>
+     * <p>
      * This is done automatically when the port is closed.
      */
     public abstract void removeEventListener();
@@ -304,15 +310,15 @@ abstract public class SerialPort extends CommPort {
      * Sets or clears the DTR (Data Terminal Ready) signal, if supported by the
      * underlying implementation.
      *
-     * @param state
+     * @param state the state
      */
     public abstract void setDTR(boolean state);
 
     /**
      * Sets the flow control mode.
      *
-     * @param flowcontrol
-     * @throws UnsupportedCommOperationException
+     * @param flowcontrol the flowcontrol
+     * @throws UnsupportedCommOperationException the unsupported comm operation exception
      */
     public abstract void setFlowControlMode(int flowcontrol) throws UnsupportedCommOperationException;
 
@@ -320,20 +326,20 @@ abstract public class SerialPort extends CommPort {
      * Sets or clears the RTS (Request To Send) bit in the UART, if supported by
      * the underlying implementation.
      *
-     * @param state
+     * @param state the state
      */
     public abstract void setRTS(boolean state);
 
     /**
      * Sets the serial port parameters.
-     * <P>
+     * <p>
      * Default: 9600 baud, 8 data bits, 1 stop bit, no parity.
      *
-     * @param baudRate
-     * @param dataBits
-     * @param stopBits
-     * @param parity
-     * @throws UnsupportedCommOperationException
+     * @param baudRate the baud rate
+     * @param dataBits the data bits
+     * @param stopBits the stop bits
+     * @param parity   the parity
+     * @throws UnsupportedCommOperationException the unsupported comm operation exception
      */
     public abstract void setSerialPortParams(int baudRate, int dataBits, int stopBits, int parity) throws UnsupportedCommOperationException;
 

@@ -31,6 +31,9 @@ package com.sparetimelabs.serial;
 
 import java.util.EventObject;
 
+/**
+ * The type Serial port event.
+ */
 public class SerialPortEvent extends EventObject {
 
     /**
@@ -83,10 +86,10 @@ public class SerialPortEvent extends EventObject {
      * event type, old and new values. Application programs should not directly
      * create <CODE>SerialPortEvent</CODE> objects.
      *
-     * @param source
-     * @param eventType
-     * @param oldValue
-     * @param newValue
+     * @param source    the source
+     * @param eventType the event type
+     * @param oldValue  the old value
+     * @param newValue  the new value
      */
     public SerialPortEvent(SerialPort source, int eventType, boolean oldValue, boolean newValue) {
         super(source);

@@ -42,23 +42,23 @@ public final class ReadInputRegistersResponse
   //private int[] m_RegisterValues;
   private InputRegister[] m_Registers;
 
-  /**
-   * Constructs a new <tt>ReadInputRegistersResponse</tt>
-   * instance.
-   */
-  public ReadInputRegistersResponse() {
+    /**
+     * Constructs a new <tt>ReadInputRegistersResponse</tt>
+     * instance.
+     */
+    public ReadInputRegistersResponse() {
     super();
     setFunctionCode(Modbus.READ_INPUT_REGISTERS);
   }//constructor
 
 
-  /**
-   * Constructs a new <tt>ReadInputRegistersResponse</tt>
-   * instance.
-   *
-   * @param registers the InputRegister[] holding response input registers.
-   */
-  public ReadInputRegistersResponse(InputRegister[] registers) {
+    /**
+     * Constructs a new <tt>ReadInputRegistersResponse</tt>
+     * instance.
+     *
+     * @param registers the InputRegister[] holding response input registers.
+     */
+    public ReadInputRegistersResponse(InputRegister[] registers) {
     super();
     setFunctionCode(Modbus.READ_INPUT_REGISTERS);
     m_ByteCount = registers.length * 2;
@@ -68,27 +68,25 @@ public final class ReadInputRegistersResponse
   }//constructor
 
 
-  /**
-   * Returns the number of bytes that have been read.
-   * <p/>
-   *
-   * @return the number of bytes that have been read
-   *         as <tt>int</tt>.
-   */
-  public int getByteCount() {
+    /**
+     * Returns the number of bytes that have been read.
+     * <p/>
+     *
+     * @return the number of bytes that have been read         as <tt>int</tt>.
+     */
+    public int getByteCount() {
     return m_ByteCount;
   }//getByteCount
 
-  /**
-   * Returns the number of words that have been read.
-   * The returned value should be twice as much as
-   * the byte count of the response.
-   * <p/>
-   *
-   * @return the number of words that have been read
-   *         as <tt>int</tt>.
-   */
-  public int getWordCount() {
+    /**
+     * Returns the number of words that have been read.
+     * The returned value should be twice as much as
+     * the byte count of the response.
+     * <p/>
+     *
+     * @return the number of words that have been read         as <tt>int</tt>.
+     */
+    public int getWordCount() {
     return m_ByteCount / 2;
   }//getWordCount
 
@@ -102,18 +100,17 @@ public final class ReadInputRegistersResponse
     m_ByteCount = count;
   }//setByteCount
 
-  /**
-   * Returns the <tt>InputRegister</tt> at
-   * the given position (relative to the reference
-   * used in the request).
-   * <p/>
-   *
-   * @param index the relative index of the <tt>InputRegister</tt>.
-   * @return the register as <tt>InputRegister</tt>.
-   * @throws IndexOutOfBoundsException if
-   *                                   the index is out of bounds.
-   */
-  public InputRegister getRegister(int index)
+    /**
+     * Returns the <tt>InputRegister</tt> at
+     * the given position (relative to the reference
+     * used in the request).
+     * <p/>
+     *
+     * @param index the relative index of the <tt>InputRegister</tt>.
+     * @return the register as <tt>InputRegister</tt>.
+     * @throws IndexOutOfBoundsException if                                   the index is out of bounds.
+     */
+    public InputRegister getRegister(int index)
       throws IndexOutOfBoundsException {
 
     if (index >= getWordCount()) {
@@ -123,20 +120,18 @@ public final class ReadInputRegistersResponse
     }
   }//getRegister
 
-  /**
-   * Returns the value of the register at
-   * the given position (relative to the reference
-   * used in the request) interpreted as usigned
-   * short.
-   * <p/>
-   *
-   * @param index the relative index of the register
-   *              for which the value should be retrieved.
-   * @return the value as <tt>int</tt>.
-   * @throws IndexOutOfBoundsException if
-   *                                   the index is out of bounds.
-   */
-  public int getRegisterValue(int index)
+    /**
+     * Returns the value of the register at
+     * the given position (relative to the reference
+     * used in the request) interpreted as usigned
+     * short.
+     * <p/>
+     *
+     * @param index the relative index of the register              for which the value should be retrieved.
+     * @return the value as <tt>int</tt>.
+     * @throws IndexOutOfBoundsException if                                   the index is out of bounds.
+     */
+    public int getRegisterValue(int index)
       throws IndexOutOfBoundsException {
 
     if (index >= getWordCount()) {
@@ -146,13 +141,13 @@ public final class ReadInputRegistersResponse
     }
   }//getRegisterValue
 
-  /**
-   * Returns a reference to the array of input
-   * registers read.
-   *
-   * @return a <tt>InputRegister[]</tt> instance.
-   */
-  public InputRegister[] getRegisters() {
+    /**
+     * Returns a reference to the array of input
+     * registers read.
+     *
+     * @return a <tt>InputRegister[]</tt> instance.
+     */
+    public InputRegister[] getRegisters() {
     return m_Registers;
   }//getRegisters
 
